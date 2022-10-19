@@ -12,9 +12,23 @@ final class Router {
     private init() {}
 
     func showRoot(window: UIWindow?) {
-        let vc = RegisterViewController.makeFromStoryboard()
-        let nav = UINavigationController(rootViewController: vc)
-        window?.rootViewController = nav
-        window?.makeKeyAndVisible()
+        AuthController.shared.isLogined { (hasAuthentication) in
+            if hasAuthentication {
+                //ログインしている場合、Home画面へ飛ばす
+                print("HOMEへ")
+                let vc = HomeViewController.makeFromStoryboard()
+                let nav = UINavigationController(rootViewController: vc)
+                window?.rootViewController = nav
+                window?.makeKeyAndVisible()
+            } else {
+                // ログインしていない場合、Register画面へ飛ばす
+                print("Registerへ")
+                let vc = RegisterViewController.makeFromStoryboard()
+                let nav = UINavigationController(rootViewController: vc)
+                window?.rootViewController = nav
+                window?.makeKeyAndVisible()
+            }
+        }
+        // ログインしているか否かで遷移先を変える
     }
 }
