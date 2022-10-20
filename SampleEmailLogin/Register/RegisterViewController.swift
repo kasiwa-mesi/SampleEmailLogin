@@ -8,6 +8,18 @@
 import UIKit
 
 final class RegisterViewController: UIViewController {
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var registerButton: UIButton! {
+        didSet {
+            registerButton.addTarget(self, action: #selector(tapRegisterButton), for: .touchUpInside)
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -19,3 +31,11 @@ final class RegisterViewController: UIViewController {
         return vc
     }
 }
+
+private extension RegisterViewController {
+    @objc func tapRegisterButton() {
+        //会員登録処理を行う
+        print("会員登録する")
+    }
+}
+
