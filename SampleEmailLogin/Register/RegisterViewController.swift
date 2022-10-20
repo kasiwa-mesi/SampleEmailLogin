@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 final class RegisterViewController: UIViewController {
     
@@ -36,6 +37,22 @@ private extension RegisterViewController {
     @objc func tapRegisterButton() {
         //会員登録処理を行う
         print("会員登録する")
+        // ログイン処理を走らせる前に、email, passwordのアンラップを先に行う
+        guard let email = emailTextField.text else {
+            fatalError()
+        }
+        
+        guard let password = passwordTextField.text else {
+            fatalError()
+        }
+
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let user = authResult?.user {
+              print(user)
+            } else {
+              print(error)
+            }
+        }
     }
 }
 

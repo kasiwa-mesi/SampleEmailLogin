@@ -12,8 +12,8 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    static func makeFromStoryboard() -> RegisterViewController {
-        guard let vc = UIStoryboard.init(name: "Home", bundle: nil).instantiateInitialViewController() as? RegisterViewController else {
+    static func makeFromStoryboard() -> HomeViewController {
+        guard let vc = UIStoryboard.init(name: "Home", bundle: nil).instantiateInitialViewController() as? HomeViewController else {
             fatalError()
         }
         return vc
