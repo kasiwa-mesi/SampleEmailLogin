@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2750D3F32900F0EC00810F87 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750D3F22900F0EC00810F87 /* AuthController.swift */; };
+		2750D3F529010A1E00810F87 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750D3F429010A1E00810F87 /* Validator.swift */; };
 		2754DC5328FF7C6F00AC029D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754DC5228FF7C6F00AC029D /* Router.swift */; };
-		2754DC5A28FF9C6200AC029D /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754DC5928FF9C6200AC029D /* AuthController.swift */; };
 		2754DC5C28FFB50900AC029D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2754DC5B28FFB50900AC029D /* GoogleService-Info.plist */; };
 		2754DC5F28FFC58700AC029D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754DC5E28FFC58700AC029D /* HomeViewController.swift */; };
 		2754DC6228FFC59F00AC029D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2754DC6128FFC59F00AC029D /* Home.storyboard */; };
@@ -24,8 +25,9 @@
 
 /* Begin PBXFileReference section */
 		098740C55D332023D5E09C13 /* Pods_SampleEmailLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleEmailLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2750D3F22900F0EC00810F87 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
+		2750D3F429010A1E00810F87 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		2754DC5228FF7C6F00AC029D /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		2754DC5928FF9C6200AC029D /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		2754DC5B28FFB50900AC029D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2754DC5E28FFC58700AC029D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2754DC6128FFC59F00AC029D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -62,20 +64,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2750D3F12900F0D500810F87 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				2750D3F22900F0EC00810F87 /* AuthController.swift */,
+				2750D3F429010A1E00810F87 /* Validator.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		2754DC5128FF7C0200AC029D /* Router */ = {
 			isa = PBXGroup;
 			children = (
 				2754DC5228FF7C6F00AC029D /* Router.swift */,
 			);
 			path = Router;
-			sourceTree = "<group>";
-		};
-		2754DC5428FF817D00AC029D /* Firebase */ = {
-			isa = PBXGroup;
-			children = (
-				2754DC5928FF9C6200AC029D /* AuthController.swift */,
-			);
-			path = Firebase;
 			sourceTree = "<group>";
 		};
 		2754DC5D28FFC57900AC029D /* Home */ = {
@@ -108,8 +111,8 @@
 		276A989B28FE328A00AC390F /* SampleEmailLogin */ = {
 			isa = PBXGroup;
 			children = (
+				2750D3F12900F0D500810F87 /* Utility */,
 				2754DC5D28FFC57900AC029D /* Home */,
-				2754DC5428FF817D00AC029D /* Firebase */,
 				2754DC5128FF7C0200AC029D /* Router */,
 				276A98B728FE3FD500AC390F /* Register */,
 				276A98B028FE333600AC390F /* Login */,
@@ -268,10 +271,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2754DC5328FF7C6F00AC029D /* Router.swift in Sources */,
-				2754DC5A28FF9C6200AC029D /* AuthController.swift in Sources */,
 				276A98B928FE3FED00AC390F /* RegisterViewController.swift in Sources */,
 				276A98B628FE336200AC390F /* LoginViewController.swift in Sources */,
 				276A989D28FE328A00AC390F /* AppDelegate.swift in Sources */,
+				2750D3F529010A1E00810F87 /* Validator.swift in Sources */,
+				2750D3F32900F0EC00810F87 /* AuthController.swift in Sources */,
 				2754DC5F28FFC58700AC029D /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
