@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 final class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
@@ -21,11 +22,43 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    static func makeFromStoryboard() -> LoginViewController {
+        guard let vc = UIStoryboard.init(name: "Login", bundle: nil).instantiateInitialViewController() as? LoginViewController else {
+            fatalError()
+        }
+        return vc
+    }
 }
 
 private extension LoginViewController {
     @objc func tapLoginButton() {
         //ログイン処理を行う
         print("ログイン")
+        
+        guard let email = emailTextField.text else {
+            fatalError()
+        }
+        
+        guard let password = passwordTextField.text else {
+            fatalError()
+        }
+        
+        if let validationAlertMessage = Validator(email: emailTextField.text, password: passwordTextField.text)?.alertMessage {
+            let alertViewController = UIAlertController(title: validationAlertMessage, message: "", preferredStyle: .alert)
+            alertViewController.addAction(UIAlertAction(title: "了解しました", style: .default))
+            self.present(alertViewController, animated: true, completion: nil)
+        } else {
+            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+                if let user = authResult?.user {
+                    if user.isEmailVerified {
+                        print("メールアドレス確認済み")
+                        Router.shared.showHome(from: self)
+                    } else {
+                        print("メールアドレス未確認")
+                    }
+                }
+            }
+        }
     }
 }

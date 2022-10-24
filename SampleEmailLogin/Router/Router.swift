@@ -31,4 +31,24 @@ final class Router {
         }
         // ログインしているか否かで遷移先を変える
     }
+    
+    func showLogin(from: UIViewController) {
+        let vc = LoginViewController.makeFromStoryboard()
+        show(from: from, next: vc)
+    }
+    
+    func showHome(from: UIViewController) {
+        let vc = HomeViewController.makeFromStoryboard()
+        show(from: from, next: vc)
+    }
+}
+
+private extension Router {
+    func show(from: UIViewController, next: UIViewController, animated: Bool = true) {
+        if let nav = from.navigationController {
+            nav.pushViewController(next, animated: animated)
+        } else {
+            from.present(next, animated: animated, completion: nil)
+        }
+    }
 }

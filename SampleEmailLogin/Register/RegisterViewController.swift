@@ -14,6 +14,12 @@ final class RegisterViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var moveLoginScreenButton: UIButton! {
+        didSet {
+            moveLoginScreenButton.addTarget(self, action: #selector(tapMoveLoginScreenButton), for: .touchUpInside)
+        }
+    }
+    
     @IBOutlet weak var registerButton: UIButton! {
         didSet {
             registerButton.addTarget(self, action: #selector(tapRegisterButton), for: .touchUpInside)
@@ -34,6 +40,10 @@ final class RegisterViewController: UIViewController {
 }
 
 private extension RegisterViewController {
+    @objc func tapMoveLoginScreenButton() {
+        Router.shared.showLogin(from: self)
+    }
+
     @objc func tapRegisterButton() {
         //会員登録処理を行う
         print("会員登録する")
@@ -54,6 +64,13 @@ private extension RegisterViewController {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let user = authResult?.user {
                     print(user)
+                    Auth.auth().languageCode = "ja_JP"
+                    user.sendEmailVerification(completion: { error in
+                        if error == nil {
+                            print("メールが送信できました！")
+                            Router.shared.showLogin(from: self)
+                        }
+                    })
                 } else {
                     print(error)
                 }
