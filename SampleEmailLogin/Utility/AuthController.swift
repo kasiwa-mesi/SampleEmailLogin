@@ -2,7 +2,7 @@
 //  AuthController.swift
 //  SampleEmailLogin
 //
-//  Created by kasiwa on 2022/10/19.
+//  Created by kasiwa on 2022/10/20.
 //
 
 import Foundation
@@ -14,10 +14,6 @@ final class AuthController {
     
     func isLogined(completionHandler: @escaping (Bool) -> Void) {
         Auth.auth().addStateDidChangeListener({ auth, user in
-            print("userの値確認")
-            print(user)
-            print("Authの値確認")
-            print(auth)
             if user == nil {
                completionHandler(false)
             } else {
@@ -26,3 +22,4 @@ final class AuthController {
         })
     }
 }
+

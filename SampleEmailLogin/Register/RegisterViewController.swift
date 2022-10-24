@@ -45,12 +45,18 @@ private extension RegisterViewController {
         guard let password = passwordTextField.text else {
             fatalError()
         }
-
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if let user = authResult?.user {
-              print(user)
-            } else {
-              print(error)
+        
+        if let validationAlertMessage = Validator(email: emailTextField.text, password: passwordTextField.text)?.alertMessage {
+            let alertViewController = UIAlertController(title: validationAlertMessage, message: "", preferredStyle: .alert)
+            alertViewController.addAction(UIAlertAction(title: "了解しました", style: .default))
+            self.present(alertViewController, animated: true, completion: nil)
+        } else {
+            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                if let user = authResult?.user {
+                    print(user)
+                } else {
+                    print(error)
+                }
             }
         }
     }
