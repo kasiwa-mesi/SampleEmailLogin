@@ -16,21 +16,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home画面です" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zjl-UR-Q4O">
-                                <rect key="frame" x="186" y="437" width="115" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新しいメールアドレスを入力してください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zjl-UR-Q4O">
+                                <rect key="frame" x="42.5" y="137.5" width="329.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DGZ-HH-ty3">
+                                <rect key="frame" x="166.5" y="232.5" width="81.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="変更する"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワードを再設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P06-aR-fuj">
+                                <rect key="frame" x="129" y="337.5" width="156" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEp-sb-eKs">
+                                <rect key="frame" x="73.5" y="382.5" width="267" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="パスワードの再設定メールを送信する">
+                                    <color key="baseBackgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IT3-zL-Tpu">
+                                <rect key="frame" x="164" y="180" width="86" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egE-0r-suN">
+                                <rect key="frame" x="159.5" y="532.5" width="95.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="ログアウト"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DGZ-HH-ty3" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="AUl-rq-WJj"/>
+                            <constraint firstItem="MEp-sb-eKs" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-50" id="Az0-OU-eml"/>
+                            <constraint firstItem="IT3-zL-Tpu" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-250" id="B2k-W8-pTa"/>
+                            <constraint firstItem="Zjl-UR-Q4O" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Ir3-Pl-2CU"/>
+                            <constraint firstItem="DGZ-HH-ty3" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-200" id="JwC-xR-CdD"/>
+                            <constraint firstItem="IT3-zL-Tpu" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Lnn-OD-iAc"/>
+                            <constraint firstItem="P06-aR-fuj" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-100" id="ep5-5b-R9C"/>
+                            <constraint firstItem="egE-0r-suN" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="100" id="fj9-Z7-IKc"/>
+                            <constraint firstItem="Zjl-UR-Q4O" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-300" id="gDq-FF-R9K"/>
+                            <constraint firstItem="P06-aR-fuj" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="m1i-Ff-FDO"/>
+                            <constraint firstItem="MEp-sb-eKs" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="y5K-x9-gJ1"/>
+                            <constraint firstItem="egE-0r-suN" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ykS-hx-0c2"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailChangeButton" destination="DGZ-HH-ty3" id="RVb-nk-g2N"/>
+                        <outlet property="emailTextField" destination="IT3-zL-Tpu" id="Cks-qK-Dcy"/>
+                        <outlet property="passwordChangeButton" destination="MEp-sb-eKs" id="tW3-Qs-OzU"/>
+                        <outlet property="signOutButton" destination="egE-0r-suN" id="9g0-Tr-dSN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114" y="62"/>
+            <point key="canvasLocation" x="113.04347826086958" y="61.607142857142854"/>
         </scene>
     </scenes>
     <resources>
