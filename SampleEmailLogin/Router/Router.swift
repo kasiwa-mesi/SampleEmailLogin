@@ -41,6 +41,16 @@ final class Router {
         let vc = HomeViewController.makeFromStoryboard()
         show(from: from, next: vc)
     }
+    
+    func showSetEmailChanged(from: UIViewController) {
+        let vc = SetEmailChangedViewController.makeFromStoryboard()
+        show(from: from, next: vc)
+    }
+    
+    func showSetPasswordChanged(from: UIViewController) {
+        let vc = SetPasswordChangedViewController.makeFromStoryboard()
+        show(from: from, next: vc)
+    }
 }
 
 private extension Router {

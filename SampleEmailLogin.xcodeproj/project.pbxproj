@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2750A8542907DFF000C3035E /* SetEmailChanged.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2750A8532907DFF000C3035E /* SetEmailChanged.storyboard */; };
+		2750A8582907E01800C3035E /* SetPasswordChanged.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2750A8572907E01800C3035E /* SetPasswordChanged.storyboard */; };
+		2750A85A2907E3F900C3035E /* SetEmailChangedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750A8592907E3F900C3035E /* SetEmailChangedViewController.swift */; };
+		2750A85C2907E41700C3035E /* SetPasswordChangedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750A85B2907E41700C3035E /* SetPasswordChangedViewController.swift */; };
 		2750D3F32900F0EC00810F87 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750D3F22900F0EC00810F87 /* AuthController.swift */; };
 		2750D3F529010A1E00810F87 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750D3F429010A1E00810F87 /* Validator.swift */; };
 		2754DC5328FF7C6F00AC029D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754DC5228FF7C6F00AC029D /* Router.swift */; };
@@ -25,6 +29,10 @@
 
 /* Begin PBXFileReference section */
 		098740C55D332023D5E09C13 /* Pods_SampleEmailLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleEmailLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2750A8532907DFF000C3035E /* SetEmailChanged.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetEmailChanged.storyboard; sourceTree = "<group>"; };
+		2750A8572907E01800C3035E /* SetPasswordChanged.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetPasswordChanged.storyboard; sourceTree = "<group>"; };
+		2750A8592907E3F900C3035E /* SetEmailChangedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetEmailChangedViewController.swift; sourceTree = "<group>"; };
+		2750A85B2907E41700C3035E /* SetPasswordChangedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordChangedViewController.swift; sourceTree = "<group>"; };
 		2750D3F22900F0EC00810F87 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		2750D3F429010A1E00810F87 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		2754DC5228FF7C6F00AC029D /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -62,6 +70,24 @@
 				098740C55D332023D5E09C13 /* Pods_SampleEmailLogin.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2750A84F2907D65100C3035E /* SetEmailChanged */ = {
+			isa = PBXGroup;
+			children = (
+				2750A8532907DFF000C3035E /* SetEmailChanged.storyboard */,
+				2750A8592907E3F900C3035E /* SetEmailChangedViewController.swift */,
+			);
+			path = SetEmailChanged;
+			sourceTree = "<group>";
+		};
+		2750A8502907D65D00C3035E /* SetPasswordChanged */ = {
+			isa = PBXGroup;
+			children = (
+				2750A8572907E01800C3035E /* SetPasswordChanged.storyboard */,
+				2750A85B2907E41700C3035E /* SetPasswordChangedViewController.swift */,
+			);
+			path = SetPasswordChanged;
 			sourceTree = "<group>";
 		};
 		2750D3F12900F0D500810F87 /* Utility */ = {
@@ -111,6 +137,8 @@
 		276A989B28FE328A00AC390F /* SampleEmailLogin */ = {
 			isa = PBXGroup;
 			children = (
+				2750A8502907D65D00C3035E /* SetPasswordChanged */,
+				2750A84F2907D65100C3035E /* SetEmailChanged */,
 				2750D3F12900F0D500810F87 /* Utility */,
 				2754DC5D28FFC57900AC029D /* Home */,
 				2754DC5128FF7C0200AC029D /* Router */,
@@ -214,8 +242,10 @@
 			files = (
 				276A98A928FE328B00AC390F /* LaunchScreen.storyboard in Resources */,
 				276A98A628FE328B00AC390F /* Assets.xcassets in Resources */,
+				2750A8542907DFF000C3035E /* SetEmailChanged.storyboard in Resources */,
 				2754DC5C28FFB50900AC029D /* GoogleService-Info.plist in Resources */,
 				2754DC6228FFC59F00AC029D /* Home.storyboard in Resources */,
+				2750A8582907E01800C3035E /* SetPasswordChanged.storyboard in Resources */,
 				276A98B428FE334E00AC390F /* Login.storyboard in Resources */,
 				276A98BB28FE400300AC390F /* Register.storyboard in Resources */,
 			);
@@ -274,7 +304,9 @@
 				276A98B928FE3FED00AC390F /* RegisterViewController.swift in Sources */,
 				276A98B628FE336200AC390F /* LoginViewController.swift in Sources */,
 				276A989D28FE328A00AC390F /* AppDelegate.swift in Sources */,
+				2750A85A2907E3F900C3035E /* SetEmailChangedViewController.swift in Sources */,
 				2750D3F529010A1E00810F87 /* Validator.swift in Sources */,
+				2750A85C2907E41700C3035E /* SetPasswordChangedViewController.swift in Sources */,
 				2750D3F32900F0EC00810F87 /* AuthController.swift in Sources */,
 				2754DC5F28FFC58700AC029D /* HomeViewController.swift in Sources */,
 			);

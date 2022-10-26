@@ -30,6 +30,18 @@ final class HomeViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var moveSetEmailChangedButton: UIButton! {
+        didSet {
+            moveSetEmailChangedButton.addTarget(self, action: #selector(tapMoveSetEmailChanged), for: .touchUpInside)
+        }
+    }
+    
+    @IBOutlet weak var moveSetPasswordChangedButton: UIButton! {
+        didSet {
+            moveSetPasswordChangedButton.addTarget(self, action: #selector(tapMoveSetPasswordChanged), for: .touchUpInside)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -65,6 +77,14 @@ private extension HomeViewController {
         print(email)
         
         // 再認証処理を走らせる
+                
+//        AuthController.shared.reAuthenticate(credential: "abc") { (hasAuthentication) in
+//            if hasAuthentication {
+//
+//            } else {
+//
+//            }
+//        }
         
         Auth.auth().sendPasswordReset(withEmail: email) {
             error in
@@ -79,5 +99,15 @@ private extension HomeViewController {
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }
+    }
+    
+    @objc func tapMoveSetEmailChanged() {
+        print("メールアドレス変更へ遷移")
+        Router.shared.showSetEmailChanged(from: self)
+    }
+    
+    @objc func tapMoveSetPasswordChanged() {
+        print("パスワード再設定へ移動")
+        Router.shared.showSetPasswordChanged(from: self)
     }
 }
