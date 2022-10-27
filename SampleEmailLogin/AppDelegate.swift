@@ -10,15 +10,11 @@ import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let window = UIWindow()
         FirebaseApp.configure()
-        Router.shared.showRoot(window: window)
-        self.window = window
+        Router.shared.showRoot(window: UIWindow(frame: UIScreen.main.bounds))
 
-        
         return true
     }
 }
