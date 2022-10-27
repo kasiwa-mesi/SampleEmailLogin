@@ -40,30 +40,7 @@ final class HomeViewController: UIViewController {
     }
 }
 
-private extension HomeViewController {    
-    @objc func tapPasswordChangeButton() {
-        print("Passwordを変更する")
-        guard let email = Auth.auth().currentUser?.email else {
-            fatalError()
-        }
-        print(email)
-        
-        // 再認証処理を走らせる
-                
-//        AuthController.shared.reAuthenticate(credential: "abc") { (hasAuthentication) in
-//            if hasAuthentication {
-//
-//            } else {
-//
-//            }
-//        }
-        
-        Auth.auth().sendPasswordReset(withEmail: email) {
-            error in
-            print(error)
-        }
-    }
-    
+private extension HomeViewController {
     @objc func tapSignOutButton() {
         print("ログアウト")
         do {
