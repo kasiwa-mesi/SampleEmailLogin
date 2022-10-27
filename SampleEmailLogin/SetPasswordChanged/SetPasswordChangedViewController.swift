@@ -10,8 +10,8 @@ import FirebaseAuth
 
 final class SetPasswordChangedViewController: UIViewController {
     
-    @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var userEmailLabel: UILabel!
+        
     @IBOutlet weak var setPasswordChangedButton: UIButton! {
         didSet {
             setPasswordChangedButton.addTarget(self, action: #selector(tapPasswordChangeButton), for: .touchUpInside)
@@ -20,6 +20,9 @@ final class SetPasswordChangedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let email = Auth.auth().currentUser?.email {
+            userEmailLabel.text = "\(email)宛にパスワード再設定用のリンクを送信致しました"
+        }
     }
     
     static func makeFromStoryboard() -> SetPasswordChangedViewController {
@@ -37,31 +40,13 @@ private extension SetPasswordChangedViewController {
             fatalError()
         }
         
-        guard let password = passwordTextField.text else {
-            fatalError()
-        }
-        
         print(email)
-        print(password)
         
-        // 再認証処理を走らせる
-        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
-        
-        AuthController.shared.reAuthenticate(credential: credential) { (hasAuthentication) in
-            if hasAuthentication {
-                print(hasAuthentication)
-                print(Auth.auth().currentUser)
-                Auth.auth().sendPasswordReset(withEmail: email) { error in
-                    if error == nil {
-                        Router.shared.showReStart()
-                    } else {
-                        print("パスワード再設定できません")
-                        print(error)
-                    }
-                }
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if error == nil {
+                Router.shared.showReStart()
             } else {
-                print("もう一度ログインしてください")
-                // UIAlertControllerで「もう一度ログインしてください。」と表示
+                print("パスワード再設定できません")
             }
         }
     }
