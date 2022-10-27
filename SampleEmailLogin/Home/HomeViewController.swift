@@ -10,20 +10,6 @@ import FirebaseAuth
 
 final class HomeViewController: UIViewController {
     
-    @IBOutlet weak var emailTextField: UITextField!
-    
-    @IBOutlet weak var emailChangeButton: UIButton! {
-        didSet {
-            emailChangeButton.addTarget(self, action: #selector(tapEmailChangeButton), for: .touchUpInside)
-        }
-    }
-    
-    @IBOutlet weak var passwordChangeButton: UIButton! {
-        didSet {
-            passwordChangeButton.addTarget(self, action: #selector(tapPasswordChangeButton), for: .touchUpInside)
-        }
-    }
-    
     @IBOutlet weak var signOutButton: UIButton! {
         didSet {
             signOutButton.addTarget(self, action: #selector(tapSignOutButton), for: .touchUpInside)
@@ -54,21 +40,7 @@ final class HomeViewController: UIViewController {
     }
 }
 
-private extension HomeViewController {
-    @objc func tapEmailChangeButton() {
-        print("Emailを変更する")
-        guard let email = Auth.auth().currentUser?.email else {
-            fatalError()
-        }
-        
-        // 再認証処理を走らせる
-        
-        Auth.auth().currentUser?.updateEmail(to: email) {
-            error in
-            print(error)
-        }
-    }
-    
+private extension HomeViewController {    
     @objc func tapPasswordChangeButton() {
         print("Passwordを変更する")
         guard let email = Auth.auth().currentUser?.email else {

@@ -67,6 +67,11 @@
                             <constraint firstItem="Tbg-d7-YH2" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-250" id="zOj-q2-tea"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailChangeButton" destination="EJs-tK-FR9" id="d66-88-ktz"/>
+                        <outlet property="emailTextField" destination="0go-XG-ktC" id="EYO-mH-L2y"/>
+                        <outlet property="passwordTextField" destination="APa-DJ-h8Q" id="PXG-Ha-vDU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
