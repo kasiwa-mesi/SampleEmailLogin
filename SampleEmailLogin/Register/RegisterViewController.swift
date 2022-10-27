@@ -43,7 +43,7 @@ private extension RegisterViewController {
     @objc func tapMoveLoginScreenButton() {
         Router.shared.showLogin(from: self)
     }
-
+    
     @objc func tapRegisterButton() {
         //会員登録処理を行う
         print("会員登録する")

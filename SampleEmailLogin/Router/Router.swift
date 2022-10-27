@@ -10,6 +10,8 @@ import UIKit
 final class Router {
     static let shared: Router = .init()
     private init() {}
+    
+    private var window: UIWindow?
 
     func showRoot(window: UIWindow?) {
         AuthController.shared.isLogined { (hasAuthentication) in
@@ -28,6 +30,7 @@ final class Router {
                 window?.rootViewController = nav
                 window?.makeKeyAndVisible()
             }
+            self.window = window
         }
         // ログインしているか否かで遷移先を変える
     }
@@ -50,6 +53,11 @@ final class Router {
     func showSetPasswordChanged(from: UIViewController) {
         let vc = SetPasswordChangedViewController.makeFromStoryboard()
         show(from: from, next: vc)
+    }
+    
+    func showReStart() {
+        print("再構築")
+        showRoot(window: window)
     }
 }
 

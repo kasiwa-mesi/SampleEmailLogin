@@ -52,21 +52,30 @@ private extension SetEmailChangedViewController {
         print(newEmail)
         
         // バリデーションを走らせる
-        
-        // 再認証処理を走らせる
-        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
-        
-        AuthController.shared.reAuthenticate(credential: credential) { (hasAuthentication) in
-            if hasAuthentication {
-                print(hasAuthentication)
-                print(Auth.auth().currentUser)
-                Auth.auth().currentUser?.updateEmail(to: newEmail) { error in
-                    print("メールアドレス更新できません")
-                    print(error)
+        if let validationAlertMessage = Validator.init(email: newEmail, password: nil)?.alertMessage {
+            let alertViewController = UIAlertController(title: validationAlertMessage, message: "", preferredStyle: .alert)
+            alertViewController.addAction(UIAlertAction(title: "了解しました", style: .default))
+            self.present(alertViewController, animated: true, completion: nil)
+        } else {
+            // 再認証処理を走らせる
+            let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+            
+            AuthController.shared.reAuthenticate(credential: credential) { (hasAuthentication) in
+                if hasAuthentication {
+                    print(hasAuthentication)
+                    print(Auth.auth().currentUser)
+                    Auth.auth().currentUser?.updateEmail(to: newEmail) { error in
+                        if error == nil {
+                            Router.shared.showReStart()
+                        } else {
+                            print("メールアドレス更新できません")
+                            print(error)
+                        }
+                    }
+                } else {
+                    print("もう一度ログインしてください")
+                    // UIAlertControllerで「もう一度ログインしてください。」と表示
                 }
-            } else {
-                print("もう一度ログインしてください")
-                // UIAlertControllerで「もう一度ログインしてください。」と表示
             }
         }
     }
