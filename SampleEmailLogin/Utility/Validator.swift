@@ -8,9 +8,9 @@
 import Foundation
 
 enum Validator {
-    case isEmptyEmail, isEmptyPassword, isUnavailableEmail, isUnavailablePassword
+    case isEmptyEmail, isEmptyPassword, isEmptyReconfirmPassword, isUnavailableEmail, isUnavailablePassword, isConfirmedPassword
     
-    init?(email: String?, password: String?) {
+    init?(email: String?, password: String?, reconfirmPassword: String?) {
         let checkEmailFormat = { (email: String) -> Bool? in
             let pattern = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$"
             guard let regex = try? NSRegularExpression(pattern: pattern) else { return nil }
@@ -41,6 +41,18 @@ enum Validator {
             }
         }
         
+        if reconfirmPassword != nil {
+            guard let reconfirmPassword = reconfirmPassword, !reconfirmPassword.isEmpty else {
+                self = .isEmptyReconfirmPassword
+                return
+            }
+
+            if password != reconfirmPassword {
+                self = .isConfirmedPassword
+                return
+            }
+        }
+        
         return nil
         
     }
@@ -51,10 +63,14 @@ enum Validator {
             return "メールアドレスが入力されていません"
         case .isEmptyPassword:
             return "パスワードが入力されていません"
+        case .isEmptyReconfirmPassword:
+            return "確認用パスワードが入力されていません"
         case .isUnavailableEmail:
             return "メールアドレスの形式で入力してください"
         case .isUnavailablePassword:
             return "パスワードは6文字以上で入力してください"
+        case .isConfirmedPassword:
+            return "パスワードと確認用パスワードが一致しません"
         }
     }
 }

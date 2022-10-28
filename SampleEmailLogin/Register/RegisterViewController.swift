@@ -14,6 +14,8 @@ final class RegisterViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var reconfirmPasswordTextField: UITextField!
+    
     @IBOutlet weak var moveLoginScreenButton: UIButton! {
         didSet {
             moveLoginScreenButton.addTarget(self, action: #selector(tapMoveLoginScreenButton), for: .touchUpInside)
@@ -56,7 +58,11 @@ private extension RegisterViewController {
             fatalError()
         }
         
-        if let validationAlertMessage = Validator(email: emailTextField.text, password: passwordTextField.text)?.alertMessage {
+        guard let reconfirmPassword = reconfirmPasswordTextField.text else {
+            fatalError()
+        }
+        
+        if let validationAlertMessage = Validator(email: emailTextField.text, password: passwordTextField.text, reconfirmPassword: reconfirmPassword)?.alertMessage {
             let alertViewController = UIAlertController(title: validationAlertMessage, message: "", preferredStyle: .alert)
             alertViewController.addAction(UIAlertAction(title: "了解しました", style: .default))
             self.present(alertViewController, animated: true, completion: nil)
