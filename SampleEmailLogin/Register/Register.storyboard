@@ -23,46 +23,78 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XVJ-Hj-m9R">
-                                <rect key="frame" x="159" y="249" width="97" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qCU-Ab-z4F">
-                                <rect key="frame" x="159" y="330" width="97" height="43"/>
+                                <rect key="frame" x="159" y="224" width="97" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chy-Lw-Bmn">
-                                <rect key="frame" x="138" y="624" width="138" height="48"/>
+                                <rect key="frame" x="138" y="524" width="138" height="48"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="新規作成">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="28"/>
                                 </buttonConfiguration>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93P-iT-cqp">
-                                <rect key="frame" x="109" y="424" width="204" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93P-iT-cqp">
+                                <rect key="frame" x="105" y="631" width="204" height="34"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="ログイン画面に移動する">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
                                 </buttonConfiguration>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレス" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5w-bh-Oo8">
+                                <rect key="frame" x="146" y="187.5" width="122" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5v-XD-nbu">
+                                <rect key="frame" x="163.5" y="287.5" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="確認のため、もう一度パスワードを入力してください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lb5-lJ-gc4">
+                                <rect key="frame" x="-1" y="437.5" width="416" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YOH-iJ-w73">
+                                <rect key="frame" x="159" y="482" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qCU-Ab-z4F">
+                                <rect key="frame" x="159" y="341" width="97" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zxg-fG-PgY" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="0dE-Ws-Ka1"/>
                             <constraint firstItem="chy-Lw-Bmn" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="7sV-UA-otX"/>
-                            <constraint firstItem="chy-Lw-Bmn" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="200" id="sVQ-cS-35s"/>
+                            <constraint firstItem="G5w-bh-Oo8" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-250" id="AyD-J5-Puw"/>
+                            <constraint firstItem="W5v-XD-nbu" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-150" id="SNG-lt-CEL"/>
+                            <constraint firstItem="G5w-bh-Oo8" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="TVI-CQ-kCr"/>
+                            <constraint firstItem="93P-iT-cqp" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="200" id="UvV-zj-kPK"/>
+                            <constraint firstItem="W5v-XD-nbu" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="mLc-AJ-byg"/>
+                            <constraint firstItem="lb5-lJ-gc4" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="pQ3-D7-LCJ"/>
+                            <constraint firstItem="chy-Lw-Bmn" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="100" id="sVQ-cS-35s"/>
+                            <constraint firstItem="lb5-lJ-gc4" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="ugS-ZN-n7E"/>
                             <constraint firstItem="zxg-fG-PgY" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-300" id="xg2-jn-NHW"/>
+                            <constraint firstItem="93P-iT-cqp" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ygh-cd-r3Y"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="XVJ-Hj-m9R" id="C5J-KO-ERf"/>
                         <outlet property="moveLoginScreenButton" destination="93P-iT-cqp" id="FYF-sM-ZuK"/>
                         <outlet property="passwordTextField" destination="qCU-Ab-z4F" id="dp2-Ff-NuS"/>
+                        <outlet property="reconfirmPasswordTextField" destination="YOH-iJ-w73" id="p5q-PS-6lI"/>
                         <outlet property="registerButton" destination="chy-Lw-Bmn" id="95H-6E-c4a"/>
                     </connections>
                 </viewController>

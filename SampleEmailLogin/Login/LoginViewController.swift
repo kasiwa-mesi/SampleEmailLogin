@@ -44,7 +44,7 @@ private extension LoginViewController {
             fatalError()
         }
         
-        if let validationAlertMessage = Validator(email: emailTextField.text, password: passwordTextField.text)?.alertMessage {
+        if let validationAlertMessage = Validator(email: emailTextField.text, password: passwordTextField.text, reconfirmPassword: nil)?.alertMessage {
             let alertViewController = UIAlertController(title: validationAlertMessage, message: "", preferredStyle: .alert)
             alertViewController.addAction(UIAlertAction(title: "了解しました", style: .default))
             self.present(alertViewController, animated: true, completion: nil)
