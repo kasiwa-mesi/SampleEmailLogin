@@ -10,6 +10,8 @@ import FirebaseAuth
 
 final class HomeViewController: UIViewController {
     
+    @IBOutlet weak var isEmailAuthenticatedLabel: UILabel!
+    
     @IBOutlet weak var signOutButton: UIButton! {
         didSet {
             signOutButton.addTarget(self, action: #selector(tapSignOutButton), for: .touchUpInside)
@@ -30,6 +32,12 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        if Auth.auth().currentUser?.isEmailVerified {
+//            isEmailAuthenticatedLabel.text = ""
+//        } else {
+//            isEmailAuthenticatedLabel.text = "まだ、メール認証されていません。メール受信リストを確認してください"
+//        }
+
     }
     
     static func makeFromStoryboard() -> HomeViewController {

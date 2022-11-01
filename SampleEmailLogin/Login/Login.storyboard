@@ -16,37 +16,88 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ログイン画面" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSD-rI-j20">
-                                <rect key="frame" x="155" y="137.5" width="104" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BqW-O3-8Ya">
-                                <rect key="frame" x="159" y="319" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2zd-3K-Ij2">
-                                <rect key="frame" x="159" y="245" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKl-eZ-nLs">
-                                <rect key="frame" x="166" y="632.5" width="82" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="ログイン"/>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7MZ-6A-wE1" userLabel="Login Form">
+                                <rect key="frame" x="16" y="44" width="382" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="8CJ-xW-V6o">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="658"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ログイン画面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSD-rI-j20">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="370"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rMI-MG-oTA" userLabel="Email Field">
+                                                <rect key="frame" x="0.0" y="402" width="382" height="72"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレス" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnK-54-Bba">
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="36"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2zd-3K-Ij2">
+                                                        <rect key="frame" x="0.0" y="36" width="382" height="36"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="36" id="I3C-FP-Xge"/>
+                                                            <constraint firstAttribute="width" constant="382" id="UDi-Ui-s3h"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5GP-iL-2Ta" userLabel="Password Field">
+                                                <rect key="frame" x="0.0" y="506" width="382" height="72"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swl-8D-Swl">
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="36"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BqW-O3-8Ya">
+                                                        <rect key="frame" x="0.0" y="36" width="382" height="36"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="36" id="3Sa-wc-gDe"/>
+                                                            <constraint firstAttribute="width" constant="382" id="9EC-Wg-o23"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKl-eZ-nLs">
+                                                <rect key="frame" x="0.0" y="610" width="382" height="48"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="5Ab-eE-DII"/>
+                                                    <constraint firstAttribute="width" constant="382" id="73u-Ej-eVf"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="ログイン">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="28"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="8CJ-xW-V6o" secondAttribute="trailing" id="PFd-UX-RgK"/>
+                                    <constraint firstAttribute="bottom" secondItem="8CJ-xW-V6o" secondAttribute="bottom" constant="160" id="hzL-eB-6N6"/>
+                                    <constraint firstItem="8CJ-xW-V6o" firstAttribute="top" secondItem="7MZ-6A-wE1" secondAttribute="top" id="qEb-P8-ER7"/>
+                                    <constraint firstItem="8CJ-xW-V6o" firstAttribute="leading" secondItem="7MZ-6A-wE1" secondAttribute="leading" id="sBk-gR-XTd"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="oSD-rI-j20" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-300" id="10T-zI-BK0"/>
-                            <constraint firstItem="bKl-eZ-nLs" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="200" id="6wL-pf-UDO"/>
-                            <constraint firstItem="oSD-rI-j20" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="A8P-NW-NLD"/>
-                            <constraint firstItem="bKl-eZ-nLs" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="TN0-a9-hxO"/>
+                            <constraint firstItem="7MZ-6A-wE1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="95I-FI-OLL"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="7MZ-6A-wE1" secondAttribute="bottom" id="K9i-Db-Wlt"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7MZ-6A-wE1" secondAttribute="trailing" constant="16" id="dCS-8y-6mA"/>
+                            <constraint firstItem="7MZ-6A-wE1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="vjS-3l-JrQ"/>
                         </constraints>
                     </view>
                     <connections>

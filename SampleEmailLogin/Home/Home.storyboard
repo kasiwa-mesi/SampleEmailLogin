@@ -17,37 +17,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egE-0r-suN">
-                                <rect key="frame" x="134" y="726.5" width="146" height="43"/>
+                                <rect key="frame" x="134" y="526.5" width="146" height="43"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="ログアウト">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
                                 </buttonConfiguration>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBQ-Y0-msj">
-                                <rect key="frame" x="99" y="655" width="219" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBQ-Y0-msj">
+                                <rect key="frame" x="97.5" y="326.5" width="219" height="43"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="パスワード再設定">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
                                 </buttonConfiguration>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDP-Pf-gWr">
-                                <rect key="frame" x="88" y="584" width="243" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDP-Pf-gWr">
+                                <rect key="frame" x="85.5" y="426.5" width="243" height="43"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="メールアドレス変更">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
                                 </buttonConfiguration>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="まだ、認証されていません" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taZ-HK-LRg">
+                                <rect key="frame" x="186" y="141" width="208" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="egE-0r-suN" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="300" id="fj9-Z7-IKc"/>
+                            <constraint firstItem="cDP-Pf-gWr" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="JnX-PS-e9z"/>
+                            <constraint firstItem="fBQ-Y0-msj" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-100" id="NeT-3V-QVO"/>
+                            <constraint firstItem="egE-0r-suN" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="100" id="fj9-Z7-IKc"/>
+                            <constraint firstItem="cDP-Pf-gWr" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="jm8-iX-8cu"/>
+                            <constraint firstItem="fBQ-Y0-msj" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="t7B-zv-bUD"/>
                             <constraint firstItem="egE-0r-suN" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ykS-hx-0c2"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="isEmailAuthenticatedLabel" destination="taZ-HK-LRg" id="cGS-Lh-PIm"/>
                         <outlet property="moveSetEmailChangedButton" destination="cDP-Pf-gWr" id="66l-CG-T2n"/>
                         <outlet property="moveSetPasswordChangedButton" destination="fBQ-Y0-msj" id="Z9k-Sg-zA7"/>
                         <outlet property="signOutButton" destination="egE-0r-suN" id="9g0-Tr-dSN"/>
