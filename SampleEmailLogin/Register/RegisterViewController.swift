@@ -63,9 +63,8 @@ private extension RegisterViewController {
         }
         
         if let validationAlertMessage = Validator(email: emailTextField.text, password: passwordTextField.text, reconfirmPassword: reconfirmPassword)?.alertMessage {
-            let alertViewController = UIAlertController(title: validationAlertMessage, message: "", preferredStyle: .alert)
-            alertViewController.addAction(UIAlertAction(title: "了解しました", style: .default))
-            self.present(alertViewController, animated: true, completion: nil)
+            let gotItAction = UIAlertAction(title: "了解しました", style: .default)
+            showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
         } else {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let user = authResult?.user {
