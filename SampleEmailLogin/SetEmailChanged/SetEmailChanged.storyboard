@@ -16,55 +16,84 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレスを変更" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvG-y1-D3j">
-                                <rect key="frame" x="85.5" y="133.5" width="243.5" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新しいメールアドレス" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tbg-d7-YH2">
-                                <rect key="frame" x="120.5" y="187.5" width="173.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0go-XG-ktC">
-                                <rect key="frame" x="85" y="226" width="235" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TS8-Lc-ulk">
-                                <rect key="frame" x="163.5" y="287.5" width="87" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="APa-DJ-h8Q">
-                                <rect key="frame" x="85" y="326" width="235" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJs-tK-FR9">
-                                <rect key="frame" x="146" y="426.5" width="122" height="43"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="変更する">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
-                                </buttonConfiguration>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvM-2a-K39" userLabel="SetEmailChanged Form">
+                                <rect key="frame" x="16" y="44" width="382" height="288"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3J1-DR-I2w">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="288"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレスを変更" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvG-y1-D3j">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4Rn-DG-jgs" userLabel="Email Field">
+                                                <rect key="frame" x="0.0" y="72" width="382" height="72"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新しいメールアドレス" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tbg-d7-YH2">
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="36"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0go-XG-ktC">
+                                                        <rect key="frame" x="0.0" y="36" width="382" height="36"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="382" id="dJV-Y8-fHe"/>
+                                                            <constraint firstAttribute="height" constant="36" id="dx0-Vd-ThB"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="b93-uA-Lcd" userLabel="Password Field">
+                                                <rect key="frame" x="0.0" y="144" width="382" height="72"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TS8-Lc-ulk">
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="36"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="APa-DJ-h8Q">
+                                                        <rect key="frame" x="0.0" y="36" width="382" height="36"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="36" id="7Br-Kh-JrG"/>
+                                                            <constraint firstAttribute="width" constant="382" id="AMS-WW-odF"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJs-tK-FR9">
+                                                <rect key="frame" x="0.0" y="216" width="382" height="72"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="変更する">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="3J1-DR-I2w" secondAttribute="bottom" id="Bw5-ef-Ah6"/>
+                                    <constraint firstItem="3J1-DR-I2w" firstAttribute="leading" secondItem="mvM-2a-K39" secondAttribute="leading" id="OEe-5x-eXU"/>
+                                    <constraint firstItem="3J1-DR-I2w" firstAttribute="top" secondItem="mvM-2a-K39" secondAttribute="top" id="mKr-Jq-WIh"/>
+                                    <constraint firstAttribute="trailing" secondItem="3J1-DR-I2w" secondAttribute="trailing" id="wIY-Sd-loS"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Tbg-d7-YH2" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="47c-L4-I6X"/>
-                            <constraint firstItem="EJs-tK-FR9" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="dOk-Rj-87g"/>
-                            <constraint firstItem="TS8-Lc-ulk" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-150" id="diG-Dg-EOh"/>
-                            <constraint firstItem="TS8-Lc-ulk" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="e1z-9N-GcR"/>
-                            <constraint firstItem="VvG-y1-D3j" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-300" id="iM2-m9-Hku"/>
-                            <constraint firstItem="EJs-tK-FR9" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="o9f-MF-whx"/>
-                            <constraint firstItem="VvG-y1-D3j" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="r6i-lI-pEG"/>
-                            <constraint firstItem="Tbg-d7-YH2" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-250" id="zOj-q2-tea"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="mvM-2a-K39" secondAttribute="bottom" id="9K2-2G-Ra4"/>
+                            <constraint firstItem="mvM-2a-K39" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="BBd-V1-VK9"/>
+                            <constraint firstItem="mvM-2a-K39" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="X5f-Y5-HQz"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mvM-2a-K39" secondAttribute="trailing" constant="16" id="u0y-hv-ooV"/>
                         </constraints>
                     </view>
                     <connections>
