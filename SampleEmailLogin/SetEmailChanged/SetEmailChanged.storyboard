@@ -17,28 +17,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvM-2a-K39" userLabel="SetEmailChanged Form">
-                                <rect key="frame" x="16" y="44" width="382" height="288"/>
+                                <rect key="frame" x="16" y="44" width="382" height="572"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3J1-DR-I2w">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="288"/>
+                                        <rect key="frame" x="0.0" y="60" width="382" height="272"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレスを変更" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvG-y1-D3j">
-                                                <rect key="frame" x="0.0" y="0.0" width="382" height="72"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="68"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4Rn-DG-jgs" userLabel="Email Field">
-                                                <rect key="frame" x="0.0" y="72" width="382" height="72"/>
+                                                <rect key="frame" x="0.0" y="68" width="382" height="68"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新しいメールアドレス" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tbg-d7-YH2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="36"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0go-XG-ktC">
-                                                        <rect key="frame" x="0.0" y="36" width="382" height="36"/>
+                                                        <rect key="frame" x="0.0" y="34" width="382" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="382" id="dJV-Y8-fHe"/>
                                                             <constraint firstAttribute="height" constant="36" id="dx0-Vd-ThB"/>
@@ -49,16 +49,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="b93-uA-Lcd" userLabel="Password Field">
-                                                <rect key="frame" x="0.0" y="144" width="382" height="72"/>
+                                                <rect key="frame" x="0.0" y="136" width="382" height="68"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TS8-Lc-ulk">
-                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="36"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="APa-DJ-h8Q">
-                                                        <rect key="frame" x="0.0" y="36" width="382" height="36"/>
+                                                        <rect key="frame" x="0.0" y="34" width="382" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="36" id="7Br-Kh-JrG"/>
                                                             <constraint firstAttribute="width" constant="382" id="AMS-WW-odF"/>
@@ -69,7 +69,11 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJs-tK-FR9">
-                                                <rect key="frame" x="0.0" y="216" width="382" height="72"/>
+                                                <rect key="frame" x="0.0" y="204" width="382" height="68"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="LTy-cn-i45"/>
+                                                    <constraint firstAttribute="width" constant="382" id="c86-1b-4i2"/>
+                                                </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="変更する">
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
@@ -80,9 +84,9 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="3J1-DR-I2w" secondAttribute="bottom" id="Bw5-ef-Ah6"/>
+                                    <constraint firstAttribute="bottom" secondItem="3J1-DR-I2w" secondAttribute="bottom" constant="240" id="Bw5-ef-Ah6"/>
                                     <constraint firstItem="3J1-DR-I2w" firstAttribute="leading" secondItem="mvM-2a-K39" secondAttribute="leading" id="OEe-5x-eXU"/>
-                                    <constraint firstItem="3J1-DR-I2w" firstAttribute="top" secondItem="mvM-2a-K39" secondAttribute="top" id="mKr-Jq-WIh"/>
+                                    <constraint firstItem="3J1-DR-I2w" firstAttribute="top" secondItem="mvM-2a-K39" secondAttribute="top" constant="60" id="mKr-Jq-WIh"/>
                                     <constraint firstAttribute="trailing" secondItem="3J1-DR-I2w" secondAttribute="trailing" id="wIY-Sd-loS"/>
                                 </constraints>
                             </view>
