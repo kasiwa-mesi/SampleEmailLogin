@@ -53,9 +53,8 @@ private extension SetEmailChangedViewController {
         
         // バリデーションを走らせる
         if let validationAlertMessage = Validator.init(email: newEmail, password: nil, reconfirmPassword: nil)?.alertMessage {
-            let alertViewController = UIAlertController(title: validationAlertMessage, message: "", preferredStyle: .alert)
-            alertViewController.addAction(UIAlertAction(title: "了解しました", style: .default))
-            self.present(alertViewController, animated: true, completion: nil)
+            let gotItAction = UIAlertAction(title: "了解しました", style: .default)
+            showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
         } else {
             // 再認証処理を走らせる
             let credential = EmailAuthProvider.credential(withEmail: email, password: password)
