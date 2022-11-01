@@ -37,9 +37,8 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
                                 </buttonConfiguration>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="まだ、認証されていません" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taZ-HK-LRg">
-                                <rect key="frame" x="186" y="141" width="208" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="まだ、認証されていません" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taZ-HK-LRg">
+                                <rect key="frame" x="103" y="137.5" width="208" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -51,8 +50,10 @@
                             <constraint firstItem="cDP-Pf-gWr" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="JnX-PS-e9z"/>
                             <constraint firstItem="fBQ-Y0-msj" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-100" id="NeT-3V-QVO"/>
                             <constraint firstItem="egE-0r-suN" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="100" id="fj9-Z7-IKc"/>
+                            <constraint firstItem="taZ-HK-LRg" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-300" id="hTX-nL-e2d"/>
                             <constraint firstItem="cDP-Pf-gWr" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="jm8-iX-8cu"/>
                             <constraint firstItem="fBQ-Y0-msj" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="t7B-zv-bUD"/>
+                            <constraint firstItem="taZ-HK-LRg" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="vfe-wC-YeM"/>
                             <constraint firstItem="egE-0r-suN" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ykS-hx-0c2"/>
                         </constraints>
                     </view>
