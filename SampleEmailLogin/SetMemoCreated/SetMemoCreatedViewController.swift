@@ -6,8 +6,17 @@
 //
 
 import UIKit
+import UITextView_Placeholder
 
 final class SetMemoCreatedViewController: UIViewController {
+    
+    @IBOutlet weak var memoFieldTextView: UITextView! {
+        didSet {
+            memoFieldTextView.placeholder = "メモを入力してください"
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
