@@ -30,6 +30,13 @@ final class HomeViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var moveSetMemoCreatedButton: UIButton! {
+        didSet {
+            moveSetMemoCreatedButton.addTarget(self, action: #selector(tapMoveSetMemoCreated), for: .touchUpInside)
+        }
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        if Auth.auth().currentUser?.isEmailVerified {
@@ -66,5 +73,10 @@ private extension HomeViewController {
     @objc func tapMoveSetPasswordChanged() {
         print("パスワード再設定へ移動")
         Router.shared.showSetPasswordChanged(from: self)
+    }
+    
+    @objc func tapMoveSetMemoCreated() {
+        print("メモ新規作成へ移動")
+        Router.shared.showSetMemoCreated(from: self)
     }
 }
