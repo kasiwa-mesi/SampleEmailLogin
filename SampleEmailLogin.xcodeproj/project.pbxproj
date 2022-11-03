@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		274DC7C9291352D400317F42 /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274DC7C8291352D400317F42 /* MemoModel.swift */; };
 		274EA4C22910F9D700CADFE0 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274EA4C12910F9D700CADFE0 /* UIViewController+.swift */; };
 		2750A8542907DFF000C3035E /* SetEmailChanged.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2750A8532907DFF000C3035E /* SetEmailChanged.storyboard */; };
 		2750A8582907E01800C3035E /* SetPasswordChanged.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2750A8572907E01800C3035E /* SetPasswordChanged.storyboard */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		098740C55D332023D5E09C13 /* Pods_SampleEmailLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleEmailLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		274DC7C8291352D400317F42 /* MemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoModel.swift; sourceTree = "<group>"; };
 		274EA4C12910F9D700CADFE0 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		2750A8532907DFF000C3035E /* SetEmailChanged.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetEmailChanged.storyboard; sourceTree = "<group>"; };
 		2750A8572907E01800C3035E /* SetPasswordChanged.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetPasswordChanged.storyboard; sourceTree = "<group>"; };
@@ -72,6 +74,14 @@
 				098740C55D332023D5E09C13 /* Pods_SampleEmailLogin.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		274DC7C72913526000317F42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				274DC7C8291352D400317F42 /* MemoModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		274EA4C02910F9BE00CADFE0 /* Extension */ = {
@@ -147,6 +157,7 @@
 		276A989B28FE328A00AC390F /* SampleEmailLogin */ = {
 			isa = PBXGroup;
 			children = (
+				274DC7C72913526000317F42 /* Model */,
 				274EA4C02910F9BE00CADFE0 /* Extension */,
 				2750A8502907D65D00C3035E /* SetPasswordChanged */,
 				2750A84F2907D65100C3035E /* SetEmailChanged */,
@@ -319,6 +330,7 @@
 				2750A85A2907E3F900C3035E /* SetEmailChangedViewController.swift in Sources */,
 				275F9BDD290A47D400A34905 /* Validator.swift in Sources */,
 				2750A85C2907E41700C3035E /* SetPasswordChangedViewController.swift in Sources */,
+				274DC7C9291352D400317F42 /* MemoModel.swift in Sources */,
 				2750D3F32900F0EC00810F87 /* AuthController.swift in Sources */,
 				2754DC5F28FFC58700AC029D /* HomeViewController.swift in Sources */,
 			);
