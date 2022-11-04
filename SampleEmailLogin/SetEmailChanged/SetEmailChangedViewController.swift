@@ -35,7 +35,7 @@ final class SetEmailChangedViewController: UIViewController {
 private extension SetEmailChangedViewController {
     @objc func tapEmailChangeButton() {
         print("Emailを変更する")
-        guard let email = Auth.auth().currentUser?.email else {
+        guard let email = AuthController.shared.getCurrentUser()?.email else {
             fatalError()
         }
         
@@ -63,7 +63,7 @@ private extension SetEmailChangedViewController {
                 if hasAuthentication {
                     print(hasAuthentication)
                     print(Auth.auth().currentUser)
-                    Auth.auth().currentUser?.updateEmail(to: newEmail) { error in
+                    AuthController.shared.getCurrentUser()?.updateEmail(to: newEmail) { error in
                         if error == nil {
                             Router.shared.showReStart()
                         } else {

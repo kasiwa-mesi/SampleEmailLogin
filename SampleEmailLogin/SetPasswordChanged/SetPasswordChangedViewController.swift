@@ -20,7 +20,7 @@ final class SetPasswordChangedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let email = Auth.auth().currentUser?.email {
+        if let email = AuthController.shared.getCurrentUser()?.email {
             userEmailLabel.text = "\(email)宛にパスワード再設定用のリンクを送信致しました"
         }
     }
@@ -36,7 +36,7 @@ final class SetPasswordChangedViewController: UIViewController {
 private extension SetPasswordChangedViewController {
     @objc func tapPasswordChangeButton() {
         print("Passwordを変更する")
-        guard let email = Auth.auth().currentUser?.email else {
+        guard let email = AuthController.shared.getCurrentUser()?.email else {
             fatalError()
         }
         

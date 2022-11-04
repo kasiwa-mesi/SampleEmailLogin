@@ -11,6 +11,10 @@ import FirebaseAuth
 final class AuthController {
     static let shared: AuthController = .init()
     private init() {}
+    
+    func getCurrentUser() -> User? { Auth.auth().currentUser }
+    
+    func getCurrentUserId() -> String? { Auth.auth().currentUser?.uid }
         
     func isLogined(completionHandler: @escaping (Bool) -> Void) {
         Auth.auth().addStateDidChangeListener({ auth, user in
