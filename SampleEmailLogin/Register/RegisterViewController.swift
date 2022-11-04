@@ -62,7 +62,7 @@ private extension RegisterViewController {
             fatalError()
         }
         
-        if let validationAlertMessage = Validator(email: emailTextField.text, password: passwordTextField.text, reconfirmPassword: reconfirmPassword)?.alertMessage {
+        if let validationAlertMessage = Validator(email: emailTextField.text, password: passwordTextField.text, reconfirmPassword: reconfirmPassword, memoText: nil)?.alertMessage {
             let gotItAction = UIAlertAction(title: "了解しました", style: .default)
             showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
         } else {

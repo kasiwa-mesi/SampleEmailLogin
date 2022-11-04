@@ -59,6 +59,11 @@ final class Router {
         print("再構築")
         showRoot(window: window)
     }
+    
+    func showSetMemoCreated(from: UIViewController) {
+        let vc = SetMemoCreatedViewController.makeFromStoryboard()
+        show(from: from, next: vc)
+    }
 }
 
 private extension Router {

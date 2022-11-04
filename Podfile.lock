@@ -764,12 +764,14 @@ PODS:
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
   - PromisesObjC (2.1.1)
+  - "UITextView+Placeholder (1.4.0)"
 
 DEPENDENCIES:
   - FirebaseAnalytics
   - FirebaseAuth
   - FirebaseFirestore
   - IQKeyboardManagerSwift
+  - "UITextView+Placeholder"
 
 SPEC REPOS:
   trunk:
@@ -793,6 +795,7 @@ SPEC REPOS:
     - Libuv-gRPC
     - nanopb
     - PromisesObjC
+    - "UITextView+Placeholder"
 
 SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
@@ -815,7 +818,8 @@ SPEC CHECKSUMS:
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
+  "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
 
-PODFILE CHECKSUM: 51bb87ce33482c5e62b2884008c3e6fe4f99b566
+PODFILE CHECKSUM: 95998573393a477e8c9357078e3dce5ffbb038b6
 
 COCOAPODS: 1.11.3
