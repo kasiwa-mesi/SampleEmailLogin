@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 final class SetPasswordChangedViewController: UIViewController {
     
@@ -42,11 +41,9 @@ private extension SetPasswordChangedViewController {
         
         print(email)
         
-        Auth.auth().sendPasswordReset(withEmail: email) { error in
-            if error == nil {
+        AuthController.shared.sendPasswordReset(email: email) { (onSubmitted) in
+            if onSubmitted {
                 Router.shared.showReStart()
-            } else {
-                print("パスワード再設定できません")
             }
         }
     }

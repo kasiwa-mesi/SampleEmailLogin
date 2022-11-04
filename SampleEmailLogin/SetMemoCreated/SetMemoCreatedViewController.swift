@@ -9,7 +9,6 @@ import UIKit
 import UITextView_Placeholder
 import FirebaseCore
 import FirebaseFirestore
-import FirebaseAuth
 
 final class SetMemoCreatedViewController: UIViewController {
     

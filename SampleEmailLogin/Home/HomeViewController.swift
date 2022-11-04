@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 final class HomeViewController: UIViewController {
     
@@ -58,11 +57,7 @@ final class HomeViewController: UIViewController {
 private extension HomeViewController {
     @objc func tapSignOutButton() {
         print("ログアウト")
-        do {
-            try Auth.auth().signOut()
-        } catch let signOutError as NSError {
-            print("Error signing out: %@", signOutError)
-        }
+        AuthController.shared.signOut()
     }
     
     @objc func tapMoveSetEmailChanged() {
