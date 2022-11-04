@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 final class SetEmailChangedViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
@@ -35,7 +34,7 @@ final class SetEmailChangedViewController: UIViewController {
 private extension SetEmailChangedViewController {
     @objc func tapEmailChangeButton() {
         print("Emailを変更する")
-        guard let email = Auth.auth().currentUser?.email else {
+        guard let email = AuthController.shared.getCurrentUser()?.email else {
             fatalError()
         }
         
@@ -57,18 +56,14 @@ private extension SetEmailChangedViewController {
             showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
         } else {
             // 再認証処理を走らせる
-            let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+            let credential = AuthController.shared.getCredential(email: email, password: password)
             
             AuthController.shared.reAuthenticate(credential: credential) { (hasAuthentication) in
                 if hasAuthentication {
                     print(hasAuthentication)
-                    print(Auth.auth().currentUser)
-                    Auth.auth().currentUser?.updateEmail(to: newEmail) { error in
-                        if error == nil {
+                    AuthController.shared.updateEmail(email: newEmail) { (isUpdated) in
+                        if isUpdated {
                             Router.shared.showReStart()
-                        } else {
-                            print("メールアドレス更新できません")
-                            print(error)
                         }
                     }
                 } else {

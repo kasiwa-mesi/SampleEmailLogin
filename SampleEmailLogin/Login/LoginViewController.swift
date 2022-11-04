@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 final class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
@@ -48,14 +47,12 @@ private extension LoginViewController {
             let gotItAction = UIAlertAction(title: "了解しました", style: .default)
             showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
         } else {
-            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-                if let user = authResult?.user {
-                    if user.isEmailVerified {
-                        print("メールアドレス確認済み")
-                        Router.shared.showHome(from: self)
-                    } else {
-                        print("メールアドレス未確認")
-                    }
+            AuthController.shared.signIn(email: email, password: password) { (isEmailVerified) in
+                if isEmailVerified {
+                    print("メールアドレス確認済み")
+                    Router.shared.showHome(from: self)
+                } else {
+                    print("メールアドレス未確認")
                 }
             }
         }

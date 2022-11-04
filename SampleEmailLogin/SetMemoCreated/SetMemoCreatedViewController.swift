@@ -9,7 +9,6 @@ import UIKit
 import UITextView_Placeholder
 import FirebaseCore
 import FirebaseFirestore
-import FirebaseAuth
 
 final class SetMemoCreatedViewController: UIViewController {
     
@@ -43,7 +42,7 @@ private extension SetMemoCreatedViewController {
     @objc func tapSubmitButton() {
         print("メモ作成処理")
         let text = memoFieldTextView.text
-        let userId = Auth.auth().currentUser?.uid
+        let userId = AuthController.shared.getCurrentUserId()
         let db = Firestore.firestore()
         if let validationAlertMessage = Validator(email: nil, password: nil, reconfirmPassword: nil, memoText: text)?.alertMessage {
             let gotItAction = UIAlertAction(title: "了解しました", style: .default)

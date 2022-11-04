@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 final class RegisterViewController: UIViewController {
     
@@ -66,18 +65,15 @@ private extension RegisterViewController {
             let gotItAction = UIAlertAction(title: "了解しました", style: .default)
             showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
         } else {
-            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                if let user = authResult?.user {
-                    print(user)
-                    Auth.auth().languageCode = "ja_JP"
-                    user.sendEmailVerification(completion: { error in
-                        if error == nil {
+            AuthController.shared.createUser(email: email, password: password) { (userExists) in
+                if userExists {
+                    AuthController.shared.setLanguageCode(code: "ja_JP")
+                    AuthController.shared.sendEmailVerification { (onSubmitted) in
+                        if onSubmitted {
                             print("メールが送信できました！")
                             Router.shared.showLogin(from: self)
                         }
-                    })
-                } else {
-                    print(error)
+                    }
                 }
             }
         }
