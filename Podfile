@@ -9,6 +9,8 @@ target 'SampleEmailLogin' do
   pod 'FirebaseAnalytics'
   pod 'FirebaseAuth'
   pod 'FirebaseFirestore'
+  pod 'FirebaseFirestoreSwift'
   pod 'IQKeyboardManagerSwift'
   pod 'UITextView+Placeholder'
+  pod 'SwiftDate'
 end

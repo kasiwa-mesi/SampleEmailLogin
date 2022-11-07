@@ -50,9 +50,10 @@ private extension SetMemoCreatedViewController {
         } else {
             db.collection("memos").addDocument(data: [
                 "text": text,
-                //"imageURL": imageURL
                 "userId": userId,
-                "createdAt": FirebaseFirestore.FieldValue.serverTimestamp()
+                "createdAt": FirebaseFirestore.FieldValue.serverTimestamp(),
+                // 画像アップロード機能を実装したら、引数にimageURLを渡す
+                "imageURL": ""
             ]) { err in
                 if let err = err {
                     print("Error adding document: \(err)")
