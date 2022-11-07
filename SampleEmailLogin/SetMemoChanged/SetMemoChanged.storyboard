@@ -53,6 +53,7 @@
                     </view>
                     <connections>
                         <outlet property="memoFieldTextView" destination="cQn-o4-sYI" id="MZK-eR-xYB"/>
+                        <outlet property="setMemoChangedButton" destination="VdN-6z-feJ" id="vgd-FN-ptr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

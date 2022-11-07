@@ -16,6 +16,12 @@ final class SetMemoChangedViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var setMemoChangedButton: UIButton! {
+        didSet {
+            setMemoChangedButton.addTarget(self, action: #selector(tapSetMemoChangedButton), for: .touchUpInside)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -30,4 +36,10 @@ final class SetMemoChangedViewController: UIViewController {
     }
     
     private var memo = MemoModel(id: nil, text: "", userId: "", createdAt: Date(), imageURLStr: "")
+}
+
+private extension SetMemoChangedViewController {
+    @objc func tapSetMemoChangedButton() {
+        print("メモを更新する")
+    }
 }
