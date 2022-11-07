@@ -47,10 +47,15 @@ private extension SetMemoChangedViewController {
             showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
         } else {
             print("更新するメモ: \(memo)")
-            CloudFirestoreService.shared.updateMemo(memo: memo) { (isUpdated) in
-                if isUpdated {
-                    Router.shared.showReStart()
+            if self.memo.text != memo.text {
+                CloudFirestoreService.shared.updateMemo(memo: memo) { (isUpdated) in
+                    if isUpdated {
+                        Router.shared.showReStart()
+                    }
                 }
+            } else {
+                print("変更点がないため、更新処理を走らせない")
+                Router.shared.showReStart()
             }
         }
     }
