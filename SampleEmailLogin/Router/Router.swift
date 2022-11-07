@@ -64,6 +64,11 @@ final class Router {
         let vc = SetMemoCreatedViewController.makeFromStoryboard()
         show(from: from, next: vc)
     }
+    
+    func showSetMemoChanged(from: UIViewController) {
+        let vc = SetMemoChangedViewController.makeFromStoryboard()
+        show(from: from, next: vc)
+    }
 }
 
 private extension Router {
