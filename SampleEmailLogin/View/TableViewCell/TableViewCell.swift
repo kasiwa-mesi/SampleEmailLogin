@@ -26,7 +26,7 @@ class TableViewCell: UITableViewCell {
 
         memoTextLabel.text = memo.text
         // memo.createdAtのData型を文字列にする
-        let createdAt = "\(memo.createdAt.year)年\(memo.createdAt.month)月\(memo.createdAt.day)"
+        let createdAt = "\(memo.createdAt.year)年\(memo.createdAt.month)月\(memo.createdAt.day)日"
         memoCreatedAt.text = createdAt
         print("cellの登録: \(memoCreatedAt.text)")
     }

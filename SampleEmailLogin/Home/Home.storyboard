@@ -20,27 +20,28 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eFD-YY-gaH">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="677.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="711.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="まだ、認証されていません" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taZ-HK-LRg">
-                                        <rect key="frame" x="0.0" y="677.5" width="414" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vNg-76-sLt">
+                                        <rect key="frame" x="0.0" y="711.5" width="414" height="20.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JBj-rv-Qbi">
-                                        <rect key="frame" x="0.0" y="698" width="414" height="120"/>
+                                        <rect key="frame" x="0.0" y="732" width="414" height="86"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBQ-Y0-msj">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="77"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="パスワード再設定">
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
                                                 </buttonConfiguration>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDP-Pf-gWr">
-                                                <rect key="frame" x="0.0" y="77" width="414" height="43"/>
+                                                <rect key="frame" x="0.0" y="43" width="414" height="43"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="メールアドレス変更">
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
@@ -64,7 +65,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="isEmailAuthenticatedLabel" destination="taZ-HK-LRg" id="cGS-Lh-PIm"/>
+                        <outlet property="cautionLabel" destination="vNg-76-sLt" id="fdS-44-ah5"/>
                         <outlet property="moveSetEmailChangedButton" destination="cDP-Pf-gWr" id="66l-CG-T2n"/>
                         <outlet property="moveSetPasswordChangedButton" destination="fBQ-Y0-msj" id="Z9k-Sg-zA7"/>
                         <outlet property="tableView" destination="eFD-YY-gaH" id="AJa-H7-iyc"/>

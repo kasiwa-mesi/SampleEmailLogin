@@ -14,7 +14,7 @@ final class HomeViewController: UIViewController {
     var moveSetMemoCreatedButtonItem: UIBarButtonItem!
     var signOutButtonItem: UIBarButtonItem!
     
-    @IBOutlet weak var isEmailAuthenticatedLabel: UILabel!
+    @IBOutlet weak var cautionLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -49,17 +49,18 @@ final class HomeViewController: UIViewController {
             self.memos = memos
             print("self.memos: \(self.memos)")
             if !self.memos.isEmpty {
-                self.isEmailAuthenticatedLabel.isHidden = true
+                self.cautionLabel.isHidden = true
                 self.tableView.isHidden = false
                 self.tableView.dataSource = self
                 self.tableView.delegate = self
                 self.tableView.reloadData()
             } else {
                 self.tableView.isHidden = true
-                self.isEmailAuthenticatedLabel.isHidden = false
+                self.cautionLabel.text = "「+」ボタンからメモを作成してください"
+                self.cautionLabel.isHidden = false
             }
         }
-        //        if Auth.auth().currentUser?.isEmailVerified {
+        //        if Auth.auth().currentUser?.isEmailVerified { 
         //            isEmailAuthenticatedLabel.text = ""
         //        } else {
         //            isEmailAuthenticatedLabel.text = "まだ、メール認証されていません。メール受信リストを確認してください"
