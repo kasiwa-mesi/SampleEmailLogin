@@ -41,24 +41,19 @@ final class SetMemoCreatedViewController: UIViewController {
 private extension SetMemoCreatedViewController {
     @objc func tapSubmitButton() {
         print("メモ作成処理")
-        let text = memoFieldTextView.text
-        let userId = AuthController.shared.getCurrentUserId()
+        guard let text = memoFieldTextView.text else {
+            fatalError()
+        }
+        guard let userId = AuthController.shared.getCurrentUserId() else {
+            fatalError()
+        }
         let db = Firestore.firestore()
         if let validationAlertMessage = Validator(email: nil, password: nil, reconfirmPassword: nil, memoText: text)?.alertMessage {
             let gotItAction = UIAlertAction(title: "了解しました", style: .default)
             showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
         } else {
-            db.collection("memos").addDocument(data: [
-                "text": text,
-                "userId": userId,
-                "createdAt": FirebaseFirestore.FieldValue.serverTimestamp(),
-                // 画像アップロード機能を実装したら、引数にimageURLを渡す
-                "imageURL": ""
-            ]) { err in
-                if let err = err {
-                    print("Error adding document: \(err)")
-                } else {
-                    print("メモを無事保存できました！")
+            CloudFirestoreService.shared.addMemo(text: text, userId: userId, imageURL: "") { isCreated in
+                if isCreated {
                     Router.shared.showReStart()
                 }
             }

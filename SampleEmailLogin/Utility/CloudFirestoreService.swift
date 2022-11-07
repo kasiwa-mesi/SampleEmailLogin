@@ -31,6 +31,24 @@ final class CloudFirestoreService {
         }
     }
     
+    func addMemo(text: String, userId: String, imageURL: String, completion: @escaping (Bool) -> Void) {
+        db.collection("memos").addDocument(data: [
+            "text": text,
+            "userId": userId,
+            "createdAt": FirebaseFirestore.FieldValue.serverTimestamp(),
+            // 画像アップロード機能を実装したら、引数にimageURLを渡す
+            "imageURL": imageURL
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+                completion(false)
+            } else {
+                print("メモを無事保存できました！")
+                completion(true)
+            }
+        }
+    }
+    
     func updateMemo(memo: MemoModel, completion: @escaping (Bool) -> Void) {
         guard let id = memo.id else {
             fatalError()
