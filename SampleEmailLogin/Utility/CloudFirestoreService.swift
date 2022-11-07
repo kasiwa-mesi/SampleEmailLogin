@@ -48,4 +48,19 @@ final class CloudFirestoreService {
             }
         }
     }
+    
+    func deleteMemo(memo: MemoModel, completion: @escaping (Bool) -> Void) {
+        guard let id = memo.id else {
+            fatalError()
+        }
+        db.collection("memos").document(id).delete() { error in
+            if let error = error {
+                print("Error removing document: \(error)")
+                completion(false)
+            } else {
+                print("Document successfully removed!")
+                completion(true)
+            }
+        }
+    }
 }
