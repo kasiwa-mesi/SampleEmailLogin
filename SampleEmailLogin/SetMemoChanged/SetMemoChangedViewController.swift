@@ -65,5 +65,10 @@ private extension SetMemoChangedViewController {
     
     @objc func tapDeleteButton() {
         print("メモを削除")
+        CloudFirestoreService.shared.deleteMemo(memo: memo) { isDeleted in
+            if isDeleted {
+                Router.shared.showReStart()
+            }
+        }
     }
 }
