@@ -29,10 +29,23 @@ final class CloudFirestoreService {
             }
             completion(memos)
         }
-        
-        func decodeData(snapshot: QueryDocumentSnapshot?) throws -> MemoModel {
-            let decoder = Firestore.Decoder()
-            return try decoder.decode(MemoModel.self, from: snapshot)
+    }
+    
+    func updateMemo(memo: MemoModel, completion: @escaping (Bool) -> Void) {
+        guard let id = memo.id else {
+            fatalError()
+        }
+        db.collection("memos").document(id).updateData([
+            "text": memo.text,
+            "imageURL": memo.imageURLStr
+        ]) { (error) in
+            if let error = error {
+                print("アップデートする際にエラー発生")
+                completion(false)
+            } else {
+                print("無事アップデートできました")
+                completion(true)
+            }
         }
     }
 }

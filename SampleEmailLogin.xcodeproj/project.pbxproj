@@ -24,6 +24,8 @@
 		2754DC5C28FFB50900AC029D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2754DC5B28FFB50900AC029D /* GoogleService-Info.plist */; };
 		2754DC5F28FFC58700AC029D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754DC5E28FFC58700AC029D /* HomeViewController.swift */; };
 		2754DC6228FFC59F00AC029D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2754DC6128FFC59F00AC029D /* Home.storyboard */; };
+		275579DB2918B11F00BED415 /* SetMemoChangedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275579DA2918B11F00BED415 /* SetMemoChangedViewController.swift */; };
+		275579DD2918B12C00BED415 /* SetMemoChanged.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275579DC2918B12C00BED415 /* SetMemoChanged.storyboard */; };
 		275F9BDD290A47D400A34905 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F9BDC290A47D400A34905 /* Validator.swift */; };
 		276A989D28FE328A00AC390F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276A989C28FE328A00AC390F /* AppDelegate.swift */; };
 		276A98A628FE328B00AC390F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 276A98A528FE328B00AC390F /* Assets.xcassets */; };
@@ -54,6 +56,8 @@
 		2754DC5B28FFB50900AC029D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2754DC5E28FFC58700AC029D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2754DC6128FFC59F00AC029D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		275579DA2918B11F00BED415 /* SetMemoChangedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMemoChangedViewController.swift; sourceTree = "<group>"; };
+		275579DC2918B12C00BED415 /* SetMemoChanged.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetMemoChanged.storyboard; sourceTree = "<group>"; };
 		275F9BDC290A47D400A34905 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		276A989928FE328A00AC390F /* SampleEmailLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleEmailLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		276A989C28FE328A00AC390F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +180,15 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		275579D92918B10B00BED415 /* SetMemoChanged */ = {
+			isa = PBXGroup;
+			children = (
+				275579DA2918B11F00BED415 /* SetMemoChangedViewController.swift */,
+				275579DC2918B12C00BED415 /* SetMemoChanged.storyboard */,
+			);
+			path = SetMemoChanged;
+			sourceTree = "<group>";
+		};
 		276A989028FE328A00AC390F = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +210,7 @@
 		276A989B28FE328A00AC390F /* SampleEmailLogin */ = {
 			isa = PBXGroup;
 			children = (
+				275579D92918B10B00BED415 /* SetMemoChanged */,
 				274549DF291638680012B790 /* View */,
 				274DC7CA29135E2000317F42 /* SetMemoCreated */,
 				274DC7C72913526000317F42 /* Model */,
@@ -313,6 +327,7 @@
 				2754DC6228FFC59F00AC029D /* Home.storyboard in Resources */,
 				2750A8582907E01800C3035E /* SetPasswordChanged.storyboard in Resources */,
 				276A98B428FE334E00AC390F /* Login.storyboard in Resources */,
+				275579DD2918B12C00BED415 /* SetMemoChanged.storyboard in Resources */,
 				276A98BB28FE400300AC390F /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				275579DB2918B11F00BED415 /* SetMemoChangedViewController.swift in Sources */,
 				2754DC5328FF7C6F00AC029D /* Router.swift in Sources */,
 				276A98B928FE3FED00AC390F /* RegisterViewController.swift in Sources */,
 				274EA4C22910F9D700CADFE0 /* UIViewController+.swift in Sources */,
