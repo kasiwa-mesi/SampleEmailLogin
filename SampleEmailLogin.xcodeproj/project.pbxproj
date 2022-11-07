@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		274549E929163DDC0012B790 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274549E829163DDC0012B790 /* TableViewCell.swift */; };
 		274549EB29163DE90012B790 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 274549EA29163DE90012B790 /* TableViewCell.xib */; };
+		274D845329174B4F003D6AC3 /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D845229174B4F003D6AC3 /* UITableViewCell+.swift */; };
+		274D845529175955003D6AC3 /* CloudFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D845429175955003D6AC3 /* CloudFirestoreService.swift */; };
 		274DC7C9291352D400317F42 /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274DC7C8291352D400317F42 /* MemoModel.swift */; };
 		274DC7CE29135E5800317F42 /* SetMemoCreated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 274DC7CD29135E5800317F42 /* SetMemoCreated.storyboard */; };
 		274DC7D029135F2900317F42 /* SetMemoCreatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274DC7CF29135F2900317F42 /* SetMemoCreatedViewController.swift */; };
@@ -37,6 +39,8 @@
 		098740C55D332023D5E09C13 /* Pods_SampleEmailLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleEmailLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		274549E829163DDC0012B790 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		274549EA29163DE90012B790 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		274D845229174B4F003D6AC3 /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
+		274D845429175955003D6AC3 /* CloudFirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudFirestoreService.swift; sourceTree = "<group>"; };
 		274DC7C8291352D400317F42 /* MemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoModel.swift; sourceTree = "<group>"; };
 		274DC7CD29135E5800317F42 /* SetMemoCreated.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetMemoCreated.storyboard; sourceTree = "<group>"; };
 		274DC7CF29135F2900317F42 /* SetMemoCreatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMemoCreatedViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				274EA4C12910F9D700CADFE0 /* UIViewController+.swift */,
+				274D845229174B4F003D6AC3 /* UITableViewCell+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				2750D3F22900F0EC00810F87 /* AuthController.swift */,
+				274D845429175955003D6AC3 /* CloudFirestoreService.swift */,
 				275F9BDC290A47D400A34905 /* Validator.swift */,
 			);
 			path = Utility;
@@ -363,12 +369,14 @@
 				2754DC5328FF7C6F00AC029D /* Router.swift in Sources */,
 				276A98B928FE3FED00AC390F /* RegisterViewController.swift in Sources */,
 				274EA4C22910F9D700CADFE0 /* UIViewController+.swift in Sources */,
+				274D845529175955003D6AC3 /* CloudFirestoreService.swift in Sources */,
 				276A98B628FE336200AC390F /* LoginViewController.swift in Sources */,
 				274549E929163DDC0012B790 /* TableViewCell.swift in Sources */,
 				276A989D28FE328A00AC390F /* AppDelegate.swift in Sources */,
 				2750A85A2907E3F900C3035E /* SetEmailChangedViewController.swift in Sources */,
 				275F9BDD290A47D400A34905 /* Validator.swift in Sources */,
 				2750A85C2907E41700C3035E /* SetPasswordChangedViewController.swift in Sources */,
+				274D845329174B4F003D6AC3 /* UITableViewCell+.swift in Sources */,
 				274DC7C9291352D400317F42 /* MemoModel.swift in Sources */,
 				2750D3F32900F0EC00810F87 /* AuthController.swift in Sources */,
 				2754DC5F28FFC58700AC029D /* HomeViewController.swift in Sources */,

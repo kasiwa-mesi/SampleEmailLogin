@@ -6,18 +6,21 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
 struct MemoModel: Codable {
-  var id: String
+  @DocumentID var id: String?
   var text: String
-  var imageURLStr: String
+  var userId: String
   var createdAt: Date
+  var imageURLStr: String
 
   enum CodingKeys: String, CodingKey {
-    case id = "id"
-    case text = "text"
-    case imageURLStr = "imageURLStr"
-    case createdAt = "createdAt"
+    case id
+    case text
+    case userId
+    case createdAt
+    case imageURLStr = "imageURL"
   }
   var imageURL: URL? { URL.init(string: imageURLStr) }
 }
