@@ -18,7 +18,6 @@ final class SetEmailChangedViewController: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

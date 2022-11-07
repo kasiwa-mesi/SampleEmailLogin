@@ -8,6 +8,7 @@
 import UIKit
 
 final class SetMemoChangedViewController: UIViewController {
+    var deleteButtonItem: UIBarButtonItem!
     
     @IBOutlet weak var memoFieldTextView: UITextView! {
         didSet {
@@ -24,6 +25,8 @@ final class SetMemoChangedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        deleteButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(tapDeleteButton))
+        self.navigationItem.rightBarButtonItem = deleteButtonItem
     }
     
     static func makeFromStoryboard(memo: MemoModel) -> SetMemoChangedViewController {
@@ -58,5 +61,9 @@ private extension SetMemoChangedViewController {
                 Router.shared.showReStart()
             }
         }
+    }
+    
+    @objc func tapDeleteButton() {
+        print("メモを削除")
     }
 }
