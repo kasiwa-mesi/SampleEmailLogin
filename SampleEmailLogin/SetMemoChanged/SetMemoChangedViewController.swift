@@ -40,6 +40,18 @@ final class SetMemoChangedViewController: UIViewController {
 
 private extension SetMemoChangedViewController {
     @objc func tapSetMemoChangedButton() {
-        print("メモを更新する")
+        let memo = MemoModel(id: memo.id, text: memoFieldTextView.text, userId: memo.userId, createdAt: memo.createdAt, imageURLStr: memo.imageURLStr)
+        
+        if let validationAlertMessage = Validator(email: nil, password: nil, reconfirmPassword: nil, memoText: memo.text)?.alertMessage {
+            let gotItAction = UIAlertAction(title: "了解しました", style: .default)
+            showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
+        } else {
+            print("更新するメモ: \(memo)")
+            CloudFirestoreService.shared.updateMemo(memo: memo) { (isUpdated) in
+                if isUpdated {
+                    Router.shared.showReStart()
+                }
+            }
+        }
     }
 }
