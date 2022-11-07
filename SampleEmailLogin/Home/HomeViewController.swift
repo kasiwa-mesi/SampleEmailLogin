@@ -110,7 +110,7 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("cellをクリック")
         print(indexPath.item)
-        Router.shared.showSetMemoChanged(from: self)
+        Router.shared.showSetMemoChanged(from: self, memo: memos[indexPath.item])
     }
 }
 

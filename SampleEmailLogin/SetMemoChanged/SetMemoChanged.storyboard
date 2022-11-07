@@ -51,6 +51,9 @@
                             <constraint firstItem="DUo-95-uOW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="fFh-hc-9lk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="memoFieldTextView" destination="cQn-o4-sYI" id="MZK-eR-xYB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

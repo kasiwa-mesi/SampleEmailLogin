@@ -65,8 +65,8 @@ final class Router {
         show(from: from, next: vc)
     }
     
-    func showSetMemoChanged(from: UIViewController) {
-        let vc = SetMemoChangedViewController.makeFromStoryboard()
+    func showSetMemoChanged(from: UIViewController, memo: MemoModel) {
+        let vc = SetMemoChangedViewController.makeFromStoryboard(memo: memo)
         show(from: from, next: vc)
     }
 }
