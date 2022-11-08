@@ -26,14 +26,27 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cYU-Bs-3zR">
-                                        <rect key="frame" x="0.0" y="45" width="382" height="646.5"/>
+                                        <rect key="frame" x="0.0" y="45" width="382" height="280"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="280" id="d6A-GZ-SI5"/>
+                                        </constraints>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7ui-EV-rtI">
+                                        <rect key="frame" x="0.0" y="341" width="382" height="159"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1c-79-NSP">
+                                        <rect key="frame" x="0.0" y="516" width="382" height="243"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="photo" catalog="system" title="画像をライブラリから選択">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                                        </buttonConfiguration>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5v-zb-bN0">
-                                        <rect key="frame" x="0.0" y="707.5" width="382" height="110.5"/>
+                                        <rect key="frame" x="0.0" y="775" width="382" height="43"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="作成">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
@@ -53,6 +66,8 @@
                     </view>
                     <connections>
                         <outlet property="memoFieldTextView" destination="cYU-Bs-3zR" id="Ugp-yE-c7t"/>
+                        <outlet property="memoImageView" destination="7ui-EV-rtI" id="Urx-uE-2Ko"/>
+                        <outlet property="selectImageButton" destination="u1c-79-NSP" id="lEv-Ka-bwo"/>
                         <outlet property="submitButton" destination="Q5v-zb-bN0" id="Q4R-7s-z1w"/>
                     </connections>
                 </viewController>
@@ -62,6 +77,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="photo" catalog="system" width="128" height="93"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

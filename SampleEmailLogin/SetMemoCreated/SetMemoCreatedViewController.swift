@@ -11,7 +11,14 @@ import FirebaseCore
 import FirebaseFirestore
 
 final class SetMemoCreatedViewController: UIViewController {
+    let imagePickerController = UIImagePickerController()
     
+    @IBOutlet weak var memoImageView: UIImageView!
+    @IBOutlet weak var selectImageButton: UIButton! {
+        didSet {
+            selectImageButton.addTarget(self, action: #selector(tapSelectButton), for: .touchUpInside)
+        }
+    }
     @IBOutlet weak var submitButton: UIButton! {
         didSet {
             submitButton.addTarget(self, action: #selector(tapSubmitButton), for: .touchUpInside)
@@ -58,5 +65,29 @@ private extension SetMemoCreatedViewController {
                 }
             }
         }
+    }
+}
+
+extension SetMemoCreatedViewController: UIImagePickerControllerDelegate {
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            guard let image = info[.originalImage] as? UIImage else {
+                return
+            }
+            let mediaType = info[.mediaType] as? String
+            print("画像を選択する")
+            print(image)
+            print(mediaType)
+            imagePickerController.dismiss(animated: true)
+            self.memoImageView.image = image
+        }
+}
+
+extension SetMemoCreatedViewController: UINavigationControllerDelegate {
+    @objc func tapSelectButton() {
+        print("端末のライブラリから画像を選ぶ")
+        self.imagePickerController.mediaTypes = ["public.image"]
+        self.imagePickerController.sourceType = .photoLibrary
+        self.imagePickerController.delegate = self
+        self.present(self.imagePickerController, animated: true, completion: nil)
     }
 }
