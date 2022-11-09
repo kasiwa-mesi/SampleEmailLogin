@@ -56,7 +56,15 @@ private extension SetMemoCreatedViewController {
             fatalError()
         }
         
-        guard let url = self.imageURL?.absoluteString else {
+        var imageURL: String?
+        
+        if self.imageURL != nil {
+            imageURL = self.imageURL?.absoluteString
+        } else {
+            imageURL = ""
+        }
+        
+        guard let url = imageURL else {
             fatalError()
         }
         
