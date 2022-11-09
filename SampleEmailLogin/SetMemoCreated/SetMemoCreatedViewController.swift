@@ -13,6 +13,7 @@ import FirebaseFirestore
 final class SetMemoCreatedViewController: UIViewController {
     let imagePickerController = UIImagePickerController()
     
+    var imageURL: URL?
     @IBOutlet weak var memoImageView: UIImageView!
     @IBOutlet weak var selectImageButton: UIButton! {
         didSet {
@@ -54,12 +55,16 @@ private extension SetMemoCreatedViewController {
         guard let userId = AuthController.shared.getCurrentUserId() else {
             fatalError()
         }
-        let db = Firestore.firestore()
+        
+        guard let url = self.imageURL?.absoluteString else {
+            fatalError()
+        }
+        
         if let validationAlertMessage = Validator(email: nil, password: nil, reconfirmPassword: nil, memoText: text)?.alertMessage {
             let gotItAction = UIAlertAction(title: "了解しました", style: .default)
             showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
         } else {
-            CloudFirestoreService.shared.addMemo(text: text, userId: userId, imageURL: "") { isCreated in
+            CloudFirestoreService.shared.addMemo(text: text, userId: userId, imageURL: url) { isCreated in
                 if isCreated {
                     Router.shared.showReStart()
                 }
@@ -79,6 +84,26 @@ extension SetMemoCreatedViewController: UIImagePickerControllerDelegate {
             print(mediaType)
             imagePickerController.dismiss(animated: true)
             self.memoImageView.image = image
+            
+            guard let userId = AuthController.shared.getCurrentUserId() else {
+                fatalError()
+            }
+        
+            guard let data = self.memoImageView.image?.pngData() else {
+                fatalError()
+            }
+                        
+            FirebaseStorageService.shared.uploadMemoImage(userId: userId, imageData: data) { isUploaded, imageRef in
+                if isUploaded {
+                    FirebaseStorageService.shared.downloadImage(imageRef: imageRef) { url in
+                        self.imageURL = url
+                        print(self.imageURL)
+                    }
+                }
+            }
+//            self.imageURL = downloadURL
+//            print("帰ってきたURLを確認")
+//            print(self.imageURL)
         }
 }
 
