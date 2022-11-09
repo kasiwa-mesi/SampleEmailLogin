@@ -37,13 +37,17 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard let userId = AuthController.shared.getCurrentUserId() else {
+            fatalError()
+        }
+        
         moveSetMemoCreatedButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tapMoveSetMemoCreated))
         signOutButtonItem = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: #selector(tapSignOutButton))
         
         self.navigationItem.rightBarButtonItem = moveSetMemoCreatedButtonItem
         self.navigationItem.leftBarButtonItem = signOutButtonItem
         
-        let userId = AuthController.shared.getCurrentUserId()
+        //let userId = AuthController.shared.getCurrentUserId()
         CloudFirestoreService.shared.getCollection(userId: userId) { (memos) in
             print("メモ: \(memos)")
             self.memos = memos

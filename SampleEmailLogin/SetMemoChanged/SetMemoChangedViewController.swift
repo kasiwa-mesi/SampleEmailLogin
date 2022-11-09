@@ -10,6 +10,12 @@ import UIKit
 final class SetMemoChangedViewController: UIViewController {
     var deleteButtonItem: UIBarButtonItem!
     
+    @IBOutlet weak var memoImageView: UIImageView! {
+        didSet {
+            print(memo.imageURL)
+        }
+    }
+    
     @IBOutlet weak var memoFieldTextView: UITextView! {
         didSet {
             memoFieldTextView.placeholder = "メモを入力してください"
