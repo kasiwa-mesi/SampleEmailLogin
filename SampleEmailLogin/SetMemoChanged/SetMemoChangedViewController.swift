@@ -15,6 +15,7 @@ final class SetMemoChangedViewController: UIViewController {
         didSet {
             print(memo.imageURL)
             let url = URL(string: memo.imageURLStr)
+            memoImageView.kf.indicatorType = .activity
             memoImageView.kf.setImage(with: url)
         }
     }
