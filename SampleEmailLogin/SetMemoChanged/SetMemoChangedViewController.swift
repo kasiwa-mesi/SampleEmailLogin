@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class SetMemoChangedViewController: UIViewController {
     var deleteButtonItem: UIBarButtonItem!
@@ -13,6 +14,8 @@ final class SetMemoChangedViewController: UIViewController {
     @IBOutlet weak var memoImageView: UIImageView! {
         didSet {
             print(memo.imageURL)
+            let url = URL(string: memo.imageURLStr)
+            memoImageView.kf.setImage(with: url)
         }
     }
     

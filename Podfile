@@ -14,4 +14,5 @@ target 'SampleEmailLogin' do
   pod 'IQKeyboardManagerSwift'
   pod 'UITextView+Placeholder'
   pod 'SwiftDate'
+  pod "Kingfisher"
 end
