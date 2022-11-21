@@ -784,7 +784,18 @@ PODS:
     - nanopb/encode (= 2.30909.0)
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
+  - "NSObject+Rx (5.2.2)":
+    - RxSwift (~> 6.2)
   - PromisesObjC (2.1.1)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxOptional (5.0.2):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
   - SwiftDate (7.0.0)
   - "UITextView+Placeholder (1.4.0)"
 
@@ -796,6 +807,10 @@ DEPENDENCIES:
   - FirebaseFirestoreSwift
   - IQKeyboardManagerSwift
   - Kingfisher
+  - "NSObject+Rx"
+  - RxCocoa
+  - RxOptional
+  - RxSwift
   - SwiftDate
   - "UITextView+Placeholder"
 
@@ -828,7 +843,12 @@ SPEC REPOS:
     - leveldb-library
     - Libuv-gRPC
     - nanopb
+    - "NSObject+Rx"
     - PromisesObjC
+    - RxCocoa
+    - RxOptional
+    - RxRelay
+    - RxSwift
     - SwiftDate
     - "UITextView+Placeholder"
 
@@ -860,10 +880,15 @@ SPEC CHECKSUMS:
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
+  "NSObject+Rx": 61cf1f7306a73dcef8b36649198af0813ec18dfd
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxOptional: 3664964c96b69dd20c9cf78bdfe546615e26eca8
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SwiftDate: bbc26e26fc8c0c33fbee8c140c5e8a68293a148a
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
 
-PODFILE CHECKSUM: 8367e0d3302699aedea3f98daba4b8a23d6ef14e
+PODFILE CHECKSUM: 2cb4e3b53ec8d307f870b8ae8239cabc86efe99f
 
 COCOAPODS: 1.11.3

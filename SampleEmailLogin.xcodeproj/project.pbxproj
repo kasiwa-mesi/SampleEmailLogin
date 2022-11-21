@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		273DEC492928A73D009674AC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273DEC482928A73D009674AC /* HomeViewModel.swift */; };
 		274549E929163DDC0012B790 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274549E829163DDC0012B790 /* TableViewCell.swift */; };
 		274549EB29163DE90012B790 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 274549EA29163DE90012B790 /* TableViewCell.xib */; };
 		274D845329174B4F003D6AC3 /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D845229174B4F003D6AC3 /* UITableViewCell+.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		098740C55D332023D5E09C13 /* Pods_SampleEmailLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleEmailLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		273DEC482928A73D009674AC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		274549E829163DDC0012B790 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		274549EA29163DE90012B790 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		274D845229174B4F003D6AC3 /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
@@ -92,6 +94,22 @@
 				098740C55D332023D5E09C13 /* Pods_SampleEmailLogin.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		273DEC462928A62C009674AC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2754DC5E28FFC58700AC029D /* HomeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		273DEC472928A635009674AC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				273DEC482928A73D009674AC /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		274549DF291638680012B790 /* View */ = {
@@ -177,7 +195,8 @@
 		2754DC5D28FFC57900AC029D /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				2754DC5E28FFC58700AC029D /* HomeViewController.swift */,
+				273DEC472928A635009674AC /* ViewModel */,
+				273DEC462928A62C009674AC /* ViewController */,
 				2754DC6128FFC59F00AC029D /* Home.storyboard */,
 			);
 			path = Home;
@@ -385,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				275579DB2918B11F00BED415 /* SetMemoChangedViewController.swift in Sources */,
+				273DEC492928A73D009674AC /* HomeViewModel.swift in Sources */,
 				2754DC5328FF7C6F00AC029D /* Router.swift in Sources */,
 				276A98B928FE3FED00AC390F /* RegisterViewController.swift in Sources */,
 				274EA4C22910F9D700CADFE0 /* UIViewController+.swift in Sources */,
