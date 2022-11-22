@@ -30,6 +30,7 @@
 		275579DD2918B12C00BED415 /* SetMemoChanged.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275579DC2918B12C00BED415 /* SetMemoChanged.storyboard */; };
 		275DEC50292C617F00B3A7B1 /* SetMemoChangedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275DEC4F292C617F00B3A7B1 /* SetMemoChangedViewModel.swift */; };
 		275DEC55292C873400B3A7B1 /* SetMemoCreatedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275DEC54292C873400B3A7B1 /* SetMemoCreatedViewModel.swift */; };
+		275DEC59292C9E7300B3A7B1 /* SetEmailChangedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275DEC58292C9E7300B3A7B1 /* SetEmailChangedViewModel.swift */; };
 		275F9BDD290A47D400A34905 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F9BDC290A47D400A34905 /* Validator.swift */; };
 		276A989D28FE328A00AC390F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276A989C28FE328A00AC390F /* AppDelegate.swift */; };
 		276A98A628FE328B00AC390F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 276A98A528FE328B00AC390F /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		275579DC2918B12C00BED415 /* SetMemoChanged.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetMemoChanged.storyboard; sourceTree = "<group>"; };
 		275DEC4F292C617F00B3A7B1 /* SetMemoChangedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMemoChangedViewModel.swift; sourceTree = "<group>"; };
 		275DEC54292C873400B3A7B1 /* SetMemoCreatedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMemoCreatedViewModel.swift; sourceTree = "<group>"; };
+		275DEC58292C9E7300B3A7B1 /* SetEmailChangedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetEmailChangedViewModel.swift; sourceTree = "<group>"; };
 		275F9BDC290A47D400A34905 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		276A989928FE328A00AC390F /* SampleEmailLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleEmailLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		276A989C28FE328A00AC390F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -163,8 +165,9 @@
 		2750A84F2907D65100C3035E /* SetEmailChanged */ = {
 			isa = PBXGroup;
 			children = (
+				275DEC57292C9E5300B3A7B1 /* ViewController */,
+				275DEC56292C9E4C00B3A7B1 /* ViewModel */,
 				2750A8532907DFF000C3035E /* SetEmailChanged.storyboard */,
-				2750A8592907E3F900C3035E /* SetEmailChangedViewController.swift */,
 			);
 			path = SetEmailChanged;
 			sourceTree = "<group>";
@@ -247,6 +250,22 @@
 				275DEC54292C873400B3A7B1 /* SetMemoCreatedViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		275DEC56292C9E4C00B3A7B1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				275DEC58292C9E7300B3A7B1 /* SetEmailChangedViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		275DEC57292C9E5300B3A7B1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2750A8592907E3F900C3035E /* SetEmailChangedViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		276A989028FE328A00AC390F = {
@@ -456,6 +475,7 @@
 				2750A85A2907E3F900C3035E /* SetEmailChangedViewController.swift in Sources */,
 				275F9BDD290A47D400A34905 /* Validator.swift in Sources */,
 				2750A85C2907E41700C3035E /* SetPasswordChangedViewController.swift in Sources */,
+				275DEC59292C9E7300B3A7B1 /* SetEmailChangedViewModel.swift in Sources */,
 				274D845329174B4F003D6AC3 /* UITableViewCell+.swift in Sources */,
 				274DC7C9291352D400317F42 /* MemoModel.swift in Sources */,
 				2750D3F32900F0EC00810F87 /* AuthController.swift in Sources */,
