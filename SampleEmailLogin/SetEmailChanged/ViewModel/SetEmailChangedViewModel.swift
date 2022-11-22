@@ -7,8 +7,21 @@
 
 import UIKit
 
-final class SetEmailChangedViewModel {
-    func updateEmail(email: String, newEmail: String, password: String, vc: UIViewController) {
+protocol SetEmailChangedViewModelOutput {
+    var email: String { get }
+}
+
+final class SetEmailChangedViewModel: SetEmailChangedViewModelOutput {
+    private(set) var email: String
+    
+    init() {
+        guard let email = AuthController.shared.getCurrentUser()?.email else {
+            fatalError()
+        }
+        self.email = email
+    }
+    
+    func updateEmail(newEmail: String, password: String, vc: UIViewController) {
         // バリデーションを走らせる
         if let validationAlertMessage = Validator(email: newEmail, password: nil, reconfirmPassword: nil, memoText: nil)?.alertMessage {
             let gotItAction = UIAlertAction(title: "了解しました", style: .default)
