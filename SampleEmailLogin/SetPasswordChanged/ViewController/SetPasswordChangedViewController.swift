@@ -8,20 +8,19 @@
 import UIKit
 
 final class SetPasswordChangedViewController: UIViewController {
-    
-    @IBOutlet weak var userEmailLabel: UILabel!
-        
-    @IBOutlet weak var setPasswordChangedButton: UIButton! {
+    @IBOutlet private weak var userEmailLabel: UILabel!
+    @IBOutlet private weak var setPasswordChangedButton: UIButton! {
         didSet {
             setPasswordChangedButton.addTarget(self, action: #selector(tapPasswordChangeButton), for: .touchUpInside)
         }
     }
     
+    private var viewModel: SetPasswordChangedViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let email = AuthController.shared.getCurrentUser()?.email {
-            userEmailLabel.text = "\(email)宛にパスワード再設定用のリンクを送信致しました"
-        }
+        viewModel = SetPasswordChangedViewModel()
+        userEmailLabel.text = "\(viewModel.email)宛にパスワード再設定用のリンクを送信します"
     }
     
     static func makeFromStoryboard() -> SetPasswordChangedViewController {
@@ -34,17 +33,6 @@ final class SetPasswordChangedViewController: UIViewController {
 
 private extension SetPasswordChangedViewController {
     @objc func tapPasswordChangeButton() {
-        print("Passwordを変更する")
-        guard let email = AuthController.shared.getCurrentUser()?.email else {
-            fatalError()
-        }
-        
-        print(email)
-        
-        AuthController.shared.sendPasswordReset(email: email) { (onSubmitted) in
-            if onSubmitted {
-                Router.shared.showReStart()
-            }
-        }
+        viewModel.passwordReset()
     }
 }
