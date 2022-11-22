@@ -93,7 +93,7 @@ private extension HomeViewController {
     
     @objc func tapSignOutButton() {
         print("ログアウト")
-        AuthController.shared.signOut()
+        FirebaseAuthService.shared.signOut()
     }
     
     @objc func tapMoveSetEmailChanged() {

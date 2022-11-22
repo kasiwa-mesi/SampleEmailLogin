@@ -15,14 +15,14 @@ final class SetPasswordChangedViewModel: SetPasswordChangedViewModelOutput {
     private(set) var email: String
     
     init() {
-        guard let email = AuthController.shared.getCurrentUser()?.email else {
+        guard let email = FirebaseAuthService.shared.getCurrentUser()?.email else {
             fatalError()
         }
         self.email = email
     }
     
     func passwordReset() {
-        AuthController.shared.sendPasswordReset(email: self.email) { (onSubmitted) in
+        FirebaseAuthService.shared.sendPasswordReset(email: self.email) { (onSubmitted) in
             if onSubmitted {
                 Router.shared.showReStart()
             }

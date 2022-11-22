@@ -47,7 +47,7 @@ private extension LoginViewController {
             let gotItAction = UIAlertAction(title: "了解しました", style: .default)
             showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
         } else {
-            AuthController.shared.signIn(email: email, password: password) { (isEmailVerified) in
+            FirebaseAuthService.shared.signIn(email: email, password: password) { (isEmailVerified) in
                 if isEmailVerified {
                     print("メールアドレス確認済み")
                     Router.shared.showHome(from: self)
