@@ -28,6 +28,7 @@
 		2754DC6228FFC59F00AC029D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2754DC6128FFC59F00AC029D /* Home.storyboard */; };
 		275579DB2918B11F00BED415 /* SetMemoChangedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275579DA2918B11F00BED415 /* SetMemoChangedViewController.swift */; };
 		275579DD2918B12C00BED415 /* SetMemoChanged.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275579DC2918B12C00BED415 /* SetMemoChanged.storyboard */; };
+		275DEC50292C617F00B3A7B1 /* SetMemoChangedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275DEC4F292C617F00B3A7B1 /* SetMemoChangedViewModel.swift */; };
 		275F9BDD290A47D400A34905 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F9BDC290A47D400A34905 /* Validator.swift */; };
 		276A989D28FE328A00AC390F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276A989C28FE328A00AC390F /* AppDelegate.swift */; };
 		276A98A628FE328B00AC390F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 276A98A528FE328B00AC390F /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		2754DC6128FFC59F00AC029D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		275579DA2918B11F00BED415 /* SetMemoChangedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMemoChangedViewController.swift; sourceTree = "<group>"; };
 		275579DC2918B12C00BED415 /* SetMemoChanged.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetMemoChanged.storyboard; sourceTree = "<group>"; };
+		275DEC4F292C617F00B3A7B1 /* SetMemoChangedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMemoChangedViewModel.swift; sourceTree = "<group>"; };
 		275F9BDC290A47D400A34905 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		276A989928FE328A00AC390F /* SampleEmailLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleEmailLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		276A989C28FE328A00AC390F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -205,10 +207,27 @@
 		275579D92918B10B00BED415 /* SetMemoChanged */ = {
 			isa = PBXGroup;
 			children = (
-				275579DA2918B11F00BED415 /* SetMemoChangedViewController.swift */,
+				275DEC4E292C613A00B3A7B1 /* ViewController */,
+				275DEC4D292C612F00B3A7B1 /* ViewModel */,
 				275579DC2918B12C00BED415 /* SetMemoChanged.storyboard */,
 			);
 			path = SetMemoChanged;
+			sourceTree = "<group>";
+		};
+		275DEC4D292C612F00B3A7B1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				275DEC4F292C617F00B3A7B1 /* SetMemoChangedViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		275DEC4E292C613A00B3A7B1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				275579DA2918B11F00BED415 /* SetMemoChangedViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		276A989028FE328A00AC390F = {
@@ -405,6 +424,7 @@
 			files = (
 				275579DB2918B11F00BED415 /* SetMemoChangedViewController.swift in Sources */,
 				273DEC492928A73D009674AC /* HomeViewModel.swift in Sources */,
+				275DEC50292C617F00B3A7B1 /* SetMemoChangedViewModel.swift in Sources */,
 				2754DC5328FF7C6F00AC029D /* Router.swift in Sources */,
 				276A98B928FE3FED00AC390F /* RegisterViewController.swift in Sources */,
 				274EA4C22910F9D700CADFE0 /* UIViewController+.swift in Sources */,
