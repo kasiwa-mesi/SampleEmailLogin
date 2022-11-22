@@ -5,16 +5,13 @@
 //  Created by kasiwa on 2022/11/22.
 //
 
-import Foundation
-import RxSwift
-import RxCocoa
-import NSObject_Rx
+import UIKit
 
 protocol SetMemoChangedViewModelOutput {
     var memo: MemoModel { get }
 }
 
-final class SetMemoChangedViewModel: SetMemoChangedViewModelOutput, HasDisposeBag {
+final class SetMemoChangedViewModel: SetMemoChangedViewModelOutput {
     private(set) var memo: MemoModel
     
     init(memo: MemoModel) {
