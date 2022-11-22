@@ -14,7 +14,7 @@ final class Router {
     private var window: UIWindow?
 
     func showRoot(window: UIWindow?) {
-        AuthController.shared.isLogined { (hasAuthentication) in
+        FirebaseAuthService.shared.isLogined { (hasAuthentication) in
             if hasAuthentication {
                 //ログインしている場合、Home画面へ飛ばす
                 print("HOMEへ")

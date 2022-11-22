@@ -65,10 +65,10 @@ private extension RegisterViewController {
             let gotItAction = UIAlertAction(title: "了解しました", style: .default)
             showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
         } else {
-            AuthController.shared.createUser(email: email, password: password) { (userExists) in
+            FirebaseAuthService.shared.createUser(email: email, password: password) { (userExists) in
                 if userExists {
-                    AuthController.shared.setLanguageCode(code: "ja_JP")
-                    AuthController.shared.sendEmailVerification { (onSubmitted) in
+                    FirebaseAuthService.shared.setLanguageCode(code: "ja_JP")
+                    FirebaseAuthService.shared.sendEmailVerification { (onSubmitted) in
                         if onSubmitted {
                             print("メールが送信できました！")
                             Router.shared.showLogin(from: self)

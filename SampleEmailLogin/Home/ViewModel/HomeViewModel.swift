@@ -40,7 +40,7 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
     
     //自分のメモを全て取得する
     func fetchMemos(completion: @escaping (Bool) -> Void) {
-        guard let userId = AuthController.shared.getCurrentUserId() else {
+        guard let userId = FirebaseAuthService.shared.getCurrentUserId() else {
             fatalError()
         }
         
