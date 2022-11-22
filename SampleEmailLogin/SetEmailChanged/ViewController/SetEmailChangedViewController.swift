@@ -33,10 +33,6 @@ final class SetEmailChangedViewController: UIViewController {
 
 private extension SetEmailChangedViewController {
     @objc func tapEmailChangeButton() {
-        guard let email = AuthController.shared.getCurrentUser()?.email else {
-            fatalError()
-        }
-        
         guard let newEmail = emailTextField.text else {
             fatalError()
         }
@@ -45,6 +41,6 @@ private extension SetEmailChangedViewController {
             fatalError()
         }
         
-        viewModel.updateEmail(email: email, newEmail: newEmail, password: password, vc: self)
+        viewModel.updateEmail(newEmail: newEmail, password: password, vc: self)
     }
 }
