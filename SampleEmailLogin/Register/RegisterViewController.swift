@@ -47,7 +47,6 @@ private extension RegisterViewController {
     
     @objc func tapRegisterButton() {
         //会員登録処理を行う
-        print("会員登録する")
         // ログイン処理を走らせる前に、email, passwordのアンラップを先に行う
         guard let email = emailTextField.text else {
             fatalError()

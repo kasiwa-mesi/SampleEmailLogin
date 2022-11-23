@@ -42,7 +42,6 @@ final class FirebaseAuthService {
     func createUser(email: String, password: String, completionHandler: @escaping (Bool) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let user = authResult?.user {
-                print(user)
                 completionHandler(true)
             } else {
                 print(error)
@@ -89,7 +88,6 @@ final class FirebaseAuthService {
             if error == nil {
                 completionHandler(true)
             } else {
-                print("パスワード再設定できません")
                 completionHandler(false)
             }
         }
@@ -101,7 +99,6 @@ final class FirebaseAuthService {
             if error == nil {
                 completionHandler(true)
             } else {
-                print("メールアドレス更新できません")
                 print(error)
                 completionHandler(false)
             }
@@ -115,7 +112,6 @@ final class FirebaseAuthService {
                 print(error)
                 completionHandler(false)
             } else {
-                print("再認証成功")
                 completionHandler(true)
             }
         }

@@ -46,13 +46,6 @@ final class HomeViewController: UIViewController {
         
         self.navigationItem.rightBarButtonItem = moveSetMemoCreatedButtonItem
         self.navigationItem.leftBarButtonItem = signOutButtonItem
-        
-        //        if Auth.auth().currentUser?.isEmailVerified {
-        //            isEmailAuthenticatedLabel.text = ""
-        //        } else {
-        //            isEmailAuthenticatedLabel.text = "まだ、メール認証されていません。メール受信リストを確認してください"
-        //        }
-        
     }
     
     static func makeFromStoryboard() -> HomeViewController {
@@ -88,7 +81,6 @@ private extension HomeViewController {
         }
         
         viewModel.loadingObservable
-            .debug()
             .bind(to: Binder(self) { vc, loading in
                 vc.tableView.isHidden = loading
                 vc.indicator.isHidden = !loading
@@ -104,26 +96,15 @@ private extension HomeViewController {
     }
     
     @objc func tapMoveSetEmailChanged() {
-        print("メールアドレス変更へ遷移")
         Router.shared.showSetEmailChanged(from: self)
     }
     
     @objc func tapMoveSetPasswordChanged() {
-        print("パスワード再設定へ移動")
         Router.shared.showSetPasswordChanged(from: self)
     }
     
     @objc func tapMoveSetMemoCreated() {
-        print("メモ新規作成へ移動")
         Router.shared.showSetMemoCreated(from: self)
-    }
-    
-    @objc func addButtonPressed(_ sender: UIBarButtonItem) {
-        print("追加ボタンが押されました")
-    }
-    
-    @objc func deleteButtonPressed(_ sender: UIBarButtonItem) {
-        print("削除ボタンが押されました")
     }
 }
 

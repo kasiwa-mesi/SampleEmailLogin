@@ -23,7 +23,6 @@ final class SetMemoChangedViewModel: SetMemoChangedViewModelOutput {
             let gotItAction = UIAlertAction(title: "了解しました", style: .default)
             vc.showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
         } else {
-            print("更新するメモ: \(memo)")
             if self.memo.text != memo.text {
                 CloudFirestoreService.shared.updateMemo(memo: memo) { (isUpdated) in
                     if isUpdated {
@@ -31,7 +30,6 @@ final class SetMemoChangedViewModel: SetMemoChangedViewModelOutput {
                     }
                 }
             } else {
-                print("変更点がないため、更新処理を走らせない")
                 Router.shared.showReStart()
             }
         }

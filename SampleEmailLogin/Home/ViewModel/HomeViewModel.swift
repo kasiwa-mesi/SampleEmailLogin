@@ -47,7 +47,7 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
         self.email = email
 
         input.didSelectObservable
-            .filter { $0 < self.memos.count - 1 }
+            .filter { $0 < self.memos.count }
             .map { self.memos[$0] }
             .bind(to: _selectMemoModel).disposed(by: disposeBag)
     }
@@ -82,7 +82,6 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
     }
     
     func logOut() {
-        print("ログアウト")
         FirebaseAuthService.shared.signOut()
     }
 }

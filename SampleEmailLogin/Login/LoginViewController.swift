@@ -33,7 +33,6 @@ final class LoginViewController: UIViewController {
 private extension LoginViewController {
     @objc func tapLoginButton() {
         //ログイン処理を行う
-        print("ログイン")
         
         guard let email = emailTextField.text else {
             fatalError()

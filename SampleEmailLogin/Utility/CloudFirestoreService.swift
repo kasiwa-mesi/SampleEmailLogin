@@ -16,11 +16,9 @@ final class CloudFirestoreService {
     private var db = Firestore.firestore()
     
     func getCollection(userId: String?, completion: @escaping ([MemoModel]) -> Void) {
-        print("自分のメモを取得する")
         var memos: [MemoModel] = []
         db.collection("memos").whereField("userId", isEqualTo: userId).getDocuments { (snapshot, error) in
             guard let documents = snapshot?.documents else {
-                print("documentsが存在しません")
                 return
             }
             
@@ -43,7 +41,6 @@ final class CloudFirestoreService {
                 print("Error adding document: \(err)")
                 completion(false)
             } else {
-                print("メモを無事保存できました！")
                 completion(true)
             }
         }
@@ -61,7 +58,6 @@ final class CloudFirestoreService {
                 print("アップデートする際にエラー発生")
                 completion(false)
             } else {
-                print("無事アップデートできました")
                 completion(true)
             }
         }
