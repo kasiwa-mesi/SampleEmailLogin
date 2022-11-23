@@ -51,16 +51,8 @@ final class FirebaseAuthService {
         }
     }
     
-    func signIn(email: String, password: String, completionHandler: @escaping (Bool) -> Void) {
-        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-            if let user = authResult?.user {
-                if user.isEmailVerified {
-                    completionHandler(true)
-                } else {
-                    completionHandler(false)
-                }
-            }
-        }
+    func signIn(email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password)
     }
     
     func signOut() {
