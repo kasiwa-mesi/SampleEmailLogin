@@ -67,6 +67,14 @@ private extension HomeViewController {
     func setupViewModel() {
         viewModel = HomeViewModel(input: self)
         
+        if !viewModel.isEmailVerified() {
+            let tapLogoutAction = UIAlertAction(title: "了解しました", style: .default) { _ in
+                self.viewModel.sendEmailVerification()
+                self.viewModel.logOut()
+            }
+            self.showAlert(title: "メールアドレスが確認されていません", message: "\(viewModel.email)宛に認証リンクを送信したので、ご確認ください", actions: [tapLogoutAction])
+        }
+        
         viewModel.fetchMemos { (memosExist) in
             if memosExist {
                 self.cautionLabel.isHidden = true
@@ -92,8 +100,7 @@ private extension HomeViewController {
     }
     
     @objc func tapSignOutButton() {
-        print("ログアウト")
-        FirebaseAuthService.shared.signOut()
+        viewModel.logOut()
     }
     
     @objc func tapMoveSetEmailChanged() {

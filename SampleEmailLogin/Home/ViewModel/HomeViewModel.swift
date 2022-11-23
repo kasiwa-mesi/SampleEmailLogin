@@ -18,6 +18,8 @@ protocol HomeViewModelOutput {
     var loadingObservable: Observable<Bool> { get }
     var selectMemoModelObservable: Observable<MemoModel> { get }
     var memos: [MemoModel] { get }
+    var userId: String { get }
+    var email: String { get }
 }
 
 final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
@@ -29,22 +31,30 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
     
     //最後に取得したデータ
     private(set) var memos: [MemoModel] = []
+    private(set) var userId: String
+    private(set) var email: String
     
     init(input: HomeViewModelInput) {
+        guard let userId = FirebaseAuthService.shared.getCurrentUserId() else {
+            fatalError()
+        }
+        
+        guard let email = FirebaseAuthService.shared.getCurrentUser()?.email else {
+            fatalError()
+        }
+        
+        self.userId = userId
+        self.email = email
+
         input.didSelectObservable
             .filter { $0 < self.memos.count - 1 }
             .map { self.memos[$0] }
             .bind(to: _selectMemoModel).disposed(by: disposeBag)
     }
     
-    
     //自分のメモを全て取得する
     func fetchMemos(completion: @escaping (Bool) -> Void) {
-        guard let userId = FirebaseAuthService.shared.getCurrentUserId() else {
-            fatalError()
-        }
-        
-        CloudFirestoreService.shared.getCollection(userId: userId) { (memos) in
+        CloudFirestoreService.shared.getCollection(userId: self.userId) { (memos) in
             if memos.isEmpty {
                 completion(false)
             } else {
@@ -53,5 +63,26 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
                 completion(true)
             }
         }
+    }
+    
+    func isEmailVerified() -> Bool {
+        guard let isEmailVerified = FirebaseAuthService.shared.getIsEmailVerified() else {
+            fatalError()
+        }
+        return isEmailVerified
+    }
+    
+    func sendEmailVerification() {
+        FirebaseAuthService.shared.setLanguageCode(code: "ja_JP")
+        FirebaseAuthService.shared.sendEmailVerification { (onSubmitted) in
+            if onSubmitted {
+                print("メールが送信できました！")
+            }
+        }
+    }
+    
+    func logOut() {
+        print("ログアウト")
+        FirebaseAuthService.shared.signOut()
     }
 }
