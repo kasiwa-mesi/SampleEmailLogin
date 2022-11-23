@@ -51,7 +51,7 @@ final class FirebaseStorageService {
         }
     }
     
-    func currentDateInJapan() -> String {
+    private func currentDateInJapan() -> String {
         let japan = Region(calendar: Calendars.gregorian, zone: Zones.asiaTokyo, locale: Locales.japanese)
         SwiftDate.defaultRegion = japan
         let date = "\(Date().year)\(Date().month)\(Date().day)\(Date().hour)\(Date().minute)\(Date().second)"

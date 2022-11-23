@@ -9,19 +9,19 @@ import UIKit
 
 final class RegisterViewController: UIViewController {
     
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
     
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
     
-    @IBOutlet weak var reconfirmPasswordTextField: UITextField!
+    @IBOutlet private weak var reconfirmPasswordTextField: UITextField!
     
-    @IBOutlet weak var moveLoginScreenButton: UIButton! {
+    @IBOutlet private weak var moveLoginScreenButton: UIButton! {
         didSet {
             moveLoginScreenButton.addTarget(self, action: #selector(tapMoveLoginScreenButton), for: .touchUpInside)
         }
     }
     
-    @IBOutlet weak var registerButton: UIButton! {
+    @IBOutlet private weak var registerButton: UIButton! {
         didSet {
             registerButton.addTarget(self, action: #selector(tapRegisterButton), for: .touchUpInside)
         }
