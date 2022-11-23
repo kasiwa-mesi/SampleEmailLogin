@@ -15,7 +15,11 @@ final class HomeViewController: UIViewController {
     private var signOutButtonItem: UIBarButtonItem!
     
     @IBOutlet private weak var indicator: UIActivityIndicatorView!
-    @IBOutlet private weak var cautionLabel: UILabel!
+    @IBOutlet private weak var cautionLabel: UILabel! {
+        didSet {
+            cautionLabel.isHidden = true
+        }
+    }
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.register(TableViewCell.nib, forCellReuseIdentifier: TableViewCell.reuseIdentifier)
@@ -70,12 +74,12 @@ private extension HomeViewController {
         
         viewModel.fetchMemos { (memosExist) in
             if memosExist {
-                self.cautionLabel.isHidden = true
                 self.tableView.dataSource = self
                 self.tableView.delegate = self
                 self.tableView.reloadData()
             } else {
                 self.cautionLabel.isHidden = false
+                self.indicator.isHidden = true
                 self.tableView.isHidden = true
             }
         }

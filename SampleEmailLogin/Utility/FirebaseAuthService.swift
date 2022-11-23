@@ -28,17 +28,17 @@ final class FirebaseAuthService {
         Auth.auth().languageCode = code
     }
     
-        
+    
     func isLogined(completionHandler: @escaping (Bool) -> Void) {
         Auth.auth().addStateDidChangeListener({ auth, user in
             if user == nil {
-               completionHandler(false)
+                completionHandler(false)
             } else {
-               completionHandler(true)
+                completionHandler(true)
             }
         })
     }
-        
+    
     func createUser(email: String, password: String, completionHandler: @escaping (Bool) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let user = authResult?.user {
@@ -71,15 +71,10 @@ final class FirebaseAuthService {
         }
     }
     
-    func sendEmailVerification(completionHandler: @escaping (Bool) -> Void) {
+    func sendEmailVerification() {
         let user = getCurrentUser()
         user?.sendEmailVerification { error in
-            if error == nil {
-                completionHandler(true)
-            } else {
-                print(error)
-                completionHandler(false)
-            }
+            print(error)
         }
     }
     

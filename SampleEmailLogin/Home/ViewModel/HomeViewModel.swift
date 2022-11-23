@@ -74,11 +74,7 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
     
     func sendEmailVerification() {
         FirebaseAuthService.shared.setLanguageCode(code: "ja_JP")
-        FirebaseAuthService.shared.sendEmailVerification { (onSubmitted) in
-            if onSubmitted {
-                print("メールが送信できました！")
-            }
-        }
+        FirebaseAuthService.shared.sendEmailVerification()
     }
     
     func logOut() {

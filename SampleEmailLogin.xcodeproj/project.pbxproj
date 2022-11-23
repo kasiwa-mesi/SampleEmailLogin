@@ -27,6 +27,7 @@
 		2754DC6228FFC59F00AC029D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2754DC6128FFC59F00AC029D /* Home.storyboard */; };
 		275579DB2918B11F00BED415 /* SetMemoChangedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275579DA2918B11F00BED415 /* SetMemoChangedViewController.swift */; };
 		275579DD2918B12C00BED415 /* SetMemoChanged.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275579DC2918B12C00BED415 /* SetMemoChanged.storyboard */; };
+		2758CD26292DEA3D0005CF72 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2758CD25292DEA3D0005CF72 /* RegisterViewModel.swift */; };
 		275DEC50292C617F00B3A7B1 /* SetMemoChangedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275DEC4F292C617F00B3A7B1 /* SetMemoChangedViewModel.swift */; };
 		275DEC55292C873400B3A7B1 /* SetMemoCreatedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275DEC54292C873400B3A7B1 /* SetMemoCreatedViewModel.swift */; };
 		275DEC59292C9E7300B3A7B1 /* SetEmailChangedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275DEC58292C9E7300B3A7B1 /* SetEmailChangedViewModel.swift */; };
@@ -65,6 +66,7 @@
 		2754DC6128FFC59F00AC029D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		275579DA2918B11F00BED415 /* SetMemoChangedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMemoChangedViewController.swift; sourceTree = "<group>"; };
 		275579DC2918B12C00BED415 /* SetMemoChanged.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetMemoChanged.storyboard; sourceTree = "<group>"; };
+		2758CD25292DEA3D0005CF72 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		275DEC4F292C617F00B3A7B1 /* SetMemoChangedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMemoChangedViewModel.swift; sourceTree = "<group>"; };
 		275DEC54292C873400B3A7B1 /* SetMemoCreatedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMemoCreatedViewModel.swift; sourceTree = "<group>"; };
 		275DEC58292C9E7300B3A7B1 /* SetEmailChangedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetEmailChangedViewModel.swift; sourceTree = "<group>"; };
@@ -223,6 +225,22 @@
 			path = SetMemoChanged;
 			sourceTree = "<group>";
 		};
+		2758CD23292DEA230005CF72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2758CD25292DEA3D0005CF72 /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2758CD24292DEA290005CF72 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				276A98B828FE3FED00AC390F /* RegisterViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		275DEC4D292C612F00B3A7B1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,7 +359,8 @@
 		276A98B728FE3FD500AC390F /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				276A98B828FE3FED00AC390F /* RegisterViewController.swift */,
+				2758CD24292DEA290005CF72 /* ViewController */,
+				2758CD23292DEA230005CF72 /* ViewModel */,
 				276A98BA28FE400300AC390F /* Register.storyboard */,
 			);
 			path = Register;
@@ -501,6 +520,7 @@
 				274DC7C9291352D400317F42 /* MemoModel.swift in Sources */,
 				2754DC5F28FFC58700AC029D /* HomeViewController.swift in Sources */,
 				274DC7D029135F2900317F42 /* SetMemoCreatedViewController.swift in Sources */,
+				2758CD26292DEA3D0005CF72 /* RegisterViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
