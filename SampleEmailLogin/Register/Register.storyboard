@@ -43,7 +43,7 @@
                                                             <constraint firstAttribute="height" constant="36" id="2Z4-Ll-aFU"/>
                                                             <constraint firstAttribute="width" constant="382" id="frP-Cg-pgV"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
@@ -63,7 +63,7 @@
                                                             <constraint firstAttribute="width" constant="382" id="DdZ-Ou-5Oz"/>
                                                             <constraint firstAttribute="height" constant="36" id="hLz-fd-ka8"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>

@@ -47,7 +47,7 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
         self.email = email
 
         input.didSelectObservable
-            .filter { $0 < self.memos.count - 1 }
+            .filter { $0 < self.memos.count }
             .map { self.memos[$0] }
             .bind(to: _selectMemoModel).disposed(by: disposeBag)
     }
@@ -74,15 +74,10 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
     
     func sendEmailVerification() {
         FirebaseAuthService.shared.setLanguageCode(code: "ja_JP")
-        FirebaseAuthService.shared.sendEmailVerification { (onSubmitted) in
-            if onSubmitted {
-                print("メールが送信できました！")
-            }
-        }
+        FirebaseAuthService.shared.sendEmailVerification()
     }
     
     func logOut() {
-        print("ログアウト")
         FirebaseAuthService.shared.signOut()
     }
 }

@@ -18,8 +18,10 @@ final class LoginViewController: UIViewController {
         }
     }
     
+    private var viewModel: LoginViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = LoginViewModel()
     }
     
     static func makeFromStoryboard() -> LoginViewController {
@@ -32,9 +34,6 @@ final class LoginViewController: UIViewController {
 
 private extension LoginViewController {
     @objc func tapLoginButton() {
-        //ログイン処理を行う
-        print("ログイン")
-        
         guard let email = emailTextField.text else {
             fatalError()
         }
@@ -43,18 +42,6 @@ private extension LoginViewController {
             fatalError()
         }
         
-        if let validationAlertMessage = Validator(email: emailTextField.text, password: passwordTextField.text, reconfirmPassword: nil, memoText: nil)?.alertMessage {
-            let gotItAction = UIAlertAction(title: "了解しました", style: .default)
-            showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
-        } else {
-            FirebaseAuthService.shared.signIn(email: email, password: password) { (isEmailVerified) in
-                if isEmailVerified {
-                    print("メールアドレス確認済み")
-                    Router.shared.showHome(from: self)
-                } else {
-                    print("メールアドレス未確認")
-                }
-            }
-        }
+        viewModel.signIn(email: email, password: password, vc: self)
     }
 }

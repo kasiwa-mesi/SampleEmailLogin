@@ -28,21 +28,20 @@ final class FirebaseAuthService {
         Auth.auth().languageCode = code
     }
     
-        
+    
     func isLogined(completionHandler: @escaping (Bool) -> Void) {
         Auth.auth().addStateDidChangeListener({ auth, user in
             if user == nil {
-               completionHandler(false)
+                completionHandler(false)
             } else {
-               completionHandler(true)
+                completionHandler(true)
             }
         })
     }
-        
+    
     func createUser(email: String, password: String, completionHandler: @escaping (Bool) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let user = authResult?.user {
-                print(user)
                 completionHandler(true)
             } else {
                 print(error)
@@ -52,16 +51,8 @@ final class FirebaseAuthService {
         }
     }
     
-    func signIn(email: String, password: String, completionHandler: @escaping (Bool) -> Void) {
-        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-            if let user = authResult?.user {
-                if user.isEmailVerified {
-                    completionHandler(true)
-                } else {
-                    completionHandler(false)
-                }
-            }
-        }
+    func signIn(email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password)
     }
     
     func signOut() {
@@ -72,15 +63,10 @@ final class FirebaseAuthService {
         }
     }
     
-    func sendEmailVerification(completionHandler: @escaping (Bool) -> Void) {
+    func sendEmailVerification() {
         let user = getCurrentUser()
         user?.sendEmailVerification { error in
-            if error == nil {
-                completionHandler(true)
-            } else {
-                print(error)
-                completionHandler(false)
-            }
+            print(error)
         }
     }
     
@@ -89,7 +75,6 @@ final class FirebaseAuthService {
             if error == nil {
                 completionHandler(true)
             } else {
-                print("パスワード再設定できません")
                 completionHandler(false)
             }
         }
@@ -101,7 +86,6 @@ final class FirebaseAuthService {
             if error == nil {
                 completionHandler(true)
             } else {
-                print("メールアドレス更新できません")
                 print(error)
                 completionHandler(false)
             }
@@ -115,7 +99,6 @@ final class FirebaseAuthService {
                 print(error)
                 completionHandler(false)
             } else {
-                print("再認証成功")
                 completionHandler(true)
             }
         }

@@ -32,14 +32,12 @@ final class SetEmailChangedViewModel: SetEmailChangedViewModelOutput {
             
             FirebaseAuthService.shared.reAuthenticate(credential: credential) { (hasAuthentication) in
                 if hasAuthentication {
-                    print(hasAuthentication)
                     FirebaseAuthService.shared.updateEmail(email: newEmail) { (isUpdated) in
                         if isUpdated {
                             Router.shared.showReStart()
                         }
                     }
                 } else {
-                    print("もう一度ログインしてください")
                     let moveLoginAction = UIAlertAction(title: "ログイン画面に移動", style: .default) { _ in
                         Router.shared.showLogin(from: vc)
                     }

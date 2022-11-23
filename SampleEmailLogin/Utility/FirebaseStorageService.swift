@@ -25,13 +25,11 @@ final class FirebaseStorageService {
         let imageRef = storageRef.child("user/\(userId)/image/\(date).jpg")
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpeg"
-        print(imageRef)
         imageRef.putData(imageData, metadata: metaData) { metaData, error in
             if let error = error {
                 print("アップロードに失敗しました: \(error)")
                 completion(false, imageRef)
             } else {
-                print("アップロードに成功しました")
                 completion(true, imageRef)
             }
         }
@@ -48,7 +46,6 @@ final class FirebaseStorageService {
                     fatalError()
                 }
                 print("ダウンロードに成功しました")
-                print(downloadURL)
                 completion(downloadURL)
             }
         }
