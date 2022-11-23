@@ -16,20 +16,15 @@ final class Router {
     func showRoot(window: UIWindow?) {
         FirebaseAuthService.shared.isLogined { (hasAuthentication) in
             if hasAuthentication {
-                //ログインしている場合、Home画面へ飛ばす
-                print("HOMEへ")
                 let vc = HomeViewController.makeFromStoryboard()
                 let nav = UINavigationController(rootViewController: vc)
                 window?.rootViewController = nav
-                window?.makeKeyAndVisible()
             } else {
-                // ログインしていない場合、Register画面へ飛ばす
-                print("Registerへ")
                 let vc = RegisterViewController.makeFromStoryboard()
                 let nav = UINavigationController(rootViewController: vc)
                 window?.rootViewController = nav
-                window?.makeKeyAndVisible()
             }
+            window?.makeKeyAndVisible()
             self.window = window
         }
         // ログインしているか否かで遷移先を変える
@@ -56,7 +51,6 @@ final class Router {
     }
     
     func showReStart() {
-        print("再構築")
         showRoot(window: window)
     }
     
