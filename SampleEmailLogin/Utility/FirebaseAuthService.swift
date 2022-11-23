@@ -41,13 +41,11 @@ final class FirebaseAuthService {
     
     func createUser(email: String, password: String, completionHandler: @escaping (Bool) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if let user = authResult?.user {
+            if authResult != nil {
                 completionHandler(true)
             } else {
-                print(error)
                 completionHandler(false)
             }
-            
         }
     }
     
@@ -65,9 +63,7 @@ final class FirebaseAuthService {
     
     func sendEmailVerification() {
         let user = getCurrentUser()
-        user?.sendEmailVerification { error in
-            print(error)
-        }
+        user?.sendEmailVerification()
     }
     
     func sendPasswordReset(email: String, completionHandler: @escaping (Bool) -> Void) {
@@ -86,7 +82,6 @@ final class FirebaseAuthService {
             if error == nil {
                 completionHandler(true)
             } else {
-                print(error)
                 completionHandler(false)
             }
         }

@@ -17,7 +17,10 @@ final class CloudFirestoreService {
     
     func getCollection(userId: String?, completion: @escaping ([MemoModel]) -> Void) {
         var memos: [MemoModel] = []
-        db.collection("memos").whereField("userId", isEqualTo: userId).getDocuments { (snapshot, error) in
+        guard let uid = userId else {
+            fatalError()
+        }
+        db.collection("memos").whereField("userId", isEqualTo: uid).getDocuments { (snapshot, error) in
             guard let documents = snapshot?.documents else {
                 return
             }
@@ -50,12 +53,12 @@ final class CloudFirestoreService {
         guard let id = memo.id else {
             fatalError()
         }
+        
         db.collection("memos").document(id).updateData([
             "text": memo.text,
             "imageURL": memo.imageURLStr
-        ]) { (error) in
-            if let error = error {
-                print("アップデートする際にエラー発生")
+        ]) { error in
+            if error != nil {
                 completion(false)
             } else {
                 completion(true)
