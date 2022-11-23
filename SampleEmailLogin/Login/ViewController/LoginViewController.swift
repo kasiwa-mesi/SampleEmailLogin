@@ -8,11 +8,11 @@
 import UIKit
 
 final class LoginViewController: UIViewController {
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
     
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
     
-    @IBOutlet weak var loginButton: UIButton! {
+    @IBOutlet private weak var loginButton: UIButton! {
         didSet {
             loginButton.addTarget(self, action: #selector(tapLoginButton), for: .touchUpInside)
         }
