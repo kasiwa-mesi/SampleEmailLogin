@@ -27,6 +27,8 @@
 		2754DC6228FFC59F00AC029D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2754DC6128FFC59F00AC029D /* Home.storyboard */; };
 		275579DB2918B11F00BED415 /* SetMemoChangedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275579DA2918B11F00BED415 /* SetMemoChangedViewController.swift */; };
 		275579DD2918B12C00BED415 /* SetMemoChanged.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275579DC2918B12C00BED415 /* SetMemoChanged.storyboard */; };
+		275729B4292F228700302DDE /* OfflineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275729B3292F228700302DDE /* OfflineViewController.swift */; };
+		275729B6292F22A100302DDE /* Offline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275729B5292F22A100302DDE /* Offline.storyboard */; };
 		2758CD26292DEA3D0005CF72 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2758CD25292DEA3D0005CF72 /* RegisterViewModel.swift */; };
 		2758CD2A292DF6F40005CF72 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2758CD29292DF6F40005CF72 /* LoginViewModel.swift */; };
 		275DEC50292C617F00B3A7B1 /* SetMemoChangedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275DEC4F292C617F00B3A7B1 /* SetMemoChangedViewModel.swift */; };
@@ -67,6 +69,8 @@
 		2754DC6128FFC59F00AC029D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		275579DA2918B11F00BED415 /* SetMemoChangedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMemoChangedViewController.swift; sourceTree = "<group>"; };
 		275579DC2918B12C00BED415 /* SetMemoChanged.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetMemoChanged.storyboard; sourceTree = "<group>"; };
+		275729B3292F228700302DDE /* OfflineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineViewController.swift; sourceTree = "<group>"; };
+		275729B5292F22A100302DDE /* Offline.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Offline.storyboard; sourceTree = "<group>"; };
 		2758CD25292DEA3D0005CF72 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		2758CD29292DF6F40005CF72 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		275DEC4F292C617F00B3A7B1 /* SetMemoChangedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMemoChangedViewModel.swift; sourceTree = "<group>"; };
@@ -227,6 +231,15 @@
 			path = SetMemoChanged;
 			sourceTree = "<group>";
 		};
+		275729B2292F227300302DDE /* Offline */ = {
+			isa = PBXGroup;
+			children = (
+				275729B3292F228700302DDE /* OfflineViewController.swift */,
+				275729B5292F22A100302DDE /* Offline.storyboard */,
+			);
+			path = Offline;
+			sourceTree = "<group>";
+		};
 		2758CD23292DEA230005CF72 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +357,7 @@
 		276A989B28FE328A00AC390F /* SampleEmailLogin */ = {
 			isa = PBXGroup;
 			children = (
+				275729B2292F227300302DDE /* Offline */,
 				275579D92918B10B00BED415 /* SetMemoChanged */,
 				274549DF291638680012B790 /* View */,
 				274DC7CA29135E2000317F42 /* SetMemoCreated */,
@@ -462,6 +476,7 @@
 				2754DC5C28FFB50900AC029D /* GoogleService-Info.plist in Resources */,
 				2754DC6228FFC59F00AC029D /* Home.storyboard in Resources */,
 				2750A8582907E01800C3035E /* SetPasswordChanged.storyboard in Resources */,
+				275729B6292F22A100302DDE /* Offline.storyboard in Resources */,
 				276A98B428FE334E00AC390F /* Login.storyboard in Resources */,
 				275579DD2918B12C00BED415 /* SetMemoChanged.storyboard in Resources */,
 				276A98BB28FE400300AC390F /* Register.storyboard in Resources */,
@@ -530,6 +545,7 @@
 				274549E929163DDC0012B790 /* TableViewCell.swift in Sources */,
 				2754A38E291A29CA003A0331 /* FirebaseStorageService.swift in Sources */,
 				276A989D28FE328A00AC390F /* AppDelegate.swift in Sources */,
+				275729B4292F228700302DDE /* OfflineViewController.swift in Sources */,
 				2750A85A2907E3F900C3035E /* SetEmailChangedViewController.swift in Sources */,
 				275F9BDD290A47D400A34905 /* Validator.swift in Sources */,
 				2750A85C2907E41700C3035E /* SetPasswordChangedViewController.swift in Sources */,

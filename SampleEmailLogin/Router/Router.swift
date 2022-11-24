@@ -12,22 +12,22 @@ final class Router {
     private init() {}
     
     private var window: UIWindow?
-
+    
     func showRoot(window: UIWindow?) {
         FirebaseAuthService.shared.isLogined { (hasAuthentication) in
             if hasAuthentication {
                 let vc = HomeViewController.makeFromStoryboard()
-                let nav = UINavigationController(rootViewController: vc)
-                window?.rootViewController = nav
+                self.pushNavigate(vc: vc, window: window)
             } else {
                 let vc = RegisterViewController.makeFromStoryboard()
-                let nav = UINavigationController(rootViewController: vc)
-                window?.rootViewController = nav
+                self.pushNavigate(vc: vc, window: window)
             }
-            window?.makeKeyAndVisible()
-            self.window = window
         }
-        // ログインしているか否かで遷移先を変える
+    }
+    
+    func showOffline(window: UIWindow?) {
+        let vc = OfflineViewController.makeFromStoryboard()
+        self.pushNavigate(vc: vc, window: window)
     }
     
     func showLogin(from: UIViewController) {
@@ -72,5 +72,13 @@ private extension Router {
         } else {
             from.present(next, animated: animated, completion: nil)
         }
+    }
+    
+    func pushNavigate(vc: UIViewController, window: UIWindow?) {
+        let navigationController = UINavigationController(rootViewController: vc)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        
+        self.window = window
     }
 }
