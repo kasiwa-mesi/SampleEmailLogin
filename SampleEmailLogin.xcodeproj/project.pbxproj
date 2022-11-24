@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		273160BF292F41D200DAFF3A /* Trial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 273160BE292F41D200DAFF3A /* Trial.storyboard */; };
+		273160C1292F41E100DAFF3A /* TrialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273160C0292F41E100DAFF3A /* TrialViewController.swift */; };
 		273DEC492928A73D009674AC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273DEC482928A73D009674AC /* HomeViewModel.swift */; };
 		274549E929163DDC0012B790 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274549E829163DDC0012B790 /* TableViewCell.swift */; };
 		274549EB29163DE90012B790 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 274549EA29163DE90012B790 /* TableViewCell.xib */; };
@@ -49,6 +51,8 @@
 
 /* Begin PBXFileReference section */
 		098740C55D332023D5E09C13 /* Pods_SampleEmailLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleEmailLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		273160BE292F41D200DAFF3A /* Trial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trial.storyboard; sourceTree = "<group>"; };
+		273160C0292F41E100DAFF3A /* TrialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialViewController.swift; sourceTree = "<group>"; };
 		273DEC482928A73D009674AC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		274549E829163DDC0012B790 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		274549EA29163DE90012B790 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -240,6 +244,15 @@
 			path = Offline;
 			sourceTree = "<group>";
 		};
+		275729B7292F40CF00302DDE /* Trial */ = {
+			isa = PBXGroup;
+			children = (
+				273160BE292F41D200DAFF3A /* Trial.storyboard */,
+				273160C0292F41E100DAFF3A /* TrialViewController.swift */,
+			);
+			path = Trial;
+			sourceTree = "<group>";
+		};
 		2758CD23292DEA230005CF72 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +370,7 @@
 		276A989B28FE328A00AC390F /* SampleEmailLogin */ = {
 			isa = PBXGroup;
 			children = (
+				275729B7292F40CF00302DDE /* Trial */,
 				275729B2292F227300302DDE /* Offline */,
 				275579D92918B10B00BED415 /* SetMemoChanged */,
 				274549DF291638680012B790 /* View */,
@@ -480,6 +494,7 @@
 				276A98B428FE334E00AC390F /* Login.storyboard in Resources */,
 				275579DD2918B12C00BED415 /* SetMemoChanged.storyboard in Resources */,
 				276A98BB28FE400300AC390F /* Register.storyboard in Resources */,
+				273160BF292F41D200DAFF3A /* Trial.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +558,7 @@
 				274D845529175955003D6AC3 /* CloudFirestoreService.swift in Sources */,
 				276A98B628FE336200AC390F /* LoginViewController.swift in Sources */,
 				274549E929163DDC0012B790 /* TableViewCell.swift in Sources */,
+				273160C1292F41E100DAFF3A /* TrialViewController.swift in Sources */,
 				2754A38E291A29CA003A0331 /* FirebaseStorageService.swift in Sources */,
 				276A989D28FE328A00AC390F /* AppDelegate.swift in Sources */,
 				275729B4292F228700302DDE /* OfflineViewController.swift in Sources */,

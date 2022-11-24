@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -17,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7z7-Mv-uEk" userLabel="Register Form">
-                                <rect key="frame" x="16" y="44" width="382" height="592"/>
+                                <rect key="frame" x="16" y="44" width="382" height="696"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="ePY-lg-kzl">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="592"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="696"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="会員登録画面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxg-fG-PgY">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="72"/>
@@ -102,6 +103,13 @@
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
                                                 </buttonConfiguration>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfO-hB-8qx">
+                                                <rect key="frame" x="0.0" y="624" width="382" height="72"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="メモを体験する">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                                </buttonConfiguration>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -126,6 +134,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="XVJ-Hj-m9R" id="C5J-KO-ERf"/>
                         <outlet property="moveLoginScreenButton" destination="93P-iT-cqp" id="FYF-sM-ZuK"/>
+                        <outlet property="moveTrialButton" destination="rfO-hB-8qx" id="4Oa-st-pVs"/>
                         <outlet property="passwordTextField" destination="qCU-Ab-z4F" id="dp2-Ff-NuS"/>
                         <outlet property="reconfirmPasswordTextField" destination="YOH-iJ-w73" id="p5q-PS-6lI"/>
                         <outlet property="registerButton" destination="chy-Lw-Bmn" id="95H-6E-c4a"/>
