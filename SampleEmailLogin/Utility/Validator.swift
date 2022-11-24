@@ -8,7 +8,7 @@
 import Foundation
 
 enum Validator {
-    case isEmptyEmail, isEmptyPassword, isEmptyReconfirmPassword, isEmptyMemoText, isUnavailableEmail, isUnavailablePassword, isConfirmedPassword
+    case isEmptyEmail, isEmptyPassword, isEmptyReconfirmPassword, isEmptyMemoText, isUnavailableEmail, isUnavailablePassword, isUnavailableMemoText, isConfirmedPassword
     
     init?(email: String?, password: String?, reconfirmPassword: String?, memoText: String?) {
         let checkEmailFormat = { (email: String) -> Bool? in
@@ -58,6 +58,11 @@ enum Validator {
                 self = .isEmptyMemoText
                 return
             }
+            
+            if memoText.count > 512 {
+                self = .isUnavailableMemoText
+                return
+            }
         }
         
         return nil
@@ -73,6 +78,8 @@ enum Validator {
             return "確認用パスワードが入力されていません"
         case .isEmptyMemoText:
             return "メモが入力されていません"
+        case .isUnavailableMemoText:
+            return "メモの文字数は512文字数以下で入力してください"
         case .isUnavailableEmail:
             return "メールアドレスの形式で入力してください"
         case .isUnavailablePassword:
