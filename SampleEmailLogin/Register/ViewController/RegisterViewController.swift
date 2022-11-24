@@ -27,6 +27,12 @@ final class RegisterViewController: UIViewController {
         }
     }
     
+    @IBOutlet private weak var moveTrialButton: UIButton! {
+            didSet {
+                moveTrialButton.addTarget(self, action: #selector(tapTrial), for: .touchUpInside)
+            }
+    }
+    
     private var viewModel: RegisterViewModel!
     
     override func viewDidLoad() {
@@ -63,6 +69,10 @@ private extension RegisterViewController {
         }
         
         viewModel.createUser(email: email, password: password, reconfirmPassword: reconfirmPassword, vc: self)
+    }
+    
+    @objc func tapTrial() {
+        Router.shared.showTrial(from: self)
     }
 }
 
