@@ -22,6 +22,7 @@
 		2750A8582907E01800C3035E /* SetPasswordChanged.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2750A8572907E01800C3035E /* SetPasswordChanged.storyboard */; };
 		2750A85A2907E3F900C3035E /* SetEmailChangedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750A8592907E3F900C3035E /* SetEmailChangedViewController.swift */; };
 		2750A85C2907E41700C3035E /* SetPasswordChangedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750A85B2907E41700C3035E /* SetPasswordChangedViewController.swift */; };
+		2751C6DD2931DBB700A14604 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2751C6DC2931DBB700A14604 /* AuthService.swift */; };
 		2754A38E291A29CA003A0331 /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754A38D291A29CA003A0331 /* FirebaseStorageService.swift */; };
 		2754DC5328FF7C6F00AC029D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754DC5228FF7C6F00AC029D /* Router.swift */; };
 		2754DC5C28FFB50900AC029D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2754DC5B28FFB50900AC029D /* GoogleService-Info.plist */; };
@@ -66,6 +67,7 @@
 		2750A8572907E01800C3035E /* SetPasswordChanged.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetPasswordChanged.storyboard; sourceTree = "<group>"; };
 		2750A8592907E3F900C3035E /* SetEmailChangedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetEmailChangedViewController.swift; sourceTree = "<group>"; };
 		2750A85B2907E41700C3035E /* SetPasswordChangedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordChangedViewController.swift; sourceTree = "<group>"; };
+		2751C6DC2931DBB700A14604 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		2754A38D291A29CA003A0331 /* FirebaseStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
 		2754DC5228FF7C6F00AC029D /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		2754DC5B28FFB50900AC029D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				275F9BDC290A47D400A34905 /* Validator.swift */,
 				2754A38D291A29CA003A0331 /* FirebaseStorageService.swift */,
 				275DEC5E292CCA3E00B3A7B1 /* FirebaseAuthService.swift */,
+				2751C6DC2931DBB700A14604 /* AuthService.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				275DEC5D292CA30600B3A7B1 /* SetPasswordChangedViewModel.swift in Sources */,
 				275DEC59292C9E7300B3A7B1 /* SetEmailChangedViewModel.swift in Sources */,
 				274D845329174B4F003D6AC3 /* UITableViewCell+.swift in Sources */,
+				2751C6DD2931DBB700A14604 /* AuthService.swift in Sources */,
 				274DC7C9291352D400317F42 /* MemoModel.swift in Sources */,
 				2758CD2A292DF6F40005CF72 /* LoginViewModel.swift in Sources */,
 				2754DC5F28FFC58700AC029D /* HomeViewController.swift in Sources */,

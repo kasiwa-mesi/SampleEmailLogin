@@ -13,7 +13,7 @@ final class LoginViewModel {
             let gotItAction = UIAlertAction(title: "了解しました", style: .default)
             vc.showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
         } else {
-            FirebaseAuthService.shared.signIn(email: email, password: password)
+            AuthService.shared.signIn(email: email, password: password)
         }
     }
 }

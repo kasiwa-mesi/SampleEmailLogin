@@ -15,7 +15,7 @@ final class SetEmailChangedViewModel: SetEmailChangedViewModelOutput {
     private(set) var email: String
     
     init() {
-        guard let email = FirebaseAuthService.shared.getCurrentUser()?.email else {
+        guard let email = AuthService.shared.getCurrentUser()?.email else {
             fatalError()
         }
         self.email = email
@@ -28,11 +28,11 @@ final class SetEmailChangedViewModel: SetEmailChangedViewModelOutput {
             vc.showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
         } else {
             // 再認証処理を走らせる
-            let credential = FirebaseAuthService.shared.getCredential(email: email, password: password)
+            let credential = AuthService.shared.getCredential(email: email, password: password)
             
-            FirebaseAuthService.shared.reAuthenticate(credential: credential) { (hasAuthentication) in
+            AuthService.shared.reAuthenticate(credential: credential) { (hasAuthentication) in
                 if hasAuthentication {
-                    FirebaseAuthService.shared.updateEmail(email: newEmail) { (isUpdated) in
+                    AuthService.shared.updateEmail(email: newEmail) { (isUpdated) in
                         if isUpdated {
                             Router.shared.showReStart()
                         }

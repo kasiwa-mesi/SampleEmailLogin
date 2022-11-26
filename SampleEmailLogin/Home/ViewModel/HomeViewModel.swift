@@ -35,11 +35,11 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
     private(set) var email: String
     
     init(input: HomeViewModelInput) {
-        guard let userId = FirebaseAuthService.shared.getCurrentUserId() else {
+        guard let userId = AuthService.shared.getCurrentUserId() else {
             fatalError()
         }
         
-        guard let email = FirebaseAuthService.shared.getCurrentUser()?.email else {
+        guard let email = AuthService.shared.getCurrentUser()?.email else {
             fatalError()
         }
         
@@ -66,18 +66,18 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
     }
     
     func isEmailVerified() -> Bool {
-        guard let isEmailVerified = FirebaseAuthService.shared.getIsEmailVerified() else {
+        guard let isEmailVerified = AuthService.shared.getIsEmailVerified() else {
             fatalError()
         }
         return isEmailVerified
     }
     
     func sendEmailVerification() {
-        FirebaseAuthService.shared.setLanguageCode(code: "ja_JP")
-        FirebaseAuthService.shared.sendEmailVerification()
+        AuthService.shared.setLanguageCode(code: "ja_JP")
+        AuthService.shared.sendEmailVerification()
     }
     
     func logOut() {
-        FirebaseAuthService.shared.signOut()
+        AuthService.shared.signOut()
     }
 }

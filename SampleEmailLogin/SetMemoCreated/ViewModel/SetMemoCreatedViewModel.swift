@@ -24,7 +24,7 @@ final class SetMemoCreatedViewModel: SetMemoCreatedViewModelOutput {
     init() {
         self.imagePickerController = UIImagePickerController()
         
-        guard let userId = FirebaseAuthService.shared.getCurrentUserId() else {
+        guard let userId = AuthService.shared.getCurrentUserId() else {
             fatalError()
         }
         self.userId = userId

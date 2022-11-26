@@ -2,7 +2,7 @@
 //  AuthService.swift
 //  SampleEmailLogin
 //
-//  Created by kasiwa on 2022/11/22.
+//  Created by kasiwa on 2022/11/26.
 //
 
 import Foundation
