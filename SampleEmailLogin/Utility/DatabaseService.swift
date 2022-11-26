@@ -40,12 +40,7 @@ final class DatabaseService {
             // 画像アップロード機能を実装したら、引数にimageURLを渡す
             "imageURL": imageURL
         ]) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
-                completion(false)
-            } else {
-                completion(true)
-            }
+            completion(err == nil)
         }
     }
     
@@ -58,11 +53,7 @@ final class DatabaseService {
             "text": memo.text,
             "imageURL": memo.imageURLStr
         ]) { error in
-            if error != nil {
-                completion(false)
-            } else {
-                completion(true)
-            }
+            completion(error == nil)
         }
     }
     
@@ -71,13 +62,7 @@ final class DatabaseService {
             fatalError()
         }
         db.collection("memos").document(id).delete() { error in
-            if let error = error {
-                print("Error removing document: \(error)")
-                completion(false)
-            } else {
-                print("Document successfully removed!")
-                completion(true)
-            }
+            completion(error == nil)
         }
     }
 }
