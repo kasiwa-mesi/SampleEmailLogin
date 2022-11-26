@@ -24,7 +24,7 @@ final class SetMemoChangedViewModel: SetMemoChangedViewModelOutput {
             vc.showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
         } else {
             if self.memo.text != memo.text {
-                CloudFirestoreService.shared.updateMemo(memo: memo) { (isUpdated) in
+                DatabaseService.shared.updateMemo(memo: memo) { (isUpdated) in
                     if isUpdated {
                         Router.shared.showReStart()
                     }
@@ -36,7 +36,7 @@ final class SetMemoChangedViewModel: SetMemoChangedViewModelOutput {
     }
     
     func deleteMemo(memo: MemoModel) {
-        CloudFirestoreService.shared.deleteMemo(memo: memo) { isDeleted in
+        DatabaseService.shared.deleteMemo(memo: memo) { isDeleted in
             if isDeleted {
                 Router.shared.showReStart()
             }

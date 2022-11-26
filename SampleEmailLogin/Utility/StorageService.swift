@@ -1,19 +1,17 @@
 //
-//  FirebaseStorageService.swift
+//  StorageService.swift
 //  SampleEmailLogin
 //
-//  Created by kasiwa on 2022/11/08.
+//  Created by kasiwa on 2022/11/26.
 //
 
-import UIKit
+import Foundation
 import FirebaseCore
-import FirebaseFirestore
-import FirebaseAuth
 import FirebaseStorage
 import SwiftDate
 
-final class FirebaseStorageService {
-    static let shared: FirebaseStorageService = .init()
+final class StorageService {
+    static let shared: StorageService = .init()
     private init() {}
     
     private var storage = Storage.storage()

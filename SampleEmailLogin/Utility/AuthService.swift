@@ -1,15 +1,15 @@
 //
-//  FirebaseAuthService.swift
+//  AuthService.swift
 //  SampleEmailLogin
 //
-//  Created by kasiwa on 2022/11/22.
+//  Created by kasiwa on 2022/11/26.
 //
 
 import Foundation
 import FirebaseAuth
 
-final class FirebaseAuthService {
-    static let shared: FirebaseAuthService = .init()
+final class AuthService {
+    static let shared: AuthService = .init()
     private init() {}
     
     func getCurrentUser() -> User? { Auth.auth().currentUser }

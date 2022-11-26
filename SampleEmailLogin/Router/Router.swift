@@ -14,7 +14,7 @@ final class Router {
     private var window: UIWindow?
     
     func showRoot(window: UIWindow?) {
-        FirebaseAuthService.shared.isLogined { (hasAuthentication) in
+        AuthService.shared.isLogined { (hasAuthentication) in
             if hasAuthentication {
                 let vc = HomeViewController.makeFromStoryboard()
                 self.pushNavigate(vc: vc, window: window)
