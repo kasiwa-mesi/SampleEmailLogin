@@ -38,7 +38,6 @@
 		275DEC55292C873400B3A7B1 /* SetMemoCreatedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275DEC54292C873400B3A7B1 /* SetMemoCreatedViewModel.swift */; };
 		275DEC59292C9E7300B3A7B1 /* SetEmailChangedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275DEC58292C9E7300B3A7B1 /* SetEmailChangedViewModel.swift */; };
 		275DEC5D292CA30600B3A7B1 /* SetPasswordChangedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275DEC5C292CA30600B3A7B1 /* SetPasswordChangedViewModel.swift */; };
-		275DEC5F292CCA3E00B3A7B1 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275DEC5E292CCA3E00B3A7B1 /* FirebaseAuthService.swift */; };
 		275F9BDD290A47D400A34905 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F9BDC290A47D400A34905 /* Validator.swift */; };
 		276A989D28FE328A00AC390F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276A989C28FE328A00AC390F /* AppDelegate.swift */; };
 		276A98A628FE328B00AC390F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 276A98A528FE328B00AC390F /* Assets.xcassets */; };
@@ -83,7 +82,6 @@
 		275DEC54292C873400B3A7B1 /* SetMemoCreatedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMemoCreatedViewModel.swift; sourceTree = "<group>"; };
 		275DEC58292C9E7300B3A7B1 /* SetEmailChangedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetEmailChangedViewModel.swift; sourceTree = "<group>"; };
 		275DEC5C292CA30600B3A7B1 /* SetPasswordChangedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordChangedViewModel.swift; sourceTree = "<group>"; };
-		275DEC5E292CCA3E00B3A7B1 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		275F9BDC290A47D400A34905 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		276A989928FE328A00AC390F /* SampleEmailLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleEmailLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		276A989C28FE328A00AC390F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -204,7 +202,6 @@
 				274D845429175955003D6AC3 /* CloudFirestoreService.swift */,
 				275F9BDC290A47D400A34905 /* Validator.swift */,
 				2754A38D291A29CA003A0331 /* FirebaseStorageService.swift */,
-				275DEC5E292CCA3E00B3A7B1 /* FirebaseAuthService.swift */,
 				2751C6DC2931DBB700A14604 /* AuthService.swift */,
 			);
 			path = Utility;
@@ -557,7 +554,6 @@
 				2754DC5328FF7C6F00AC029D /* Router.swift in Sources */,
 				276A98B928FE3FED00AC390F /* RegisterViewController.swift in Sources */,
 				274EA4C22910F9D700CADFE0 /* UIViewController+.swift in Sources */,
-				275DEC5F292CCA3E00B3A7B1 /* FirebaseAuthService.swift in Sources */,
 				274D845529175955003D6AC3 /* CloudFirestoreService.swift in Sources */,
 				276A98B628FE336200AC390F /* LoginViewController.swift in Sources */,
 				274549E929163DDC0012B790 /* TableViewCell.swift in Sources */,
