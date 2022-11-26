@@ -31,9 +31,9 @@ final class SetMemoCreatedViewModel: SetMemoCreatedViewModelOutput {
     }
     
     func uploadImage(data: Data) {
-        FirebaseStorageService.shared.uploadMemoImage(userId: self.userId, imageData: data) { isUploaded, imageRef in
+        StorageService.shared.uploadMemoImage(userId: self.userId, imageData: data) { isUploaded, imageRef in
             if isUploaded {
-                FirebaseStorageService.shared.downloadImage(imageRef: imageRef) { url in
+                StorageService.shared.downloadImage(imageRef: imageRef) { url in
                     self.imageURL = url
                 }
             }
@@ -57,7 +57,7 @@ final class SetMemoCreatedViewModel: SetMemoCreatedViewModelOutput {
             let gotItAction = UIAlertAction(title: "了解しました", style: .default)
             vc.showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
         } else {
-            CloudFirestoreService.shared.addMemo(text: text, userId: self.userId, imageURL: url) { isCreated in
+            DatabaseService.shared.addMemo(text: text, userId: self.userId, imageURL: url) { isCreated in
                 if isCreated {
                     Router.shared.showReStart()
                 }

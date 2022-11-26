@@ -1,16 +1,16 @@
 //
-//  CloudFirestoreService.swift
+//  DatabaseService.swift
 //  SampleEmailLogin
 //
-//  Created by kasiwa on 2022/11/06.
+//  Created by kasiwa on 2022/11/26.
 //
 
 import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-final class CloudFirestoreService {
-    static let shared: CloudFirestoreService = .init()
+final class DatabaseService {
+    static let shared: DatabaseService = .init()
     private init() {}
     
     private var db = Firestore.firestore()
