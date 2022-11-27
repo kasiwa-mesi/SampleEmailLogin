@@ -28,9 +28,9 @@ final class RegisterViewController: UIViewController {
     }
     
     @IBOutlet private weak var moveTrialButton: UIButton! {
-            didSet {
-                moveTrialButton.addTarget(self, action: #selector(tapTrial), for: .touchUpInside)
-            }
+        didSet {
+            moveTrialButton.addTarget(self, action: #selector(tapTrial), for: .touchUpInside)
+        }
     }
     
     private var viewModel: RegisterViewModel!
@@ -48,14 +48,12 @@ final class RegisterViewController: UIViewController {
     }
 }
 
-private extension RegisterViewController {
-    @objc func tapMoveLoginScreenButton() {
+@objc private extension RegisterViewController {
+    func tapMoveLoginScreenButton() {
         Router.shared.showLogin(from: self)
     }
     
-    @objc func tapRegisterButton() {
-        //会員登録処理を行う
-        // ログイン処理を走らせる前に、email, passwordのアンラップを先に行う
+    func tapRegisterButton() {
         guard let email = emailTextField.text else {
             fatalError()
         }
@@ -71,8 +69,7 @@ private extension RegisterViewController {
         viewModel.createUser(email: email, password: password, reconfirmPassword: reconfirmPassword, vc: self)
     }
     
-    @objc func tapTrial() {
+    func tapTrial() {
         Router.shared.showTrial(from: self)
     }
 }
-

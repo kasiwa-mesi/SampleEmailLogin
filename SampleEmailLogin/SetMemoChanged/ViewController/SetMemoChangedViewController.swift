@@ -52,13 +52,15 @@ private extension SetMemoChangedViewController {
     func setupViewModel(memo: MemoModel) {
         viewModel = SetMemoChangedViewModel(memo: memo)
     }
-    
-    @objc func tapSetMemoChangedButton() {
+}
+
+@objc private extension SetMemoChangedViewController {
+    func tapSetMemoChangedButton() {
         let memo = MemoModel(id: viewModel.memo.id, text: memoFieldTextView.text, userId: viewModel.memo.userId, createdAt: viewModel.memo.createdAt, imageURLStr: viewModel.memo.imageURLStr)
         viewModel.updateMemo(memo: memo, vc: self)
     }
     
-    @objc func tapDeleteButton() {
+    func tapDeleteButton() {
         viewModel.deleteMemo(memo: viewModel.memo)
     }
 }

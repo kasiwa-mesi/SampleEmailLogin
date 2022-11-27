@@ -32,8 +32,8 @@ final class LoginViewController: UIViewController {
     }
 }
 
-private extension LoginViewController {
-    @objc func tapLoginButton() {
+@objc private extension LoginViewController {
+    func tapLoginButton() {
         guard let email = emailTextField.text else {
             fatalError()
         }

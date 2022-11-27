@@ -45,38 +45,35 @@ final class SetMemoCreatedViewController: UIViewController {
     
 }
 
-private extension SetMemoCreatedViewController {
-    @objc func tapSubmitButton() {
-        guard let text = memoFieldTextView.text else {
+extension SetMemoCreatedViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.originalImage] as? UIImage else {
+            return
+        }
+        
+        viewModel.imagePickerController.dismiss(animated: true)
+        self.memoImageView.image = image
+        
+        guard let data = self.memoImageView.image?.pngData() else {
             fatalError()
         }
         
-        viewModel.addMemo(text: text, vc: self)
+        viewModel.uploadImage(data: data)
     }
 }
 
-extension SetMemoCreatedViewController: UIImagePickerControllerDelegate {
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            guard let image = info[.originalImage] as? UIImage else {
-                return
-            }
-            
-            viewModel.imagePickerController.dismiss(animated: true)
-            self.memoImageView.image = image
-        
-            guard let data = self.memoImageView.image?.pngData() else {
-                fatalError()
-            }
-            
-            viewModel.uploadImage(data: data)
-        }
-}
-
-extension SetMemoCreatedViewController: UINavigationControllerDelegate {
-    @objc func tapSelectButton() {
+@objc extension SetMemoCreatedViewController: UINavigationControllerDelegate {
+    private func tapSelectButton() {
         viewModel.imagePickerController.mediaTypes = ["public.image"]
         viewModel.imagePickerController.sourceType = .photoLibrary
         viewModel.imagePickerController.delegate = self
         self.present(viewModel.imagePickerController, animated: true, completion: nil)
+    }
+    
+    private func tapSubmitButton() {
+        guard let text = memoFieldTextView.text else {
+            fatalError()
+        }
+        viewModel.addMemo(text: text, vc: self)
     }
 }

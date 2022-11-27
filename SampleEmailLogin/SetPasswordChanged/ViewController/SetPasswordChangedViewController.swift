@@ -31,8 +31,8 @@ final class SetPasswordChangedViewController: UIViewController {
     }
 }
 
-private extension SetPasswordChangedViewController {
-    @objc func tapPasswordChangeButton() {
+@objc private extension SetPasswordChangedViewController {
+    func tapPasswordChangeButton() {
         viewModel.passwordReset()
     }
 }
