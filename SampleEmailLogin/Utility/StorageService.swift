@@ -24,28 +24,17 @@ final class StorageService {
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpeg"
         imageRef.putData(imageData, metadata: metaData) { metaData, error in
-            if let error = error {
-                print("アップロードに失敗しました: \(error)")
-                completion(false, imageRef)
-            } else {
-                completion(true, imageRef)
-            }
+            completion(error == nil , imageRef)
         }
     }
     
     func downloadImage(imageRef: StorageReference, completion: @escaping (URL) -> Void) {
         imageRef.downloadURL { url, error in
-            if let error = error {
-                print("ダウンロードに失敗しました")
-                print(error)
-                print(error.localizedDescription)
-            } else {
-                guard let downloadURL = url else {
-                    fatalError()
-                }
-                print("ダウンロードに成功しました")
-                completion(downloadURL)
+            guard let downloadURL = url else {
+                fatalError()
             }
+            print("ダウンロードに成功しました")
+            completion(downloadURL)
         }
     }
     

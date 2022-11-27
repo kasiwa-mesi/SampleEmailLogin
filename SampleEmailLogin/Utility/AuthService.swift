@@ -31,21 +31,13 @@ final class AuthService {
     
     func isLogined(completionHandler: @escaping (Bool) -> Void) {
         Auth.auth().addStateDidChangeListener({ auth, user in
-            if user == nil {
-                completionHandler(false)
-            } else {
-                completionHandler(true)
-            }
+            completionHandler(user != nil)
         })
     }
     
     func createUser(email: String, password: String, completionHandler: @escaping (Bool) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if authResult != nil {
-                completionHandler(true)
-            } else {
-                completionHandler(false)
-            }
+            completionHandler(authResult != nil)
         }
     }
     
@@ -68,34 +60,21 @@ final class AuthService {
     
     func sendPasswordReset(email: String, completionHandler: @escaping (Bool) -> Void) {
         Auth.auth().sendPasswordReset(withEmail: email) { error in
-            if error == nil {
-                completionHandler(true)
-            } else {
-                completionHandler(false)
-            }
+            completionHandler(error == nil)
         }
     }
     
     func updateEmail(email: String, completionHandler: @escaping (Bool) -> Void) {
         let user = getCurrentUser()
         user?.updateEmail(to: email) { error in
-            if error == nil {
-                completionHandler(true)
-            } else {
-                completionHandler(false)
-            }
+            completionHandler(error == nil)
         }
     }
     
     func reAuthenticate(credential: AuthCredential, completionHandler: @escaping (Bool) -> Void) {
         let user = Auth.auth().currentUser
         user?.reauthenticate(with: credential) { authResult, error in
-            if let error = error {
-                print(error)
-                completionHandler(false)
-            } else {
-                completionHandler(true)
-            }
+            completionHandler(error == nil)
         }
     }
 }
