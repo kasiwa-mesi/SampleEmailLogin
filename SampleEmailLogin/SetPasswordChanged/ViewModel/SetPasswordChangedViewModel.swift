@@ -12,13 +12,18 @@ protocol SetPasswordChangedViewModelOutput {
 }
 
 final class SetPasswordChangedViewModel: SetPasswordChangedViewModelOutput {
-    private(set) var email: String
+    private var _email: String
+    var email: String {
+        get {
+            return _email
+        }
+    }
     
     init() {
         guard let email = AuthService.shared.getCurrentUser()?.email else {
             fatalError()
         }
-        self.email = email
+        self._email = email
     }
     
     func passwordReset() {
