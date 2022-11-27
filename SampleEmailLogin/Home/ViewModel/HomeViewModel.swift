@@ -29,10 +29,26 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
     private let _selectMemoModel: PublishRelay<MemoModel> = .init()
     lazy var selectMemoModelObservable: Observable<MemoModel> = _selectMemoModel.asObservable()
     
-    //最後に取得したデータ
-    private(set) var memos: [MemoModel] = []
-    private(set) var userId: String
-    private(set) var email: String
+    private var _memos: [MemoModel] = []
+    var memos: [MemoModel] {
+        get {
+            return _memos
+        }
+    }
+    
+    private var _userId: String
+    var userId: String {
+        get {
+            return _userId
+        }
+    }
+    
+    private var _email: String
+    var email: String {
+        get {
+            return _email
+        }
+    }
     
     init(input: HomeViewModelInput) {
         guard let userId = AuthService.shared.getCurrentUserId() else {
@@ -43,9 +59,9 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
             fatalError()
         }
         
-        self.userId = userId
-        self.email = email
-
+        self._email = email
+        self._userId = userId
+        
         input.didSelectObservable
             .filter { $0 < self.memos.count }
             .map { self.memos[$0] }
@@ -56,7 +72,7 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
     func fetchMemos(completion: @escaping (Bool) -> Void) {
         DatabaseService.shared.getCollection(userId: self.userId) { (memos) in
             if !memos.isEmpty {
-                self.memos = memos
+                self._memos = memos
                 self._loading.accept(false)
             }
             completion(!memos.isEmpty)
