@@ -94,20 +94,22 @@ private extension HomeViewController {
             Router.shared.showSetMemoChanged(from: vc, memo: memo)
         }).disposed(by: rx.disposeBag)
     }
-    
-    @objc func tapSignOutButton() {
+}
+
+@objc private extension HomeViewController {
+    func tapSignOutButton() {
         viewModel.logOut()
     }
     
-    @objc func tapMoveSetEmailChanged() {
+    func tapMoveSetEmailChanged() {
         Router.shared.showSetEmailChanged(from: self)
     }
     
-    @objc func tapMoveSetPasswordChanged() {
+    func tapMoveSetPasswordChanged() {
         Router.shared.showSetPasswordChanged(from: self)
     }
     
-    @objc func tapMoveSetMemoCreated() {
+    func tapMoveSetMemoCreated() {
         Router.shared.showSetMemoCreated(from: self)
     }
 }

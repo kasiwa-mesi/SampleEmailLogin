@@ -31,8 +31,8 @@ final class SetEmailChangedViewController: UIViewController {
     }
 }
 
-private extension SetEmailChangedViewController {
-    @objc func tapEmailChangeButton() {
+@objc private extension SetEmailChangedViewController {
+    func tapEmailChangeButton() {
         guard let newEmail = emailTextField.text else {
             fatalError()
         }
