@@ -17,24 +17,41 @@ protocol SetMemoCreatedViewModelOutput {
 }
 
 final class SetMemoCreatedViewModel: SetMemoCreatedViewModelOutput {
-    private(set) var imageURL: URL?
-    private(set) var imagePickerController: UIImagePickerController
-    private(set) var userId: String
+    private var _imageURL: URL?
+    var imageURL: URL? {
+        get {
+            return _imageURL
+        }
+    }
+    
+    private var _imagePickerController: UIImagePickerController
+    var imagePickerController: UIImagePickerController {
+        get {
+            return _imagePickerController
+        }
+    }
+    
+    private var _userId: String
+    var userId: String {
+        get {
+            return _userId
+        }
+    }
     
     init() {
-        self.imagePickerController = UIImagePickerController()
+        self._imagePickerController = UIImagePickerController()
         
         guard let userId = AuthService.shared.getCurrentUserId() else {
             fatalError()
         }
-        self.userId = userId
+        self._userId = userId
     }
     
     func uploadImage(data: Data) {
         StorageService.shared.uploadMemoImage(userId: self.userId, imageData: data) { isUploaded, imageRef in
             if isUploaded {
                 StorageService.shared.downloadImage(imageRef: imageRef) { url in
-                    self.imageURL = url
+                    self._imageURL = url
                 }
             }
         }
@@ -42,13 +59,13 @@ final class SetMemoCreatedViewModel: SetMemoCreatedViewModelOutput {
     
     func addMemo(text: String, vc: UIViewController) {
         var imageURL: String?
-
+        
         if self.imageURL != nil {
             imageURL = self.imageURL?.absoluteString
         } else {
             imageURL = ""
         }
-
+        
         guard let url = imageURL else {
             fatalError()
         }

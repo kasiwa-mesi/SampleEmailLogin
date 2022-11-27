@@ -12,10 +12,15 @@ protocol SetMemoChangedViewModelOutput {
 }
 
 final class SetMemoChangedViewModel: SetMemoChangedViewModelOutput {
-    private(set) var memo: MemoModel
+    private var _memo: MemoModel
+    var memo: MemoModel {
+        get {
+            return _memo
+        }
+    }
     
     init(memo: MemoModel) {
-        self.memo = memo
+        self._memo = memo
     }
     
     func updateMemo(memo: MemoModel, vc: UIViewController) {
