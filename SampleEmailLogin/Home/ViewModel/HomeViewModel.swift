@@ -55,13 +55,11 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
     //自分のメモを全て取得する
     func fetchMemos(completion: @escaping (Bool) -> Void) {
         DatabaseService.shared.getCollection(userId: self.userId) { (memos) in
-            if memos.isEmpty {
-                completion(false)
-            } else {
+            if !memos.isEmpty {
                 self.memos = memos
                 self._loading.accept(false)
-                completion(true)
             }
+            completion(!memos.isEmpty)
         }
     }
     
