@@ -18,8 +18,8 @@ enum Validator {
             return checkingResults.count > 0
         }
         
-        if email != nil {
-            guard let email = email, !email.isEmpty else {
+        if let email = email {
+            guard !email.isEmpty else {
                 self = .isEmptyEmail
                 return
             }
@@ -29,8 +29,8 @@ enum Validator {
             }
         }
         
-        if password != nil {
-            guard let password = password, !password.isEmpty else {
+        if let password = password {
+            guard !password.isEmpty else {
                 self = .isEmptyPassword
                 return
             }
@@ -41,8 +41,8 @@ enum Validator {
             }
         }
         
-        if reconfirmPassword != nil {
-            guard let reconfirmPassword = reconfirmPassword, !reconfirmPassword.isEmpty else {
+        if let reconfirmPassword = reconfirmPassword {
+            guard !reconfirmPassword.isEmpty else {
                 self = .isEmptyReconfirmPassword
                 return
             }
@@ -53,8 +53,8 @@ enum Validator {
             }
         }
         
-        if memoText != nil {
-            guard let memoText = memoText, !memoText.isEmpty else {
+        if let memoText = memoText {
+            guard !memoText.isEmpty else {
                 self = .isEmptyMemoText
                 return
             }
