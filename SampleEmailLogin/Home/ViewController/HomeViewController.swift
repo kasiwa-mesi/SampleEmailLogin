@@ -64,25 +64,27 @@ private extension HomeViewController {
     func setupViewModel() {
         viewModel = HomeViewModel(input: self)
         
-        if !viewModel.isEmailVerified() {
-            let tapLogoutAction = UIAlertAction(title: "了解しました", style: .default) { _ in
-                self.viewModel.sendEmailVerification()
-                self.viewModel.logOut()
-            }
-            self.showAlert(title: "メールアドレスが確認されていません", message: "\(viewModel.email)宛に認証リンクを送信したので、ご確認ください", actions: [tapLogoutAction])
-        }
+        viewModel.fetchMemos()
+        viewModel.getIsEmailVerified()
         
-        viewModel.fetchMemos { (memosExist) in
-            if memosExist {
-                self.tableView.dataSource = self
-                self.tableView.delegate = self
-                self.tableView.reloadData()
-            } else {
-                self.cautionLabel.isHidden = false
-                self.indicator.isHidden = true
-                self.tableView.isHidden = true
-            }
-        }
+        viewModel.showEmptyViewObservable
+            .bind(to: Binder(self) { vc, _ in
+                print("中身がない")
+                vc.cautionLabel.isHidden = false
+                vc.indicator.isHidden = true
+                vc.tableView.isHidden = true
+            }).disposed(by: rx.disposeBag)
+        
+        viewModel.updateMemoModelsObservable
+            .bind(to: Binder(self) { vc, _ in
+                print("メモを更新")
+                vc.cautionLabel.isHidden = true
+                vc.indicator.isHidden = true
+                vc.tableView.isHidden = false
+                vc.tableView.dataSource = self
+                vc.tableView.delegate = self
+                vc.tableView.reloadData()
+            }).disposed(by: rx.disposeBag)
         
         viewModel.loadingObservable
             .bind(to: Binder(self) { vc, loading in
@@ -90,9 +92,10 @@ private extension HomeViewController {
                 vc.indicator.isHidden = !loading
             }).disposed(by: rx.disposeBag)
         
-        viewModel.selectMemoModelObservable.bind(to: Binder(self) { vc, memo in
-            Router.shared.showSetMemoChanged(from: vc, memo: memo)
-        }).disposed(by: rx.disposeBag)
+        viewModel.selectMemoModelObservable
+            .bind(to: Binder(self) { vc, memo in
+                Router.shared.showSetMemoChanged(from: vc, memo: memo)
+            }).disposed(by: rx.disposeBag)
     }
 }
 
@@ -115,6 +118,15 @@ private extension HomeViewController {
 }
 
 extension HomeViewController: HomeViewModelInput {
+    func show() {
+        let tapLogoutAction = UIAlertAction(title: "了解しました", style: .default) { _ in
+            self.viewModel.sendEmailVerification()
+            self.viewModel.logOut()
+        }
+        
+        self.showAlert(title: "メールアドレスが確認されていません", message: "\(self.viewModel.email)宛に認証リンクを送信したので、ご確認ください", actions: [tapLogoutAction])
+    }
+    
     var didSelectObservable: Observable<Int> {
         didSelectRelay.asObservable()
     }
