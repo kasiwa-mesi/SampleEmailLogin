@@ -12,11 +12,14 @@ import NSObject_Rx
 
 protocol HomeViewModelInput {
     var didSelectObservable: Observable<Int> { get }
+    func show()
 }
 
 protocol HomeViewModelOutput {
     var loadingObservable: Observable<Bool> { get }
     var selectMemoModelObservable: Observable<MemoModel> { get }
+    var showEmptyViewObservable: Observable<Bool> { get }
+    var updateMemoModelsObservable: Observable<[MemoModel]> { get }
     var memos: [MemoModel] { get }
     var userId: String { get }
     var email: String { get }
@@ -28,6 +31,10 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
     lazy var loadingObservable: Observable<Bool> = _loading.asObservable()
     private let _selectMemoModel: PublishRelay<MemoModel> = .init()
     lazy var selectMemoModelObservable: Observable<MemoModel> = _selectMemoModel.asObservable()
+    private let _showEmptyView: PublishRelay<Bool> = .init()
+    lazy var showEmptyViewObservable: Observable<Bool> = _showEmptyView.asObservable()
+    private let _updateMemoModels: PublishRelay<[MemoModel]> = .init()
+    lazy var updateMemoModelsObservable: Observable<[MemoModel]> = _updateMemoModels.asObservable()
     
     private var _memos: [MemoModel] = []
     var memos: [MemoModel] {
@@ -50,6 +57,7 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
         }
     }
     
+    private var input: HomeViewModelInput!
     init(input: HomeViewModelInput) {
         guard let userId = AuthService.shared.getCurrentUserId() else {
             fatalError()
@@ -61,6 +69,7 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
         
         self._email = email
         self._userId = userId
+        self.input = input
         
         input.didSelectObservable
             .filter { $0 < self.memos.count }
@@ -68,22 +77,22 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
             .bind(to: _selectMemoModel).disposed(by: disposeBag)
     }
     
-    //自分のメモを全て取得する
-    func fetchMemos(completion: @escaping (Bool) -> Void) {
+    func fetchMemos() {
         DatabaseService.shared.getCollection(userId: self.userId) { (memos) in
             if !memos.isEmpty {
                 self._memos = memos
                 self._loading.accept(false)
+                self._updateMemoModels.accept(memos)
+            } else {
+                self._showEmptyView.accept(!memos.isEmpty)
             }
-            completion(!memos.isEmpty)
         }
     }
     
-    func isEmailVerified() -> Bool {
-        guard let isEmailVerified = AuthService.shared.getIsEmailVerified() else {
-            fatalError()
+    func getIsEmailVerified() {
+        if AuthService.shared.getIsEmailVerified() == false {
+            self.input.show()
         }
-        return isEmailVerified
     }
     
     func sendEmailVerification() {
