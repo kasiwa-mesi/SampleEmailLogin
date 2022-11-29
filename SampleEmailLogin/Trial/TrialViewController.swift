@@ -10,7 +10,7 @@ import UIKit
 final class TrialViewController: UIViewController {
     @IBOutlet private weak var memoFieldTextView: UITextView! {
         didSet {
-            memoFieldTextView.placeholder = "メモを入力してください"
+            memoFieldTextView.placeholder = String.memoPlaceholder
         }
     }
     

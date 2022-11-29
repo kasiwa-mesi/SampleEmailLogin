@@ -119,7 +119,7 @@ private extension HomeViewController {
 
 extension HomeViewController: HomeViewModelInput {
     func show() {
-        let tapLogoutAction = UIAlertAction(title: "了解しました", style: .default) { _ in
+        let tapLogoutAction = UIAlertAction(title: String.ok, style: .default) { _ in
             self.viewModel.sendEmailVerification()
             self.viewModel.logOut()
         }

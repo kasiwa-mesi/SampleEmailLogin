@@ -96,7 +96,7 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
     }
     
     func sendEmailVerification() {
-        AuthService.shared.setLanguageCode(code: "ja_JP")
+        AuthService.shared.setLanguageCode(code: String.languageCode)
         AuthService.shared.sendEmailVerification()
     }
     

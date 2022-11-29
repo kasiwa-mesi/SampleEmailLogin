@@ -48,7 +48,7 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController: LoginViewModelInput {
     func show(validationMessage: String) {
-        let gotItAction = UIAlertAction(title: "了解しました", style: .default)
+        let gotItAction = UIAlertAction(title: String.ok, style: .default)
         self.showAlert(title: validationMessage, message: "", actions: [gotItAction])
     }
 }
