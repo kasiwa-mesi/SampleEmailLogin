@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol SetEmailChangedViewModelInput {
+    func show(validationMessage: String)
+    func showLoginAlert()
+}
+
 protocol SetEmailChangedViewModelOutput {
     var email: String { get }
 }
@@ -19,18 +24,19 @@ final class SetEmailChangedViewModel: SetEmailChangedViewModelOutput {
         }
     }
     
-    init() {
+    private var input: SetEmailChangedViewModelInput!
+    init(input: SetEmailChangedViewModelInput) {
         guard let email = AuthService.shared.getCurrentUser()?.email else {
             fatalError()
         }
         self._email = email
+        self.input = input
     }
     
-    func updateEmail(newEmail: String, password: String, vc: UIViewController) {
+    func updateEmail(newEmail: String, password: String) {
         // バリデーションを走らせる
         if let validationAlertMessage = Validator(email: newEmail, password: nil, reconfirmPassword: nil, memoText: nil)?.alertMessage {
-            let gotItAction = UIAlertAction(title: "了解しました", style: .default)
-            vc.showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
+            input.show(validationMessage: validationAlertMessage)
         } else {
             // 再認証処理を走らせる
             let credential = AuthService.shared.getCredential(email: email, password: password)
@@ -43,10 +49,7 @@ final class SetEmailChangedViewModel: SetEmailChangedViewModelOutput {
                         }
                     }
                 } else {
-                    let moveLoginAction = UIAlertAction(title: "ログイン画面に移動", style: .default) { _ in
-                        Router.shared.showLogin(from: vc)
-                    }
-                    vc.showAlert(title: "直近でログインしていないため、もう一度行ってください", message: "", actions: [moveLoginAction])
+                    self.input.showLoginAlert()
                 }
             }
         }

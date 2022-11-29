@@ -50,17 +50,24 @@ final class SetMemoChangedViewController: UIViewController {
 
 private extension SetMemoChangedViewController {
     func setupViewModel(memo: MemoModel) {
-        viewModel = SetMemoChangedViewModel(memo: memo)
+        viewModel = SetMemoChangedViewModel(memo: memo, input: self)
     }
 }
 
 @objc private extension SetMemoChangedViewController {
     func tapSetMemoChangedButton() {
         let memo = MemoModel(id: viewModel.memo.id, text: memoFieldTextView.text, userId: viewModel.memo.userId, createdAt: viewModel.memo.createdAt, imageURLStr: viewModel.memo.imageURLStr)
-        viewModel.updateMemo(memo: memo, vc: self)
+        viewModel.updateMemo(memo: memo)
     }
     
     func tapDeleteButton() {
         viewModel.deleteMemo(memo: viewModel.memo)
+    }
+}
+
+extension SetMemoChangedViewController: SetMemoChangedViewModelInput {
+    func show(validationMessage: String) {
+        let gotItAction = UIAlertAction(title: "了解しました", style: .default)
+        self.showAlert(title: validationMessage, message: "", actions: [gotItAction])
     }
 }

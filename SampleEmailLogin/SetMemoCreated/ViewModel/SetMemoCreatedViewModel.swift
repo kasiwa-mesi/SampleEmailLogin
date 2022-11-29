@@ -10,6 +10,10 @@ import RxSwift
 import RxCocoa
 import NSObject_Rx
 
+protocol SetMemoCreatedViewModelInput {
+    func show(validationMessage: String)
+}
+
 protocol SetMemoCreatedViewModelOutput {
     var userId: String { get }
     var imageURL: URL? { get }
@@ -38,13 +42,16 @@ final class SetMemoCreatedViewModel: SetMemoCreatedViewModelOutput {
         }
     }
     
-    init() {
+    private var input: SetMemoCreatedViewModelInput!
+    init(input: SetMemoCreatedViewModelInput) {
         self._imagePickerController = UIImagePickerController()
         
         guard let userId = AuthService.shared.getCurrentUserId() else {
             fatalError()
         }
         self._userId = userId
+        
+        self.input = input
     }
     
     func uploadImage(data: Data) {
@@ -57,7 +64,7 @@ final class SetMemoCreatedViewModel: SetMemoCreatedViewModelOutput {
         }
     }
     
-    func addMemo(text: String, vc: UIViewController) {
+    func addMemo(text: String) {
         var imageURL: String?
         
         if self.imageURL != nil {
@@ -71,8 +78,7 @@ final class SetMemoCreatedViewModel: SetMemoCreatedViewModelOutput {
         }
         
         if let validationAlertMessage = Validator(email: nil, password: nil, reconfirmPassword: nil, memoText: text)?.alertMessage {
-            let gotItAction = UIAlertAction(title: "了解しました", style: .default)
-            vc.showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
+            input.show(validationMessage: validationAlertMessage)
         } else {
             DatabaseService.shared.addMemo(text: text, userId: self.userId, imageURL: url) { isCreated in
                 if isCreated {

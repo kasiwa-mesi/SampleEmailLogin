@@ -7,11 +7,19 @@
 
 import UIKit
 
+protocol RegisterViewModelInput {
+    func show(validationMessage: String)
+}
+
 final class RegisterViewModel {
-    func createUser(email: String, password: String, reconfirmPassword: String, vc: UIViewController) {
+    private var input: RegisterViewModelInput!
+    init(input: RegisterViewModelInput) {
+        self.input = input
+    }
+    
+    func createUser(email: String, password: String, reconfirmPassword: String) {
         if let validationAlertMessage = Validator(email: email, password: password, reconfirmPassword: reconfirmPassword, memoText: nil)?.alertMessage {
-            let gotItAction = UIAlertAction(title: "了解しました", style: .default)
-            vc.showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
+            input.show(validationMessage: validationAlertMessage)
         } else {
             AuthService.shared.createUser(email: email, password: password) { (userExists) in
                 if userExists {

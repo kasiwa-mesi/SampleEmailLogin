@@ -33,7 +33,11 @@ final class SetMemoCreatedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = SetMemoCreatedViewModel()
+        setupViewModel()
+    }
+    
+    func setupViewModel() {
+        viewModel = SetMemoCreatedViewModel(input: self)
     }
     
     static func makeFromStoryboard() -> SetMemoCreatedViewController {
@@ -74,6 +78,13 @@ extension SetMemoCreatedViewController: UIImagePickerControllerDelegate {
         guard let text = memoFieldTextView.text else {
             fatalError()
         }
-        viewModel.addMemo(text: text, vc: self)
+        viewModel.addMemo(text: text)
+    }
+}
+
+extension SetMemoCreatedViewController: SetMemoCreatedViewModelInput {
+    func show(validationMessage: String) {
+        let gotItAction = UIAlertAction(title: "了解しました", style: .default)
+        self.showAlert(title: validationMessage, message: "", actions: [gotItAction])
     }
 }
