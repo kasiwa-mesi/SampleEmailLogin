@@ -7,11 +7,19 @@
 
 import UIKit
 
+protocol LoginViewModelInput {
+    func show(validationMessage: String)
+}
+
 final class LoginViewModel {
-    func signIn(email: String, password: String, vc: UIViewController) {
+    private var input: LoginViewModelInput!
+    init(input: LoginViewModelInput) {
+        self.input = input
+    }
+    
+    func signIn(email: String, password: String) {
         if let validationAlertMessage = Validator(email: email, password: password, reconfirmPassword: nil, memoText: nil)?.alertMessage {
-            let gotItAction = UIAlertAction(title: "了解しました", style: .default)
-            vc.showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
+            input.show(validationMessage: validationAlertMessage)
         } else {
             AuthService.shared.signIn(email: email, password: password)
         }

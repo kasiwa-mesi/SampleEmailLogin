@@ -21,7 +21,7 @@ final class LoginViewController: UIViewController {
     private var viewModel: LoginViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = LoginViewModel()
+        viewModel = LoginViewModel(input: self)
     }
     
     static func makeFromStoryboard() -> LoginViewController {
@@ -42,6 +42,13 @@ final class LoginViewController: UIViewController {
             fatalError()
         }
         
-        viewModel.signIn(email: email, password: password, vc: self)
+        viewModel.signIn(email: email, password: password)
+    }
+}
+
+extension LoginViewController: LoginViewModelInput {
+    func show(validationMessage: String) {
+        let gotItAction = UIAlertAction(title: "了解しました", style: .default)
+        self.showAlert(title: validationMessage, message: "", actions: [gotItAction])
     }
 }
