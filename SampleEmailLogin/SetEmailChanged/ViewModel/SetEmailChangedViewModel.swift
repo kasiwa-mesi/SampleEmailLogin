@@ -33,7 +33,7 @@ final class SetEmailChangedViewModel: SetEmailChangedViewModelOutput {
         self.input = input
     }
     
-    func updateEmail(newEmail: String, password: String, vc: UIViewController) {
+    func updateEmail(newEmail: String, password: String) {
         // バリデーションを走らせる
         if let validationAlertMessage = Validator(email: newEmail, password: nil, reconfirmPassword: nil, memoText: nil)?.alertMessage {
             input.show(validationMessage: validationAlertMessage)

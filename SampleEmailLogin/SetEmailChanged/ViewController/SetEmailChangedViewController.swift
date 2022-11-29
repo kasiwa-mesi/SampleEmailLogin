@@ -45,7 +45,7 @@ final class SetEmailChangedViewController: UIViewController {
             fatalError()
         }
         
-        viewModel.updateEmail(newEmail: newEmail, password: password, vc: self)
+        viewModel.updateEmail(newEmail: newEmail, password: password)
     }
 }
 
