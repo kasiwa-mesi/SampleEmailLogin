@@ -20,7 +20,11 @@ final class SetEmailChangedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = SetEmailChangedViewModel()
+        setupViewModel()
+    }
+    
+    func setupViewModel() {
+        viewModel = SetEmailChangedViewModel(input: self)
     }
     
     static func makeFromStoryboard() -> SetEmailChangedViewController {
@@ -42,5 +46,12 @@ final class SetEmailChangedViewController: UIViewController {
         }
         
         viewModel.updateEmail(newEmail: newEmail, password: password, vc: self)
+    }
+}
+
+extension SetEmailChangedViewController: SetEmailChangedViewModelInput {
+    func show(validationMessage: String) {
+        let gotItAction = UIAlertAction(title: "了解しました", style: .default)
+        self.showAlert(title: validationMessage, message: "", actions: [gotItAction])
     }
 }

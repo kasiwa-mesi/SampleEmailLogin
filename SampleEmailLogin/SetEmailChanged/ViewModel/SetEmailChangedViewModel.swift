@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SetEmailChangedViewModelInput {
+    func show(validationMessage: String)
+}
+
 protocol SetEmailChangedViewModelOutput {
     var email: String { get }
 }
@@ -19,18 +23,19 @@ final class SetEmailChangedViewModel: SetEmailChangedViewModelOutput {
         }
     }
     
-    init() {
+    private var input: SetEmailChangedViewModelInput!
+    init(input: SetEmailChangedViewModelInput) {
         guard let email = AuthService.shared.getCurrentUser()?.email else {
             fatalError()
         }
         self._email = email
+        self.input = input
     }
     
     func updateEmail(newEmail: String, password: String, vc: UIViewController) {
         // バリデーションを走らせる
         if let validationAlertMessage = Validator(email: newEmail, password: nil, reconfirmPassword: nil, memoText: nil)?.alertMessage {
-            let gotItAction = UIAlertAction(title: "了解しました", style: .default)
-            vc.showAlert(title: validationAlertMessage, message: "", actions: [gotItAction])
+            input.show(validationMessage: validationAlertMessage)
         } else {
             // 再認証処理を走らせる
             let credential = AuthService.shared.getCredential(email: email, password: password)
