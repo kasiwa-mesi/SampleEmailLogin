@@ -23,7 +23,7 @@ final class RegisterViewModel {
         } else {
             AuthService.shared.createUser(email: email, password: password) { (userExists) in
                 if userExists {
-                    AuthService.shared.setLanguageCode(code: "ja_JP")
+                    AuthService.shared.setLanguageCode(code: String.languageCode)
                     AuthService.shared.sendEmailVerification()
                 }
             }
