@@ -9,6 +9,7 @@ import UIKit
 
 protocol SetEmailChangedViewModelInput {
     func show(validationMessage: String)
+    func showLoginAlert()
 }
 
 protocol SetEmailChangedViewModelOutput {
@@ -48,10 +49,7 @@ final class SetEmailChangedViewModel: SetEmailChangedViewModelOutput {
                         }
                     }
                 } else {
-                    let moveLoginAction = UIAlertAction(title: "ログイン画面に移動", style: .default) { _ in
-                        Router.shared.showLogin(from: vc)
-                    }
-                    vc.showAlert(title: "直近でログインしていないため、もう一度行ってください", message: "", actions: [moveLoginAction])
+                    self.input.showLoginAlert()
                 }
             }
         }
