@@ -20,7 +20,7 @@ final class SetMemoChangedViewController: UIViewController {
     
     @IBOutlet private weak var memoFieldTextView: UITextView! {
         didSet {
-            memoFieldTextView.placeholder = "メモを入力してください"
+            memoFieldTextView.placeholder = String.memoPlaceholder
             memoFieldTextView.text = viewModel.memo.text
         }
     }
@@ -67,7 +67,7 @@ private extension SetMemoChangedViewController {
 
 extension SetMemoChangedViewController: SetMemoChangedViewModelInput {
     func show(validationMessage: String) {
-        let gotItAction = UIAlertAction(title: "了解しました", style: .default)
+        let gotItAction = UIAlertAction(title: String.ok, style: .default)
         self.showAlert(title: validationMessage, message: "", actions: [gotItAction])
     }
 }

@@ -27,7 +27,7 @@ final class SetMemoCreatedViewController: UIViewController {
     
     @IBOutlet private weak var memoFieldTextView: UITextView! {
         didSet {
-            memoFieldTextView.placeholder = "メモを入力してください"
+            memoFieldTextView.placeholder = String.memoPlaceholder
         }
     }
     
@@ -84,7 +84,7 @@ extension SetMemoCreatedViewController: UIImagePickerControllerDelegate {
 
 extension SetMemoCreatedViewController: SetMemoCreatedViewModelInput {
     func show(validationMessage: String) {
-        let gotItAction = UIAlertAction(title: "了解しました", style: .default)
+        let gotItAction = UIAlertAction(title: String.ok, style: .default)
         self.showAlert(title: validationMessage, message: "", actions: [gotItAction])
     }
 }
