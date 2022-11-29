@@ -37,7 +37,7 @@ final class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = RegisterViewModel()
+        viewModel = RegisterViewModel(input: self)
     }
     
     static func makeFromStoryboard() -> RegisterViewController {
@@ -66,10 +66,17 @@ final class RegisterViewController: UIViewController {
             fatalError()
         }
         
-        viewModel.createUser(email: email, password: password, reconfirmPassword: reconfirmPassword, vc: self)
+        viewModel.createUser(email: email, password: password, reconfirmPassword: reconfirmPassword)
     }
     
     func tapTrial() {
         Router.shared.showTrial(from: self)
+    }
+}
+
+extension RegisterViewController: RegisterViewModelInput {
+    func show(validationMessage: String) {
+        let gotItAction = UIAlertAction(title: "了解しました", style: .default)
+        self.showAlert(title: validationMessage, message: "", actions: [gotItAction])
     }
 }
