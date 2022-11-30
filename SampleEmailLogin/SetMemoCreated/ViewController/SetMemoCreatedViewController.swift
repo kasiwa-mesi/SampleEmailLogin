@@ -14,11 +14,7 @@ final class SetMemoCreatedViewController: UIViewController {
     private var viewModel: SetMemoCreatedViewModel!
     
     @IBOutlet private weak var memoImageView: UIImageView!
-    @IBOutlet private weak var selectImageButton: UIButton! {
-        didSet {
-            selectImageButton.addTarget(self, action: #selector(tapSelectButton), for: .touchUpInside)
-        }
-    }
+    
     @IBOutlet private weak var submitButton: UIButton! {
         didSet {
             submitButton.addTarget(self, action: #selector(tapSubmitButton), for: .touchUpInside)
