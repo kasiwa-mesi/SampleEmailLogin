@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,102 +14,153 @@
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="RegisterViewController" customModule="SampleEmailLogin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7z7-Mv-uEk" userLabel="Register Form">
-                                <rect key="frame" x="16" y="44" width="382" height="696"/>
+                                <rect key="frame" x="16" y="0.0" width="343" height="667"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="ePY-lg-kzl">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="696"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="ePY-lg-kzl">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="667"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="会員登録画面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxg-fG-PgY">
-                                                <rect key="frame" x="0.0" y="0.0" width="382" height="72"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="143"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uDu-UE-2EQ" userLabel="Email Field">
-                                                <rect key="frame" x="0.0" y="104" width="382" height="72"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fac-C3-RE1">
+                                                <rect key="frame" x="0.0" y="175" width="343" height="72"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレス" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5w-bh-Oo8">
-                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XVJ-Hj-m9R">
-                                                        <rect key="frame" x="0.0" y="36" width="382" height="36"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="36" id="2Z4-Ll-aFU"/>
-                                                            <constraint firstAttribute="width" constant="382" id="frP-Cg-pgV"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uDu-UE-2EQ" userLabel="Email Field">
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="72"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレス" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5w-bh-Oo8">
+                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XVJ-Hj-m9R">
+                                                                <rect key="frame" x="0.0" y="36" width="343" height="36"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="36" id="2Z4-Ll-aFU"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="15e-PK-OS3" userLabel="Password Field">
-                                                <rect key="frame" x="0.0" y="208" width="382" height="72"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="uDu-UE-2EQ" firstAttribute="top" secondItem="fac-C3-RE1" secondAttribute="top" id="a7I-tl-AhB"/>
+                                                    <constraint firstAttribute="bottom" secondItem="uDu-UE-2EQ" secondAttribute="bottom" id="qNa-zS-4uk"/>
+                                                    <constraint firstAttribute="trailing" secondItem="uDu-UE-2EQ" secondAttribute="trailing" id="s9z-Yl-Ca7"/>
+                                                    <constraint firstItem="uDu-UE-2EQ" firstAttribute="leading" secondItem="fac-C3-RE1" secondAttribute="leading" id="sYh-Nv-0Ur"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1H-2X-wMx">
+                                                <rect key="frame" x="0.0" y="279" width="343" height="72"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5v-XD-nbu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qCU-Ab-z4F">
-                                                        <rect key="frame" x="0.0" y="36" width="382" height="36"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="382" id="DdZ-Ou-5Oz"/>
-                                                            <constraint firstAttribute="height" constant="36" id="hLz-fd-ka8"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="15e-PK-OS3" userLabel="Password Field">
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="72"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5v-XD-nbu">
+                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qCU-Ab-z4F">
+                                                                <rect key="frame" x="0.0" y="36" width="343" height="36"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="36" id="hLz-fd-ka8"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mge-Hg-wYH" userLabel="Reconfirm Password Field">
-                                                <rect key="frame" x="0.0" y="312" width="382" height="72"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="15e-PK-OS3" firstAttribute="top" secondItem="N1H-2X-wMx" secondAttribute="top" id="CCK-wm-kHq"/>
+                                                    <constraint firstItem="15e-PK-OS3" firstAttribute="leading" secondItem="N1H-2X-wMx" secondAttribute="leading" id="WDi-gU-l8W"/>
+                                                    <constraint firstAttribute="trailing" secondItem="15e-PK-OS3" secondAttribute="trailing" id="pSN-ro-DAi"/>
+                                                    <constraint firstAttribute="bottom" secondItem="15e-PK-OS3" secondAttribute="bottom" id="ses-Pn-VPq"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5z-w4-XfR">
+                                                <rect key="frame" x="0.0" y="383" width="343" height="72"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="もう一度、パスワードを入力してください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lb5-lJ-gc4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YOH-iJ-w73">
-                                                        <rect key="frame" x="0.0" y="36" width="382" height="36"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="382" id="390-hn-RCA"/>
-                                                            <constraint firstAttribute="height" constant="36" id="w9k-tl-hZl"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mge-Hg-wYH" userLabel="Reconfirm Password Field">
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="72"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="もう一度、パスワードを入力してください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lb5-lJ-gc4">
+                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YOH-iJ-w73">
+                                                                <rect key="frame" x="0.0" y="36" width="343" height="36"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="36" id="w9k-tl-hZl"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
-                                            </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chy-Lw-Bmn">
-                                                <rect key="frame" x="0.0" y="416" width="382" height="72"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="新規作成">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="28"/>
-                                                </buttonConfiguration>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93P-iT-cqp">
-                                                <rect key="frame" x="0.0" y="520" width="382" height="72"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="ログイン画面に移動する">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
-                                                </buttonConfiguration>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfO-hB-8qx">
-                                                <rect key="frame" x="0.0" y="624" width="382" height="72"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="メモを体験する">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
-                                                </buttonConfiguration>
-                                            </button>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="mge-Hg-wYH" secondAttribute="trailing" id="GOI-Pl-daq"/>
+                                                    <constraint firstItem="mge-Hg-wYH" firstAttribute="top" secondItem="b5z-w4-XfR" secondAttribute="top" id="SwV-mQ-WiN"/>
+                                                    <constraint firstAttribute="bottom" secondItem="mge-Hg-wYH" secondAttribute="bottom" id="Va8-RD-ywX"/>
+                                                    <constraint firstItem="mge-Hg-wYH" firstAttribute="leading" secondItem="b5z-w4-XfR" secondAttribute="leading" id="YWv-bS-UIo"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="krs-28-0ii">
+                                                <rect key="frame" x="0.0" y="487" width="343" height="180"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3G3-ca-zS8">
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="180"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chy-Lw-Bmn">
+                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="92"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="新規作成">
+                                                                    <fontDescription key="titleFontDescription" type="system" pointSize="28"/>
+                                                                </buttonConfiguration>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93P-iT-cqp">
+                                                                <rect key="frame" x="0.0" y="92" width="343" height="44"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="ログイン画面に移動する">
+                                                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                                                </buttonConfiguration>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfO-hB-8qx">
+                                                                <rect key="frame" x="0.0" y="136" width="343" height="44"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="メモを体験する">
+                                                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                                                </buttonConfiguration>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="3G3-ca-zS8" firstAttribute="top" secondItem="krs-28-0ii" secondAttribute="top" id="G1a-Tq-Pzs"/>
+                                                    <constraint firstAttribute="height" constant="180" id="OYL-2Q-jG9"/>
+                                                    <constraint firstItem="3G3-ca-zS8" firstAttribute="leading" secondItem="krs-28-0ii" secondAttribute="leading" id="Ozm-mv-A9T"/>
+                                                    <constraint firstAttribute="bottom" secondItem="3G3-ca-zS8" secondAttribute="bottom" id="P8q-y1-sXM"/>
+                                                    <constraint firstAttribute="trailing" secondItem="3G3-ca-zS8" secondAttribute="trailing" id="vOE-dQ-XKP"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
