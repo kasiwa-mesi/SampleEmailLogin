@@ -35,7 +35,7 @@ final class SetEmailChangedViewModel: SetEmailChangedViewModelOutput {
     
     func updateEmail(newEmail: String, password: String) {
         // バリデーションを走らせる
-        if let validationAlertMessage = Validator(email: newEmail, password: nil, reconfirmPassword: nil, memoText: nil)?.alertMessage {
+        if let validationAlertMessage = Validator(email: newEmail, password: nil, reconfirmPassword: nil, memoText: nil, updatedMemoText: nil)?.alertMessage {
             input.show(validationMessage: validationAlertMessage)
         } else {
             // 再認証処理を走らせる

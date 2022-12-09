@@ -30,17 +30,13 @@ final class SetMemoChangedViewModel: SetMemoChangedViewModelOutput {
     }
     
     func updateMemo(memo: MemoModel) {
-        if let validationAlertMessage = Validator(email: nil, password: nil, reconfirmPassword: nil, memoText: memo.text)?.alertMessage {
+        if let validationAlertMessage = Validator(email: nil, password: nil, reconfirmPassword: nil, memoText: self.memo.text, updatedMemoText: memo.text)?.alertMessage {
             input.show(validationMessage: validationAlertMessage)
         } else {
-            if self.memo.text != memo.text {
-                DatabaseService.shared.updateMemo(memo: memo) { (isUpdated) in
-                    if isUpdated {
-                        Router.shared.showReStart()
-                    }
+            DatabaseService.shared.updateMemo(memo: memo) { (isUpdated) in
+                if isUpdated {
+                    Router.shared.showReStart()
                 }
-            } else {
-                Router.shared.showReStart()
             }
         }
     }

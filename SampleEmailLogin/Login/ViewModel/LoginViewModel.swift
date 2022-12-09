@@ -18,7 +18,7 @@ final class LoginViewModel {
     }
     
     func signIn(email: String, password: String) {
-        if let validationAlertMessage = Validator(email: email, password: password, reconfirmPassword: nil, memoText: nil)?.alertMessage {
+        if let validationAlertMessage = Validator(email: email, password: password, reconfirmPassword: nil, memoText: nil, updatedMemoText: nil)?.alertMessage {
             input.show(validationMessage: validationAlertMessage)
         } else {
             AuthService.shared.signIn(email: email, password: password)
