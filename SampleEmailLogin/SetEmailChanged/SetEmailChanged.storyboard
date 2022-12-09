@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,32 +14,32 @@
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="SetEmailChangedViewController" customModule="SampleEmailLogin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3J1-DR-I2w">
-                                <rect key="frame" x="16" y="0.0" width="343" height="667"/>
+                                <rect key="frame" x="16" y="0.0" width="288" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="メールアドレスを変更" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvG-y1-D3j">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="216"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="117"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="42j-Py-yLn">
-                                        <rect key="frame" x="0.0" y="216" width="343" height="120"/>
+                                        <rect key="frame" x="0.0" y="117" width="288" height="120"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="b93-uA-Lcd" userLabel="Password Field">
-                                                <rect key="frame" x="0.0" y="24" width="343" height="96"/>
+                                                <rect key="frame" x="0.0" y="24" width="288" height="96"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TS8-Lc-ulk">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="288" height="48"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="APa-DJ-h8Q">
-                                                        <rect key="frame" x="0.0" y="48" width="343" height="48"/>
+                                                        <rect key="frame" x="0.0" y="48" width="288" height="48"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="48" id="pL1-Up-cJx"/>
                                                         </constraints>
@@ -58,19 +58,19 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Jx-uc-1M4">
-                                        <rect key="frame" x="0.0" y="336" width="343" height="144"/>
+                                        <rect key="frame" x="0.0" y="237" width="288" height="144"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4Rn-DG-jgs" userLabel="Email Field">
-                                                <rect key="frame" x="0.0" y="24" width="343" height="96"/>
+                                                <rect key="frame" x="0.0" y="24" width="288" height="96"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新しいメールアドレス" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tbg-d7-YH2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="288" height="48"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0go-XG-ktC">
-                                                        <rect key="frame" x="0.0" y="48" width="343" height="48"/>
+                                                        <rect key="frame" x="0.0" y="48" width="288" height="48"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="48" id="zAa-2T-I3P"/>
                                                         </constraints>
@@ -89,10 +89,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J4B-ag-dlz">
-                                        <rect key="frame" x="0.0" y="480" width="343" height="187"/>
+                                        <rect key="frame" x="0.0" y="381" width="288" height="187"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJs-tK-FR9">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="187"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="288" height="187"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="変更する">
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
