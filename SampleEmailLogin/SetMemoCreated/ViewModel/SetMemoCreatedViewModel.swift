@@ -77,7 +77,7 @@ final class SetMemoCreatedViewModel: SetMemoCreatedViewModelOutput {
             fatalError()
         }
         
-        if let validationAlertMessage = Validator(email: nil, password: nil, reconfirmPassword: nil, memoText: text)?.alertMessage {
+        if let validationAlertMessage = Validator(email: nil, password: nil, reconfirmPassword: nil, memoText: text, updatedMemoText: nil)?.alertMessage {
             input.show(validationMessage: validationAlertMessage)
         } else {
             DatabaseService.shared.addMemo(text: text, userId: self.userId, imageURL: url) { isCreated in

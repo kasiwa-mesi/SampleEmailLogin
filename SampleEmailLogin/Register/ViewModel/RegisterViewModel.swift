@@ -18,7 +18,7 @@ final class RegisterViewModel {
     }
     
     func createUser(email: String, password: String, reconfirmPassword: String) {
-        if let validationAlertMessage = Validator(email: email, password: password, reconfirmPassword: reconfirmPassword, memoText: nil)?.alertMessage {
+        if let validationAlertMessage = Validator(email: email, password: password, reconfirmPassword: reconfirmPassword, memoText: nil, updatedMemoText: nil)?.alertMessage {
             input.show(validationMessage: validationAlertMessage)
         } else {
             AuthService.shared.createUser(email: email, password: password) { (userExists) in
