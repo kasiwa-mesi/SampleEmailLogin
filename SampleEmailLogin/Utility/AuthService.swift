@@ -33,9 +33,13 @@ final class AuthService {
         })
     }
     
-    func createUser(email: String, password: String, completionHandler: @escaping (Bool) -> Void) {
+    func createUser(email: String, password: String, completionHandler: @escaping (NSError?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            completionHandler(authResult != nil)
+            if let authError = error as NSError? {
+                completionHandler(authError)
+                return
+            }
+            completionHandler(nil)
         }
     }
     
