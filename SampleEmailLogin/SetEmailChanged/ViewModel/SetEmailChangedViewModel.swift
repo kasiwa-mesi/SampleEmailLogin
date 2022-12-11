@@ -10,6 +10,7 @@ import UIKit
 protocol SetEmailChangedViewModelInput {
     func show(validationMessage: String)
     func showLoginAlert()
+    func showErrorAlert(code: String, message: String)
 }
 
 protocol SetEmailChangedViewModelOutput {
@@ -34,25 +35,26 @@ final class SetEmailChangedViewModel: SetEmailChangedViewModelOutput {
     }
     
     func updateEmail(newEmail: String, password: String) {
-        // バリデーションを走らせる
         if let validationAlertMessage = Validator(email: newEmail, password: nil, reconfirmPassword: nil, memoText: nil, updatedMemoText: nil)?.alertMessage {
             input.show(validationMessage: validationAlertMessage)
-        } else {
-            // 再認証処理を走らせる
-            let credential = AuthService.shared.getCredential(email: email, password: password)
-            
-            AuthService.shared.reAuthenticate(credential: credential) { (hasAuthentication) in
-                if hasAuthentication {
-                    AuthService.shared.updateEmail(email: newEmail) { (isUpdated) in
-                        if isUpdated {
-                            Router.shared.showReStart()
-                        }
-                    }
-                } else {
-                    self.input.showLoginAlert()
-                }
-            }
+            return
         }
         
+        let credential = AuthService.shared.getCredential(email: email, password: password)
+        AuthService.shared.reAuthenticate(credential: credential) { error in
+            if let error {
+                self.input.showLoginAlert()
+                return
+            }
+        }
+        AuthService.shared.updateEmail(email: newEmail) { error in
+            if let error {
+                self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+                return
+            }
+            Router.shared.showReStart()
+        }
     }
+    
 }
+
