@@ -25,14 +25,20 @@ final class RegisterViewModel {
         }
         
         AuthService.shared.createUser(email: email, password: password) { (error) in
-            if let error {
-                let gotItAction = UIAlertAction(title: String.ok, style: .default)
-                self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
-                return
-            }
+            self.showErrorAlert(error: error)
             
             AuthService.shared.setLanguageCode(code: String.languageCode)
-            AuthService.shared.sendEmailVerification()
+            AuthService.shared.sendEmailVerification { error in
+                self.showErrorAlert(error: error)
+            }
+        }
+    }
+    
+    private func showErrorAlert(error: NSError?) {
+        if let error {
+            let gotItAction = UIAlertAction(title: String.ok, style: .default)
+            self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+            return
         }
     }
 }

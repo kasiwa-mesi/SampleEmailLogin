@@ -55,9 +55,16 @@ final class AuthService {
         }
     }
     
-    func sendEmailVerification() {
+    func sendEmailVerification(completionHandler: @escaping (NSError?) -> Void) {
         let user = getCurrentUser()
-        user?.sendEmailVerification()
+        // メールが送れなかった場合のエラーハンドリングを記述
+        user?.sendEmailVerification { error in
+            if let authError = error as NSError? {
+                completionHandler(authError)
+                return
+            }
+            completionHandler(nil)
+        }
     }
     
     func sendPasswordReset(email: String, completionHandler: @escaping (Bool) -> Void) {

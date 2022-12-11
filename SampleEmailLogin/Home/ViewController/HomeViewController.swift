@@ -127,6 +127,12 @@ extension HomeViewController: HomeViewModelInput {
         self.showAlert(title: "メールアドレスが確認されていません", message: "\(self.viewModel.email)宛に認証リンクを送信したので、ご確認ください", actions: [tapLogoutAction])
     }
     
+    func showErrorAlert(code: String, message: String) {
+        let gotItAction = UIAlertAction(title: String.ok, style: .default)
+        let errorTitle = String.errorTitle + code
+        self.showAlert(title: errorTitle, message: message, actions: [gotItAction])
+    }
+    
     var didSelectObservable: Observable<Int> {
         didSelectRelay.asObservable()
     }
