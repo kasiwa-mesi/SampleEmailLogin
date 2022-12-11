@@ -5,10 +5,14 @@
 //  Created by kasiwa on 2022/11/22.
 //
 
-import Foundation
+import UIKit
 
 protocol SetPasswordChangedViewModelOutput {
     var email: String { get }
+}
+
+protocol SetPasswordChangedViewModelInput {
+    func showErrorAlert(code: String, message: String)
 }
 
 final class SetPasswordChangedViewModel: SetPasswordChangedViewModelOutput {
@@ -19,18 +23,24 @@ final class SetPasswordChangedViewModel: SetPasswordChangedViewModelOutput {
         }
     }
     
-    init() {
+    private var input: SetPasswordChangedViewModelInput!
+    init(input: SetPasswordChangedViewModelInput) {
         guard let email = AuthService.shared.getCurrentUser()?.email else {
             fatalError()
         }
         self._email = email
+        self.input = input
     }
     
     func passwordReset() {
-        AuthService.shared.sendPasswordReset(email: self.email) { (onSubmitted) in
-            if onSubmitted {
+        AuthService.shared.sendPasswordReset(email: self.email) { error in
+            guard let error else {
                 Router.shared.showReStart()
+                return
             }
+            
+            self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+            return
         }
     }
 }

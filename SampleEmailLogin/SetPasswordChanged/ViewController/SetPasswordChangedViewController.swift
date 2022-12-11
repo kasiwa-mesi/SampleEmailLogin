@@ -19,7 +19,7 @@ final class SetPasswordChangedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = SetPasswordChangedViewModel()
+        viewModel = SetPasswordChangedViewModel(input: self)
         userEmailLabel.text = "\(viewModel.email)宛にパスワード再設定用のリンクを送信します"
     }
     
@@ -34,5 +34,13 @@ final class SetPasswordChangedViewController: UIViewController {
 @objc private extension SetPasswordChangedViewController {
     func tapPasswordChangeButton() {
         viewModel.passwordReset()
+    }
+}
+
+extension SetPasswordChangedViewController: SetPasswordChangedViewModelInput {
+    func showErrorAlert(code: String, message: String) {
+        let gotItAction = UIAlertAction(title: String.ok, style: .default)
+        let errorTitle = String.errorTitle + code
+        self.showAlert(title: errorTitle, message: message, actions: [gotItAction])
     }
 }

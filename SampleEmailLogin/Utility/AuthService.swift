@@ -75,9 +75,13 @@ final class AuthService {
         }
     }
     
-    func sendPasswordReset(email: String, completionHandler: @escaping (Bool) -> Void) {
+    func sendPasswordReset(email: String, completionHandler: @escaping (NSError?) -> Void) {
         Auth.auth().sendPasswordReset(withEmail: email) { error in
-            completionHandler(error == nil)
+            if let authError = error as NSError? {
+                completionHandler(authError)
+                return
+            }
+            completionHandler(nil)
         }
     }
     
