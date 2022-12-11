@@ -53,11 +53,13 @@ final class AuthService {
         }
     }
     
-    func signOut() {
+    func signOut(completionHandler: @escaping (NSError?) -> Void) {
         do {
             try Auth.auth().signOut()
+            completionHandler(nil)
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
+            completionHandler(signOutError)
         }
     }
     

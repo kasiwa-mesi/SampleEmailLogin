@@ -35,10 +35,12 @@ final class RegisterViewModel {
     }
     
     private func showErrorAlert(error: NSError?) {
-        if let error {
-            let gotItAction = UIAlertAction(title: String.ok, style: .default)
-            self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+        guard let error else {
             return
         }
+        
+        let gotItAction = UIAlertAction(title: String.ok, style: .default)
+        self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+        return
     }
 }

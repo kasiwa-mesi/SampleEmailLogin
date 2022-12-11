@@ -104,14 +104,18 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
     }
     
     func logOut() {
-        AuthService.shared.signOut()
+        AuthService.shared.signOut { error in
+            self.showErrorAlert(error: error)
+        }
     }
     
     private func showErrorAlert(error: NSError?) {
-        if let error {
-            let gotItAction = UIAlertAction(title: String.ok, style: .default)
-            self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+        guard let error else {
             return
         }
+        
+        let gotItAction = UIAlertAction(title: String.ok, style: .default)
+        self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+        return
     }
 }
