@@ -39,7 +39,6 @@ final class RegisterViewModel {
             return
         }
         
-        let gotItAction = UIAlertAction(title: String.ok, style: .default)
         self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
         return
     }
