@@ -79,4 +79,10 @@ extension RegisterViewController: RegisterViewModelInput {
         let gotItAction = UIAlertAction(title: String.ok, style: .default)
         self.showAlert(title: validationMessage, message: "", actions: [gotItAction])
     }
+    
+    func showErrorAlert(code: String, message: String) {
+        let gotItAction = UIAlertAction(title: String.ok, style: .default)
+        let errorTitle = String.errorTitle + code
+        self.showAlert(title: errorTitle, message: message, actions: [gotItAction])
+    }
 }

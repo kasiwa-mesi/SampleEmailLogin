@@ -9,6 +9,7 @@ import Foundation
 
 extension String {
     static var ok: String { "了解しました" }
+    static var errorTitle: String { "エラーコード: " }
     static var memoPlaceholder: String { "メモを入力してください" }
     static var languageCode: String { "ja_JP" }
 }

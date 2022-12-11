@@ -13,6 +13,7 @@ import NSObject_Rx
 protocol HomeViewModelInput {
     var didSelectObservable: Observable<Int> { get }
     func show()
+    func showErrorAlert(code: String, message: String)
 }
 
 protocol HomeViewModelOutput {
@@ -97,10 +98,20 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
     
     func sendEmailVerification() {
         AuthService.shared.setLanguageCode(code: String.languageCode)
-        AuthService.shared.sendEmailVerification()
+        AuthService.shared.sendEmailVerification { error in
+            self.showErrorAlert(error: error)
+        }
     }
     
     func logOut() {
         AuthService.shared.signOut()
+    }
+    
+    private func showErrorAlert(error: NSError?) {
+        if let error {
+            let gotItAction = UIAlertAction(title: String.ok, style: .default)
+            self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+            return
+        }
     }
 }
