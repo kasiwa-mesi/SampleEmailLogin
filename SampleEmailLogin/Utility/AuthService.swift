@@ -85,17 +85,25 @@ final class AuthService {
         }
     }
     
-    func updateEmail(email: String, completionHandler: @escaping (Bool) -> Void) {
+    func updateEmail(email: String, completionHandler: @escaping (NSError?) -> Void) {
         let user = getCurrentUser()
         user?.updateEmail(to: email) { error in
-            completionHandler(error == nil)
+            if let authError = error as NSError? {
+                completionHandler(authError)
+                return
+            }
+            completionHandler(nil)
         }
     }
     
-    func reAuthenticate(credential: AuthCredential, completionHandler: @escaping (Bool) -> Void) {
+    func reAuthenticate(credential: AuthCredential, completionHandler: @escaping (NSError?) -> Void) {
         let user = Auth.auth().currentUser
         user?.reauthenticate(with: credential) { authResult, error in
-            completionHandler(error == nil)
+            if let authError = error as NSError? {
+                completionHandler(authError)
+                return
+            }
+            completionHandler(nil)
         }
     }
 }
