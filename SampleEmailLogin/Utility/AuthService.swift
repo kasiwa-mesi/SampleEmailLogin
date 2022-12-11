@@ -43,8 +43,14 @@ final class AuthService {
         }
     }
     
-    func signIn(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password)
+    func signIn(email: String, password: String, completionHandler: @escaping (NSError?) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let authError = error as NSError? {
+                completionHandler(authError)
+                return
+            }
+            completionHandler(nil)
+        }
     }
     
     func signOut() {

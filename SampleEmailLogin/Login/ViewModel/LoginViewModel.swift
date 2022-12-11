@@ -9,6 +9,7 @@ import UIKit
 
 protocol LoginViewModelInput {
     func show(validationMessage: String)
+    func showErrorAlert(code: String, message: String)
 }
 
 final class LoginViewModel {
@@ -20,8 +21,15 @@ final class LoginViewModel {
     func signIn(email: String, password: String) {
         if let validationAlertMessage = Validator(email: email, password: password, reconfirmPassword: nil, memoText: nil, updatedMemoText: nil)?.alertMessage {
             input.show(validationMessage: validationAlertMessage)
-        } else {
-            AuthService.shared.signIn(email: email, password: password)
+            return
+        }
+        
+        AuthService.shared.signIn(email: email, password: password) { error in
+            if let error {
+                let gotItAction = UIAlertAction(title: String.ok, style: .default)
+                self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+                return
+            }
         }
     }
 }
