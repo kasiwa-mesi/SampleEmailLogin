@@ -45,10 +45,12 @@ final class SetMemoChangedViewModel: SetMemoChangedViewModelOutput {
     }
     
     func deleteMemo(memo: MemoModel) {
-        DatabaseService.shared.deleteMemo(memo: memo) { isDeleted in
-            if isDeleted {
-                Router.shared.showReStart()
+        DatabaseService.shared.deleteMemo(memo: memo) { error in
+            if let error {
+                self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+                return
             }
+            Router.shared.showReStart()
         }
     }
 }

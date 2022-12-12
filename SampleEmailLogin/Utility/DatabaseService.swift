@@ -69,12 +69,16 @@ final class DatabaseService {
         }
     }
     
-    func deleteMemo(memo: MemoModel, completion: @escaping (Bool) -> Void) {
+    func deleteMemo(memo: MemoModel, completion: @escaping (NSError?) -> Void) {
         guard let id = memo.id else {
             fatalError()
         }
         db.collection("memos").document(id).delete() { error in
-            completion(error == nil)
+            if let databaseError = error as NSError? {
+                completion(databaseError)
+                return
+            }
+            completion(nil)
         }
     }
 }
