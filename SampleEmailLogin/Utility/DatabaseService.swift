@@ -15,12 +15,17 @@ final class DatabaseService {
     
     private var db = Firestore.firestore()
     
-    func getCollection(userId: String?, completion: @escaping ([MemoModel]) -> Void) {
+    func getCollection(userId: String?, completion: @escaping ([MemoModel], NSError?) -> Void) {
         var memos: [MemoModel] = []
         guard let uid = userId else {
             fatalError()
         }
         db.collection("memos").whereField("userId", isEqualTo: uid).getDocuments { (snapshot, error) in
+            if let databaseError = error as NSError? {
+                completion(memos, databaseError)
+                return
+            }
+            
             guard let documents = snapshot?.documents else {
                 return
             }
@@ -28,23 +33,26 @@ final class DatabaseService {
             memos = documents.compactMap { (queryDocumentSnapshot) -> MemoModel? in
                 return try? queryDocumentSnapshot.data(as: MemoModel.self)
             }
-            completion(memos)
+            completion(memos, nil)
         }
     }
     
-    func addMemo(text: String, userId: String, imageURL: String, completion: @escaping (Bool) -> Void) {
+    func addMemo(text: String, userId: String, imageURL: String, completion: @escaping (NSError?) -> Void) {
         db.collection("memos").addDocument(data: [
             "text": text,
             "userId": userId,
             "createdAt": FirebaseFirestore.FieldValue.serverTimestamp(),
-            // 画像アップロード機能を実装したら、引数にimageURLを渡す
             "imageURL": imageURL
-        ]) { err in
-            completion(err == nil)
+        ]) { error in
+            if let databaseError = error as NSError? {
+                completion(databaseError)
+                return
+            }
+            completion(nil)
         }
     }
     
-    func updateMemo(memo: MemoModel, completion: @escaping (Bool) -> Void) {
+    func updateMemo(memo: MemoModel, completion: @escaping (NSError?) -> Void) {
         guard let id = memo.id else {
             fatalError()
         }
@@ -53,16 +61,24 @@ final class DatabaseService {
             "text": memo.text,
             "imageURL": memo.imageURLStr
         ]) { error in
-            completion(error == nil)
+            if let databaseError = error as NSError? {
+                completion(databaseError)
+                return
+            }
+            completion(nil)
         }
     }
     
-    func deleteMemo(memo: MemoModel, completion: @escaping (Bool) -> Void) {
+    func deleteMemo(memo: MemoModel, completion: @escaping (NSError?) -> Void) {
         guard let id = memo.id else {
             fatalError()
         }
         db.collection("memos").document(id).delete() { error in
-            completion(error == nil)
+            if let databaseError = error as NSError? {
+                completion(databaseError)
+                return
+            }
+            completion(nil)
         }
     }
 }

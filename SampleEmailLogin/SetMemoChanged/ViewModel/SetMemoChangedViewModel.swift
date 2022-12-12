@@ -9,6 +9,7 @@ import UIKit
 
 protocol SetMemoChangedViewModelInput {
     func show(validationMessage: String)
+    func showErrorAlert(code: String, message: String)
 }
 
 protocol SetMemoChangedViewModelOutput {
@@ -32,20 +33,24 @@ final class SetMemoChangedViewModel: SetMemoChangedViewModelOutput {
     func updateMemo(memo: MemoModel) {
         if let validationAlertMessage = Validator(email: nil, password: nil, reconfirmPassword: nil, memoText: self.memo.text, updatedMemoText: memo.text)?.alertMessage {
             input.show(validationMessage: validationAlertMessage)
-        } else {
-            DatabaseService.shared.updateMemo(memo: memo) { (isUpdated) in
-                if isUpdated {
-                    Router.shared.showReStart()
-                }
+        }
+        
+        DatabaseService.shared.updateMemo(memo: memo) { error in
+            if let error {
+                self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+                return
             }
+            Router.shared.showReStart()
         }
     }
     
     func deleteMemo(memo: MemoModel) {
-        DatabaseService.shared.deleteMemo(memo: memo) { isDeleted in
-            if isDeleted {
-                Router.shared.showReStart()
+        DatabaseService.shared.deleteMemo(memo: memo) { error in
+            if let error {
+                self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+                return
             }
+            Router.shared.showReStart()
         }
     }
 }
