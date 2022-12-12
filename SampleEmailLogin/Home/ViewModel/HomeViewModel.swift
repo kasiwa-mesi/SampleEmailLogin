@@ -79,14 +79,21 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
     }
     
     func fetchMemos() {
-        DatabaseService.shared.getCollection(userId: self.userId) { (memos) in
-            if !memos.isEmpty {
-                self._memos = memos
-                self._loading.accept(false)
-                self._updateMemoModels.accept(memos)
-            } else {
-                self._showEmptyView.accept(!memos.isEmpty)
+        DatabaseService.shared.getCollection(userId: self.userId) { memos, error in
+            if let error {
+                self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+                return
             }
+            
+            if memos.isEmpty {
+                self._showEmptyView.accept(!memos.isEmpty)
+                return
+            }
+            
+            self._memos = memos
+            self._loading.accept(false)
+            self._updateMemoModels.accept(memos)
+            return
         }
     }
     

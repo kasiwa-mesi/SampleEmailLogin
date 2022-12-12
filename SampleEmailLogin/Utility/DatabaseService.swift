@@ -15,12 +15,17 @@ final class DatabaseService {
     
     private var db = Firestore.firestore()
     
-    func getCollection(userId: String?, completion: @escaping ([MemoModel]) -> Void) {
+    func getCollection(userId: String?, completion: @escaping ([MemoModel], NSError?) -> Void) {
         var memos: [MemoModel] = []
         guard let uid = userId else {
             fatalError()
         }
         db.collection("memos").whereField("userId", isEqualTo: uid).getDocuments { (snapshot, error) in
+            if let databaseError = error as NSError? {
+                completion(memos, databaseError)
+                return
+            }
+            
             guard let documents = snapshot?.documents else {
                 return
             }
@@ -28,7 +33,7 @@ final class DatabaseService {
             memos = documents.compactMap { (queryDocumentSnapshot) -> MemoModel? in
                 return try? queryDocumentSnapshot.data(as: MemoModel.self)
             }
-            completion(memos)
+            completion(memos, nil)
         }
     }
     
