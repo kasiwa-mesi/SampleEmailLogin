@@ -52,7 +52,7 @@ final class DatabaseService {
         }
     }
     
-    func updateMemo(memo: MemoModel, completion: @escaping (Bool) -> Void) {
+    func updateMemo(memo: MemoModel, completion: @escaping (NSError?) -> Void) {
         guard let id = memo.id else {
             fatalError()
         }
@@ -61,7 +61,11 @@ final class DatabaseService {
             "text": memo.text,
             "imageURL": memo.imageURLStr
         ]) { error in
-            completion(error == nil)
+            if let databaseError = error as NSError? {
+                completion(databaseError)
+                return
+            }
+            completion(nil)
         }
     }
     
