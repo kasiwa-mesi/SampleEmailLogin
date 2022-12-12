@@ -56,11 +56,13 @@ final class SetMemoCreatedViewModel: SetMemoCreatedViewModelOutput {
     }
     
     func uploadImage(data: Data) {
-        StorageService.shared.uploadMemoImage(userId: self.userId, imageData: data) { isUploaded, imageRef in
-            if isUploaded {
-                StorageService.shared.downloadImage(imageRef: imageRef) { url in
-                    self._imageURL = url
-                }
+        StorageService.shared.uploadMemoImage(userId: self.userId, imageData: data) { error, imageRef in
+            if let error {
+                self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+                return
+            }
+            StorageService.shared.downloadImage(imageRef: imageRef) { url in
+                self._imageURL = url
             }
         }
     }
