@@ -83,6 +83,12 @@ extension SetMemoCreatedViewController: UIImagePickerControllerDelegate {
 }
 
 extension SetMemoCreatedViewController: SetMemoCreatedViewModelInput {
+    func showErrorAlert(code: String, message: String) {
+        let gotItAction = UIAlertAction(title: String.ok, style: .default)
+        let errorTitle = String.errorTitle + code
+        self.showAlert(title: errorTitle, message: message, actions: [gotItAction])
+    }
+    
     func show(validationMessage: String) {
         let gotItAction = UIAlertAction(title: String.ok, style: .default)
         self.showAlert(title: validationMessage, message: "", actions: [gotItAction])

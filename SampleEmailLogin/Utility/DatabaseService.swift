@@ -37,15 +37,18 @@ final class DatabaseService {
         }
     }
     
-    func addMemo(text: String, userId: String, imageURL: String, completion: @escaping (Bool) -> Void) {
+    func addMemo(text: String, userId: String, imageURL: String, completion: @escaping (NSError?) -> Void) {
         db.collection("memos").addDocument(data: [
             "text": text,
             "userId": userId,
             "createdAt": FirebaseFirestore.FieldValue.serverTimestamp(),
-            // 画像アップロード機能を実装したら、引数にimageURLを渡す
             "imageURL": imageURL
-        ]) { err in
-            completion(err == nil)
+        ]) { error in
+            if let databaseError = error as NSError? {
+                completion(databaseError)
+                return
+            }
+            completion(nil)
         }
     }
     

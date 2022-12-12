@@ -12,6 +12,7 @@ import NSObject_Rx
 
 protocol SetMemoCreatedViewModelInput {
     func show(validationMessage: String)
+    func showErrorAlert(code: String, message: String)
 }
 
 protocol SetMemoCreatedViewModelOutput {
@@ -79,12 +80,14 @@ final class SetMemoCreatedViewModel: SetMemoCreatedViewModelOutput {
         
         if let validationAlertMessage = Validator(email: nil, password: nil, reconfirmPassword: nil, memoText: text, updatedMemoText: nil)?.alertMessage {
             input.show(validationMessage: validationAlertMessage)
-        } else {
-            DatabaseService.shared.addMemo(text: text, userId: self.userId, imageURL: url) { isCreated in
-                if isCreated {
-                    Router.shared.showReStart()
-                }
+        }
+        
+        DatabaseService.shared.addMemo(text: text, userId: self.userId, imageURL: url) { error in
+            if let error {
+                self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+                return
             }
+            Router.shared.showReStart()
         }
     }
 }
