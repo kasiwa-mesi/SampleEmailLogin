@@ -34,13 +34,12 @@ final class SetPasswordChangedViewModel: SetPasswordChangedViewModelOutput {
     
     func passwordReset() {
         AuthService.shared.sendPasswordReset(email: self.email) { error in
-            guard let error else {
-                Router.shared.showReStart()
+            if let error {
+                self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
                 return
             }
             
-            self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
-            return
+            Router.shared.showReStart()
         }
     }
 }

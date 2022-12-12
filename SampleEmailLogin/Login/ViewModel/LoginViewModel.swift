@@ -25,12 +25,10 @@ final class LoginViewModel {
         }
         
         AuthService.shared.signIn(email: email, password: password) { error in
-            guard let error else {
+            if let error {
+                self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
                 return
             }
-            
-            self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
-            return
         }
     }
 }

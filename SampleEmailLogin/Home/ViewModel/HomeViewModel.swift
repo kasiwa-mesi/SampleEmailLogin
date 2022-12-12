@@ -80,10 +80,7 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
     
     func fetchMemos() {
         DatabaseService.shared.getCollection(userId: self.userId) { memos, error in
-            if let error {
-                self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
-                return
-            }
+            self.showErrorAlert(error: error)
             
             if memos.isEmpty {
                 self._showEmptyView.accept(!memos.isEmpty)
@@ -117,11 +114,9 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
     }
     
     private func showErrorAlert(error: NSError?) {
-        guard let error else {
+        if let error {
+            self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
             return
         }
-        
-        self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
-        return
     }
 }
