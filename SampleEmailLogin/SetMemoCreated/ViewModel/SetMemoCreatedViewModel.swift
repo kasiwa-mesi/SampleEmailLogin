@@ -61,7 +61,11 @@ final class SetMemoCreatedViewModel: SetMemoCreatedViewModelOutput {
                 self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
                 return
             }
-            StorageService.shared.downloadImage(imageRef: imageRef) { url in
+            StorageService.shared.downloadImage(imageRef: imageRef) { error, url in
+                if let error {
+                    self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+                    return
+                }
                 self._imageURL = url
             }
         }

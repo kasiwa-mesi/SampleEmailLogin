@@ -32,13 +32,16 @@ final class StorageService {
         }
     }
     
-    func downloadImage(imageRef: StorageReference, completion: @escaping (URL) -> Void) {
+    func downloadImage(imageRef: StorageReference, completion: @escaping (NSError?, URL) -> Void) {
         imageRef.downloadURL { url, error in
             guard let downloadURL = url else {
-                fatalError()
+                return
             }
-            print("ダウンロードに成功しました")
-            completion(downloadURL)
+            if let storageError = error as NSError? {
+                completion(storageError, downloadURL)
+                return
+            }
+            completion(nil, downloadURL)
         }
     }
     
