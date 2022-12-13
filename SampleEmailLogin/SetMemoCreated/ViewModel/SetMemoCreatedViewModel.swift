@@ -71,23 +71,13 @@ final class SetMemoCreatedViewModel: SetMemoCreatedViewModelOutput {
     }
     
     func addMemo(text: String) {
-        var imageURL: String?
-        
-        if self.imageURL != nil {
-            imageURL = self.imageURL?.absoluteString
-        } else {
-            imageURL = ""
-        }
-        
-        guard let url = imageURL else {
-            fatalError()
-        }
-        
+        let imageURL = self.imageURL?.absoluteString ?? ""
+
         if let validationAlertMessage = Validator(email: nil, password: nil, reconfirmPassword: nil, memoText: text, updatedMemoText: nil)?.alertMessage {
             input.show(validationMessage: validationAlertMessage)
         }
         
-        DatabaseService.shared.addMemo(text: text, userId: self.userId, imageURL: url) { error in
+        DatabaseService.shared.addMemo(text: text, userId: self.userId, imageURL: imageURL) { error in
             if let error {
                 self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
                 return
