@@ -75,6 +75,7 @@ final class SetMemoCreatedViewModel: SetMemoCreatedViewModelOutput {
 
         if let validationAlertMessage = Validator(email: nil, password: nil, reconfirmPassword: nil, memoText: text, updatedMemoText: nil)?.alertMessage {
             input.show(validationMessage: validationAlertMessage)
+            return
         }
         
         DatabaseService.shared.addMemo(text: text, userId: self.userId, imageURL: imageURL) { error in
