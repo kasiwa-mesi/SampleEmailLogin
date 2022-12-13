@@ -33,6 +33,7 @@ final class SetMemoChangedViewModel: SetMemoChangedViewModelOutput {
     func updateMemo(memo: MemoModel) {
         if let validationAlertMessage = Validator(email: nil, password: nil, reconfirmPassword: nil, memoText: self.memo.text, updatedMemoText: memo.text)?.alertMessage {
             input.show(validationMessage: validationAlertMessage)
+            return
         }
         
         DatabaseService.shared.updateMemo(memo: memo) { error in
