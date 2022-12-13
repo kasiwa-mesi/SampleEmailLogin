@@ -34,13 +34,8 @@ final class LoginViewController: UIViewController {
 
 @objc private extension LoginViewController {
     func tapLoginButton() {
-        guard let email = emailTextField.text else {
-            fatalError()
-        }
-        
-        guard let password = passwordTextField.text else {
-            fatalError()
-        }
+        let email = emailTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
         
         viewModel.signIn(email: email, password: password)
     }
