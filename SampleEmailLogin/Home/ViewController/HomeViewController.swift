@@ -67,6 +67,8 @@ private extension HomeViewController {
         viewModel.fetchMemos()
         viewModel.getIsEmailVerified()
         
+        viewModel.isLogined()
+        
         viewModel.showEmptyViewObservable
             .bind(to: Binder(self) { vc, _ in
                 print("中身がない")
@@ -118,6 +120,13 @@ private extension HomeViewController {
 }
 
 extension HomeViewController: HomeViewModelInput {
+    func showLoginAlert() {
+        let moveLoginAction = UIAlertAction(title: String.loginActionButtonLabel, style: .default) { _ in
+            self.viewModel.logOut()
+        }
+        self.showAlert(title: String.loginAlertTitle, message: "", actions: [moveLoginAction])
+    }
+    
     func show() {
         let tapLogoutAction = UIAlertAction(title: String.ok, style: .default) { _ in
             self.viewModel.sendEmailVerification()

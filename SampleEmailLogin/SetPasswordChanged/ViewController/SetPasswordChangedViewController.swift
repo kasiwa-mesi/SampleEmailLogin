@@ -20,6 +20,7 @@ final class SetPasswordChangedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = SetPasswordChangedViewModel(input: self)
+        viewModel.isLogined()
         userEmailLabel.text = "\(viewModel.email)宛にパスワード再設定用のリンクを送信します"
     }
     
@@ -38,6 +39,13 @@ final class SetPasswordChangedViewController: UIViewController {
 }
 
 extension SetPasswordChangedViewController: SetPasswordChangedViewModelInput {
+    func showLoginAlert() {
+        let moveLoginAction = UIAlertAction(title: String.loginActionButtonLabel, style: .default) { _ in
+            self.viewModel.logOut()
+        }
+        self.showAlert(title: String.loginAlertTitle, message: "", actions: [moveLoginAction])
+    }
+    
     func showErrorAlert(code: String, message: String) {
         let gotItAction = UIAlertAction(title: String.ok, style: .default)
         let errorTitle = String.errorTitle + code

@@ -12,6 +12,7 @@ protocol SetPasswordChangedViewModelOutput {
 }
 
 protocol SetPasswordChangedViewModelInput {
+    func showLoginAlert()
     func showErrorAlert(code: String, message: String)
 }
 
@@ -25,10 +26,8 @@ final class SetPasswordChangedViewModel: SetPasswordChangedViewModelOutput {
     
     private var input: SetPasswordChangedViewModelInput!
     init(input: SetPasswordChangedViewModelInput) {
-        guard let email = AuthService.shared.getCurrentUser()?.email else {
-            fatalError()
-        }
-        self._email = email
+        let email = AuthService.shared.getCurrentUserEmail()
+        self._email = email ?? ""
         self.input = input
     }
     
@@ -40,6 +39,25 @@ final class SetPasswordChangedViewModel: SetPasswordChangedViewModelOutput {
             }
             
             Router.shared.showReStart()
+        }
+    }
+    
+    func isLogined() {
+        if email.isEmpty {
+            self.input.showLoginAlert()
+        }
+    }
+    
+    func logOut() {
+        AuthService.shared.signOut { error in
+            self.showErrorAlert(error: error)
+        }
+    }
+    
+    private func showErrorAlert(error: NSError?) {
+        if let error {
+            self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+            return
         }
     }
 }

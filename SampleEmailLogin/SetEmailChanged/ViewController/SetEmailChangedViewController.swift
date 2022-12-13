@@ -25,6 +25,7 @@ final class SetEmailChangedViewController: UIViewController {
     
     func setupViewModel() {
         viewModel = SetEmailChangedViewModel(input: self)
+        viewModel.isLogined()
     }
     
     static func makeFromStoryboard() -> SetEmailChangedViewController {
@@ -37,13 +38,8 @@ final class SetEmailChangedViewController: UIViewController {
 
 @objc private extension SetEmailChangedViewController {
     func tapEmailChangeButton() {
-        guard let newEmail = emailTextField.text else {
-            fatalError()
-        }
-        
-        guard let password = passwordTextField.text else {
-            fatalError()
-        }
+        let newEmail = emailTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
         
         viewModel.updateEmail(newEmail: newEmail, password: password)
     }
@@ -62,9 +58,9 @@ extension SetEmailChangedViewController: SetEmailChangedViewModelInput {
     }
     
     func showLoginAlert() {
-        let moveLoginAction = UIAlertAction(title: "ログイン画面に移動", style: .default) { _ in
-            Router.shared.showLogin(from: self)
+        let moveLoginAction = UIAlertAction(title: String.loginActionButtonLabel, style: .default) { _ in
+            self.viewModel.logOut()
         }
-        self.showAlert(title: "直近でログインしていないため、もう一度行ってください", message: "", actions: [moveLoginAction])
+        self.showAlert(title: String.loginAlertTitle, message: "", actions: [moveLoginAction])
     }
 }

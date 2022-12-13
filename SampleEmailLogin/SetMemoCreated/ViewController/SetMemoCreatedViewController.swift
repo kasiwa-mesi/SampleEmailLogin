@@ -38,6 +38,7 @@ final class SetMemoCreatedViewController: UIViewController {
     
     func setupViewModel() {
         viewModel = SetMemoCreatedViewModel(input: self)
+        viewModel.isLogined()
     }
     
     static func makeFromStoryboard() -> SetMemoCreatedViewController {
@@ -51,15 +52,14 @@ final class SetMemoCreatedViewController: UIViewController {
 
 extension SetMemoCreatedViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = info[.originalImage] as? UIImage else {
-            return
-        }
+        let image = info[.originalImage] as? UIImage
         
         viewModel.imagePickerController.dismiss(animated: true)
         self.memoImageView.image = image
         
         guard let data = self.memoImageView.image?.pngData() else {
-            fatalError()
+            showImageErrorAlert()
+            return
         }
         
         viewModel.uploadImage(data: data)
@@ -75,9 +75,7 @@ extension SetMemoCreatedViewController: UIImagePickerControllerDelegate {
     }
     
     private func tapSubmitButton() {
-        guard let text = memoFieldTextView.text else {
-            fatalError()
-        }
+        let text = memoFieldTextView.text ?? ""
         viewModel.addMemo(text: text)
     }
 }
@@ -92,5 +90,18 @@ extension SetMemoCreatedViewController: SetMemoCreatedViewModelInput {
     func show(validationMessage: String) {
         let gotItAction = UIAlertAction(title: String.ok, style: .default)
         self.showAlert(title: validationMessage, message: "", actions: [gotItAction])
+    }
+    
+    func showLoginAlert() {
+        let moveLoginAction = UIAlertAction(title: String.loginActionButtonLabel, style: .default) { _ in
+            self.viewModel.logOut()
+        }
+        self.showAlert(title: String.loginAlertTitle, message: "", actions: [moveLoginAction])
+    }
+    
+    func showImageErrorAlert() {
+        let gotItAction = UIAlertAction(title: String.ok, style: .default)
+        let errorTitle = String.imageErrorTitle
+        self.showAlert(title: errorTitle, message: "", actions: [gotItAction])
     }
 }

@@ -17,9 +17,7 @@ final class DatabaseService {
     
     func getCollection(userId: String?, completion: @escaping ([MemoModel], NSError?) -> Void) {
         var memos: [MemoModel] = []
-        guard let uid = userId else {
-            fatalError()
-        }
+        let uid = userId ?? ""
         db.collection("memos").whereField("userId", isEqualTo: uid).getDocuments { (snapshot, error) in
             if let databaseError = error as NSError? {
                 completion(memos, databaseError)
@@ -53,9 +51,7 @@ final class DatabaseService {
     }
     
     func updateMemo(memo: MemoModel, completion: @escaping (NSError?) -> Void) {
-        guard let id = memo.id else {
-            fatalError()
-        }
+        let id = memo.id ?? ""
         
         db.collection("memos").document(id).updateData([
             "text": memo.text,
@@ -70,9 +66,7 @@ final class DatabaseService {
     }
     
     func deleteMemo(memo: MemoModel, completion: @escaping (NSError?) -> Void) {
-        guard let id = memo.id else {
-            fatalError()
-        }
+        let id = memo.id ?? ""
         db.collection("memos").document(id).delete() { error in
             if let databaseError = error as NSError? {
                 completion(databaseError)
