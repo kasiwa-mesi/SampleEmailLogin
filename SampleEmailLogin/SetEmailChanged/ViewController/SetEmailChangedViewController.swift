@@ -62,9 +62,9 @@ extension SetEmailChangedViewController: SetEmailChangedViewModelInput {
     }
     
     func showLoginAlert() {
-        let moveLoginAction = UIAlertAction(title: "ログイン画面に移動", style: .default) { _ in
+        let moveLoginAction = UIAlertAction(title: String.loginActionButtonLabel, style: .default) { _ in
             Router.shared.showLogin(from: self)
         }
-        self.showAlert(title: "直近でログインしていないため、もう一度行ってください", message: "", actions: [moveLoginAction])
+        self.showAlert(title: String.loginAlertTitle, message: "", actions: [moveLoginAction])
     }
 }

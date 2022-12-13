@@ -38,6 +38,7 @@ final class SetMemoCreatedViewController: UIViewController {
     
     func setupViewModel() {
         viewModel = SetMemoCreatedViewModel(input: self)
+        viewModel.isLogined()
     }
     
     static func makeFromStoryboard() -> SetMemoCreatedViewController {
@@ -92,5 +93,12 @@ extension SetMemoCreatedViewController: SetMemoCreatedViewModelInput {
     func show(validationMessage: String) {
         let gotItAction = UIAlertAction(title: String.ok, style: .default)
         self.showAlert(title: validationMessage, message: "", actions: [gotItAction])
+    }
+    
+    func showLoginAlert() {
+        let moveLoginAction = UIAlertAction(title: String.loginActionButtonLabel, style: .default) { _ in
+            self.viewModel.logOut()
+        }
+        self.showAlert(title: String.loginAlertTitle, message: "", actions: [moveLoginAction])
     }
 }

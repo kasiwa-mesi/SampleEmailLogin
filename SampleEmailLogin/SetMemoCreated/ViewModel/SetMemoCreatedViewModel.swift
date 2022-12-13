@@ -12,6 +12,7 @@ import NSObject_Rx
 
 protocol SetMemoCreatedViewModelInput {
     func show(validationMessage: String)
+    func showLoginAlert()
     func showErrorAlert(code: String, message: String)
 }
 
@@ -47,10 +48,8 @@ final class SetMemoCreatedViewModel: SetMemoCreatedViewModelOutput {
     init(input: SetMemoCreatedViewModelInput) {
         self._imagePickerController = UIImagePickerController()
         
-        guard let userId = AuthService.shared.getCurrentUserId() else {
-            fatalError()
-        }
-        self._userId = userId
+        let userId = AuthService.shared.getCurrentUserId()
+        self._userId = userId ?? ""
         
         self.input = input
     }
@@ -94,6 +93,25 @@ final class SetMemoCreatedViewModel: SetMemoCreatedViewModelOutput {
                 return
             }
             Router.shared.showReStart()
+        }
+    }
+    
+    func isLogined() {
+        if userId.isEmpty {
+            self.input.showLoginAlert()
+        }
+    }
+    
+    func logOut() {
+        AuthService.shared.signOut { error in
+            self.showErrorAlert(error: error)
+        }
+    }
+    
+    private func showErrorAlert(error: NSError?) {
+        if let error {
+            self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+            return
         }
     }
 }
