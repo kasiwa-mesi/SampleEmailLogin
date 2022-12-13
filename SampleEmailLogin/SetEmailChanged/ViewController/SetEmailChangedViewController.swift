@@ -25,6 +25,7 @@ final class SetEmailChangedViewController: UIViewController {
     
     func setupViewModel() {
         viewModel = SetEmailChangedViewModel(input: self)
+        viewModel.isLogined()
     }
     
     static func makeFromStoryboard() -> SetEmailChangedViewController {
@@ -58,7 +59,7 @@ extension SetEmailChangedViewController: SetEmailChangedViewModelInput {
     
     func showLoginAlert() {
         let moveLoginAction = UIAlertAction(title: String.loginActionButtonLabel, style: .default) { _ in
-            Router.shared.showLogin(from: self)
+            self.viewModel.logOut()
         }
         self.showAlert(title: String.loginAlertTitle, message: "", actions: [moveLoginAction])
     }

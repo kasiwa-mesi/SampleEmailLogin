@@ -27,10 +27,8 @@ final class SetEmailChangedViewModel: SetEmailChangedViewModelOutput {
     
     private var input: SetEmailChangedViewModelInput!
     init(input: SetEmailChangedViewModelInput) {
-        guard let email = AuthService.shared.getCurrentUser()?.email else {
-            fatalError()
-        }
-        self._email = email
+        let email = AuthService.shared.getCurrentUserEmail()
+        self._email = email ?? ""
         self.input = input
     }
     
@@ -56,5 +54,23 @@ final class SetEmailChangedViewModel: SetEmailChangedViewModelOutput {
         }
     }
     
+    func isLogined() {
+        if email.isEmpty {
+            self.input.showLoginAlert()
+        }
+    }
+    
+    func logOut() {
+        AuthService.shared.signOut { error in
+            self.showErrorAlert(error: error)
+        }
+    }
+    
+    private func showErrorAlert(error: NSError?) {
+        if let error {
+            self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+            return
+        }
+    }
 }
 
