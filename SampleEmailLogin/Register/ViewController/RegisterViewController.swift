@@ -54,17 +54,9 @@ final class RegisterViewController: UIViewController {
     }
     
     func tapRegisterButton() {
-        guard let email = emailTextField.text else {
-            fatalError()
-        }
-        
-        guard let password = passwordTextField.text else {
-            fatalError()
-        }
-        
-        guard let reconfirmPassword = reconfirmPasswordTextField.text else {
-            fatalError()
-        }
+        let email = emailTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+        let reconfirmPassword = reconfirmPasswordTextField.text ?? ""
         
         viewModel.createUser(email: email, password: password, reconfirmPassword: reconfirmPassword)
     }
