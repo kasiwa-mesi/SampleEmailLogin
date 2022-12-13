@@ -37,13 +37,8 @@ final class SetEmailChangedViewController: UIViewController {
 
 @objc private extension SetEmailChangedViewController {
     func tapEmailChangeButton() {
-        guard let newEmail = emailTextField.text else {
-            fatalError()
-        }
-        
-        guard let password = passwordTextField.text else {
-            fatalError()
-        }
+        let newEmail = emailTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
         
         viewModel.updateEmail(newEmail: newEmail, password: password)
     }
