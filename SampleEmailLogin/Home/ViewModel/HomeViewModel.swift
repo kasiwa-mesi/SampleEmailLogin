@@ -14,6 +14,7 @@ protocol HomeViewModelInput {
     var didSelectObservable: Observable<Int> { get }
     func show()
     func showErrorAlert(code: String, message: String)
+    func showLoginAlert()
 }
 
 protocol HomeViewModelOutput {
@@ -60,16 +61,11 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
     
     private var input: HomeViewModelInput!
     init(input: HomeViewModelInput) {
-        guard let userId = AuthService.shared.getCurrentUserId() else {
-            fatalError()
-        }
+        let userId = AuthService.shared.getCurrentUserId()
+        let email = AuthService.shared.getCurrentUserEmail()
         
-        guard let email = AuthService.shared.getCurrentUser()?.email else {
-            fatalError()
-        }
-        
-        self._email = email
-        self._userId = userId
+        self._email = email ?? ""
+        self._userId = userId ?? ""
         self.input = input
         
         input.didSelectObservable
@@ -117,6 +113,12 @@ final class HomeViewModel: HomeViewModelOutput, HasDisposeBag {
         if let error {
             self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
             return
+        }
+    }
+    
+    func isLogined() {
+        if email.isEmpty || userId.isEmpty {
+            self.input.showLoginAlert()
         }
     }
 }
