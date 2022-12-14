@@ -49,6 +49,7 @@ final class SetMemoCreatedViewController: UIViewController {
         viewModel.loadingObservable
             .bind(to: Binder(self) { vc, loading in
                 vc.selectImageButton.isHidden = loading
+                vc.submitButton.isHidden = loading
                 vc.indicator.isHidden = !loading
             }).disposed(by: rx.disposeBag)
     }
