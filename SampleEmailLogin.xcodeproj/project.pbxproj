@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27211E0E294959420070027F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 27211E0D294959420070027F /* icon.png */; };
+		27211E1129495BA30070027F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27211E1029495BA30070027F /* SplashViewController.swift */; };
+		27211E1329495BB00070027F /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27211E1229495BB00070027F /* Splash.storyboard */; };
 		273160BF292F41D200DAFF3A /* Trial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 273160BE292F41D200DAFF3A /* Trial.storyboard */; };
 		273160C1292F41E100DAFF3A /* TrialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273160C0292F41E100DAFF3A /* TrialViewController.swift */; };
 		273DEC492928A73D009674AC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273DEC482928A73D009674AC /* HomeViewModel.swift */; };
@@ -52,6 +55,9 @@
 
 /* Begin PBXFileReference section */
 		098740C55D332023D5E09C13 /* Pods_SampleEmailLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleEmailLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27211E0D294959420070027F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		27211E1029495BA30070027F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		27211E1229495BB00070027F /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		273160BE292F41D200DAFF3A /* Trial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trial.storyboard; sourceTree = "<group>"; };
 		273160C0292F41E100DAFF3A /* TrialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialViewController.swift; sourceTree = "<group>"; };
 		273DEC482928A73D009674AC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -116,6 +122,15 @@
 				098740C55D332023D5E09C13 /* Pods_SampleEmailLogin.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		27211E0F29495B730070027F /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				27211E1029495BA30070027F /* SplashViewController.swift */,
+				27211E1229495BB00070027F /* Splash.storyboard */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		273DEC462928A62C009674AC /* ViewController */ = {
@@ -373,6 +388,7 @@
 		276A989B28FE328A00AC390F /* SampleEmailLogin */ = {
 			isa = PBXGroup;
 			children = (
+				27211E0F29495B730070027F /* Splash */,
 				275729B7292F40CF00302DDE /* Trial */,
 				275729B2292F227300302DDE /* Offline */,
 				275579D92918B10B00BED415 /* SetMemoChanged */,
@@ -390,6 +406,7 @@
 				276A98A528FE328B00AC390F /* Assets.xcassets */,
 				276A989C28FE328A00AC390F /* AppDelegate.swift */,
 				276A98A728FE328B00AC390F /* LaunchScreen.storyboard */,
+				27211E0D294959420070027F /* icon.png */,
 				2754DC5B28FFB50900AC029D /* GoogleService-Info.plist */,
 				276A98AA28FE328B00AC390F /* Info.plist */,
 			);
@@ -490,8 +507,10 @@
 				276A98A928FE328B00AC390F /* LaunchScreen.storyboard in Resources */,
 				276A98A628FE328B00AC390F /* Assets.xcassets in Resources */,
 				2750A8542907DFF000C3035E /* SetEmailChanged.storyboard in Resources */,
+				27211E0E294959420070027F /* icon.png in Resources */,
 				2754DC5C28FFB50900AC029D /* GoogleService-Info.plist in Resources */,
 				2754DC6228FFC59F00AC029D /* Home.storyboard in Resources */,
+				27211E1329495BB00070027F /* Splash.storyboard in Resources */,
 				2750A8582907E01800C3035E /* SetPasswordChanged.storyboard in Resources */,
 				275729B6292F22A100302DDE /* Offline.storyboard in Resources */,
 				276A98B428FE334E00AC390F /* Login.storyboard in Resources */,
@@ -569,6 +588,7 @@
 				275F9BDD290A47D400A34905 /* Validator.swift in Sources */,
 				2750A85C2907E41700C3035E /* SetPasswordChangedViewController.swift in Sources */,
 				275DEC5D292CA30600B3A7B1 /* SetPasswordChangedViewModel.swift in Sources */,
+				27211E1129495BA30070027F /* SplashViewController.swift in Sources */,
 				275DEC59292C9E7300B3A7B1 /* SetEmailChangedViewModel.swift in Sources */,
 				274D845329174B4F003D6AC3 /* UITableViewCell+.swift in Sources */,
 				2751C6DD2931DBB700A14604 /* AuthService.swift in Sources */,
