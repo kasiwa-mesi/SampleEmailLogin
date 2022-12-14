@@ -15,6 +15,8 @@ final class Router {
     
     func showRoot(window: UIWindow?) {
         AuthService.shared.isLogined { (hasAuthentication) in
+            let vc = SplashViewController.makeFromStoryboard()
+            self.pushNavigate(vc: vc, window: window)
             if hasAuthentication {
                 let vc = HomeViewController.makeFromStoryboard()
                 self.pushNavigate(vc: vc, window: window)
