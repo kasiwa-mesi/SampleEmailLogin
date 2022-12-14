@@ -54,7 +54,7 @@ final class Router {
         let vc = SplashViewController.makeFromStoryboard()
         self.pushNavigate(vc: vc, window: window)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + Int.splashDisplayedTime) {
             self.showRoot(window: self.window)
         }
     }
