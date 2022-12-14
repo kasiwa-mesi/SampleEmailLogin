@@ -15,8 +15,6 @@ final class Router {
     
     func showRoot(window: UIWindow?) {
         AuthService.shared.isLogined { (hasAuthentication) in
-            let vc = SplashViewController.makeFromStoryboard()
-            self.pushNavigate(vc: vc, window: window)
             if hasAuthentication {
                 let vc = HomeViewController.makeFromStoryboard()
                 self.pushNavigate(vc: vc, window: window)
@@ -53,7 +51,12 @@ final class Router {
     }
     
     func showReStart() {
-        showRoot(window: window)
+        let vc = SplashViewController.makeFromStoryboard()
+        self.pushNavigate(vc: vc, window: window)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.showRoot(window: self.window)
+        }
     }
     
     func showSetMemoCreated(from: UIViewController) {
