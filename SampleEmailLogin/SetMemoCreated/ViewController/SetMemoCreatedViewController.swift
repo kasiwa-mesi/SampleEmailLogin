@@ -9,10 +9,16 @@ import UIKit
 import UITextView_Placeholder
 import FirebaseCore
 import FirebaseFirestore
+import RxSwift
 
 final class SetMemoCreatedViewController: UIViewController {
     private var viewModel: SetMemoCreatedViewModel!
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView! {
+        didSet {
+            indicator.isHidden = true
+        }
+    }
     @IBOutlet private weak var memoImageView: UIImageView!
     @IBOutlet private weak var selectImageButton: UIButton! {
         didSet {
@@ -39,6 +45,12 @@ final class SetMemoCreatedViewController: UIViewController {
     func setupViewModel() {
         viewModel = SetMemoCreatedViewModel(input: self)
         viewModel.isLogined()
+        
+        viewModel.loadingObservable
+            .bind(to: Binder(self) { vc, loading in
+                vc.selectImageButton.isHidden = loading
+                vc.indicator.isHidden = !loading
+            }).disposed(by: rx.disposeBag)
     }
     
     static func makeFromStoryboard() -> SetMemoCreatedViewController {

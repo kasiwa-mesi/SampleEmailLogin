@@ -17,12 +17,16 @@ protocol SetMemoCreatedViewModelInput {
 }
 
 protocol SetMemoCreatedViewModelOutput {
+    var loadingObservable: Observable<Bool> { get }
     var userId: String { get }
     var imageURL: URL? { get }
     var imagePickerController: UIImagePickerController { get }
 }
 
 final class SetMemoCreatedViewModel: SetMemoCreatedViewModelOutput {
+    private let _loading: PublishRelay<Bool> = .init()
+    lazy var loadingObservable: Observable<Bool> = _loading.asObservable()
+    
     private var _imageURL: URL?
     var imageURL: URL? {
         get {
@@ -55,18 +59,16 @@ final class SetMemoCreatedViewModel: SetMemoCreatedViewModelOutput {
     }
     
     func uploadImage(data: Data) {
-        StorageService.shared.uploadMemoImage(userId: self.userId, imageData: data) { error, imageRef in
+        self._loading.accept(true)
+        
+        StorageService.shared.uploadMemoImage(userId: self.userId, imageData: data) { error, url in
             if let error {
                 self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
+                self._loading.accept(false)
                 return
             }
-            StorageService.shared.downloadImage(imageRef: imageRef) { error, url in
-                if let error {
-                    self.input.showErrorAlert(code: String(error.code), message: error.localizedDescription)
-                    return
-                }
-                self._imageURL = url
-            }
+            self._imageURL = url
+            self._loading.accept(false)
         }
     }
     
