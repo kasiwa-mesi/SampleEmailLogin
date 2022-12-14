@@ -17,31 +17,29 @@ final class StorageService {
     private var storage = Storage.storage()
     
     // アップロード処理とダウンロード処理を分ける
-    func uploadMemoImage(userId: String, imageData: Data, completion: @escaping (NSError?, StorageReference) -> Void) {
+    func uploadMemoImage(userId: String, imageData: Data, completion: @escaping (NSError?, URL?) -> Void) {
         let date = currentDateInJapan()
         let storageRef = storage.reference()
         let imageRef = storageRef.child("user/\(userId)/image/\(date).jpg")
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpeg"
-        imageRef.putData(imageData, metadata: metaData) { metaData, error in
-            if let storageError = error as NSError? {
-                completion(storageError, imageRef)
-                return
+        let uploadTask = imageRef.putData(imageData, metadata: metaData)
+        
+        uploadTask.observe(.failure) { snapshot in
+            if let error = snapshot.error as? NSError {
+                completion(error, nil)
             }
-            completion(nil, imageRef)
         }
-    }
-    
-    func downloadImage(imageRef: StorageReference, completion: @escaping (NSError?, URL) -> Void) {
-        imageRef.downloadURL { url, error in
-            guard let downloadURL = url else {
-                return
+        
+        uploadTask.observe(.success) { snapshot in
+            imageRef.downloadURL { url, error in
+                let downloadURL = url ?? URL(string: "")
+                if let storageError = error as? NSError {
+                    completion(storageError, downloadURL)
+                    return
+                }
+                completion(nil, downloadURL)
             }
-            if let storageError = error as NSError? {
-                completion(storageError, downloadURL)
-                return
-            }
-            completion(nil, downloadURL)
         }
     }
     

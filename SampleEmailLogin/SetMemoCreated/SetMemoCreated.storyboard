@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,20 +14,20 @@
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="SetMemoCreatedViewController" customModule="SampleEmailLogin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="c6n-b2-lqF">
-                                <rect key="frame" x="16" y="0.0" width="343" height="667"/>
+                                <rect key="frame" x="16" y="0.0" width="382" height="736"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="メモ新規作成画面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oas-Kx-51i">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="169"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="238"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cYU-Bs-3zR">
-                                        <rect key="frame" x="0.0" y="185" width="343" height="280"/>
+                                        <rect key="frame" x="0.0" y="254" width="382" height="280"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="280" id="d6A-GZ-SI5"/>
@@ -37,23 +37,26 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7ui-EV-rtI">
-                                        <rect key="frame" x="0.0" y="481" width="343" height="50"/>
+                                        <rect key="frame" x="0.0" y="550" width="382" height="50"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pad-LW-1Hd">
-                                        <rect key="frame" x="0.0" y="547" width="343" height="120"/>
+                                        <rect key="frame" x="0.0" y="616" width="382" height="120"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="I0h-40-vFC">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="120"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="120"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1c-79-NSP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="77"/>
+                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="TVU-lf-sBk">
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="20"/>
+                                                    </activityIndicatorView>
+                                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1c-79-NSP">
+                                                        <rect key="frame" x="0.0" y="20.000000000000004" width="382" height="57.333333333333343"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="photo" catalog="system" title="画像をライブラリから選択">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
                                                         </buttonConfiguration>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5v-zb-bN0">
-                                                        <rect key="frame" x="0.0" y="77" width="343" height="43"/>
+                                                        <rect key="frame" x="0.0" y="77.333333333333371" width="382" height="42.666666666666657"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="作成">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
@@ -84,6 +87,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="indicator" destination="TVU-lf-sBk" id="XRq-0B-0p2"/>
                         <outlet property="memoFieldTextView" destination="cYU-Bs-3zR" id="Ugp-yE-c7t"/>
                         <outlet property="memoImageView" destination="7ui-EV-rtI" id="Urx-uE-2Ko"/>
                         <outlet property="selectImageButton" destination="u1c-79-NSP" id="lEv-Ka-bwo"/>
@@ -98,7 +102,7 @@
     <resources>
         <image name="photo" catalog="system" width="128" height="93"/>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
