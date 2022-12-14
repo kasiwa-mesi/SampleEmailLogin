@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27211E0E294959420070027F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 27211E0D294959420070027F /* icon.png */; };
 		273160BF292F41D200DAFF3A /* Trial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 273160BE292F41D200DAFF3A /* Trial.storyboard */; };
 		273160C1292F41E100DAFF3A /* TrialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273160C0292F41E100DAFF3A /* TrialViewController.swift */; };
 		273DEC492928A73D009674AC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273DEC482928A73D009674AC /* HomeViewModel.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		098740C55D332023D5E09C13 /* Pods_SampleEmailLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleEmailLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27211E0D294959420070027F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		273160BE292F41D200DAFF3A /* Trial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trial.storyboard; sourceTree = "<group>"; };
 		273160C0292F41E100DAFF3A /* TrialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialViewController.swift; sourceTree = "<group>"; };
 		273DEC482928A73D009674AC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 				276A98A528FE328B00AC390F /* Assets.xcassets */,
 				276A989C28FE328A00AC390F /* AppDelegate.swift */,
 				276A98A728FE328B00AC390F /* LaunchScreen.storyboard */,
+				27211E0D294959420070027F /* icon.png */,
 				2754DC5B28FFB50900AC029D /* GoogleService-Info.plist */,
 				276A98AA28FE328B00AC390F /* Info.plist */,
 			);
@@ -490,6 +493,7 @@
 				276A98A928FE328B00AC390F /* LaunchScreen.storyboard in Resources */,
 				276A98A628FE328B00AC390F /* Assets.xcassets in Resources */,
 				2750A8542907DFF000C3035E /* SetEmailChanged.storyboard in Resources */,
+				27211E0E294959420070027F /* icon.png in Resources */,
 				2754DC5C28FFB50900AC029D /* GoogleService-Info.plist in Resources */,
 				2754DC6228FFC59F00AC029D /* Home.storyboard in Resources */,
 				2750A8582907E01800C3035E /* SetPasswordChanged.storyboard in Resources */,
