@@ -16,7 +16,8 @@
   - [ログイン・ログアウト](https://github.com/kasiwa-mesi/SampleEmailLogin#ログイン・ログアウト)
   - [メールアドレス変更](https://github.com/kasiwa-mesi/SampleEmailLogin#メールアドレス変更)
   - [パスワード再設定](https://github.com/kasiwa-mesi/SampleEmailLogin#パスワード再設定)
-
+- [今後追加したい機能](https://github.com/kasiwa-mesi/SampleEmailLogin#今後追加したい機能)
+  - [メモの並び替え](https://github.com/kasiwa-mesi/SampleEmailLogin#メモの並び替え)
 ## アプリの内容
 - ログイン機能付きのメモアプリ
 
@@ -132,3 +133,7 @@ extension String {
 
 ### パスワード再設定
 - <img src="https://gyazo.com/deaa5ae62cfe599c875665cc38a6dfe8/raw" width="200" height="400">
+
+## 今後追加したい機能
+### メモの並び替え
+作成日、五十音、画像ファイルの有無で並び替えでフィルターをかけられる機能を実装したい
