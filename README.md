@@ -9,7 +9,7 @@ iOSアプリのURL:
   - [ログイン・ログアウト](https://github.com/kasiwa-mesi/SampleEmailLogin#ログイン・ログアウト)
   - [メールアドレス変更](https://github.com/kasiwa-mesi/SampleEmailLogin#メールアドレス変更)
   - [パスワード再設定](https://github.com/kasiwa-mesi/SampleEmailLogin#パスワード再設定)
-- [コードレビューで指摘された箇所](https://github.com/kasiwa-mesi/SampleEmailLogin#コードレビュー)
+- [コードレビューで指摘された箇所](https://github.com/kasiwa-mesi/SampleEmailLogin#コードレビューで指摘された箇所)
   - [エラーハンドリング](https://github.com/kasiwa-mesi/SampleEmailLogin#エラーハンドリング)
   - [インデントを深くしない](https://github.com/kasiwa-mesi/SampleEmailLogin#インデントを深くしない)
 
